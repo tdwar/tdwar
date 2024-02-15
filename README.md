@@ -408,4 +408,3 @@ Bug Fixes and Enhancements in Copado Connect:
 •	Correction of integration mapping and real-time syncing issues.
 These improvements and fixes contribute to a more efficient and stable workflow within Copado Essentials, addressing various issues and enhancing functionality across different modules and integrations.
 
-
