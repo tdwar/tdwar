@@ -1,0 +1,92 @@
+public with sharing class Excludefrompipeline implements Schedulable {
+    public void execute(SchedulableContext sc) {
+        Set<Id> stepIds = new Set<Id>();
+        Set<Id> deploymentIds = new Set<Id>();
+        Set<Id> promotionIds = new Set<Id>();
+        Set<Id> userStoryIds = new Set<Id>();
+
+        List<ContentDocument> contentDocuments = new List<ContentDocument>();
+        Set<Id> cdIdstoDelete = new Set<Id>();
+        Set<Id> cdIdstoDeleteWithTitle = new Set<Id>();
+
+        if (Schema.sObjectType.copado__step__c.getDescribe().isAccessible() &&
+            Schema.sObjectType.copado__step__c.fields.createddate.isAccessible() &&
+            Schema.sObjectType.copado__step__c.fields.copado__Status__c.isAccessible()) {
+
+            List<copado__step__c> steps = [SELECT Id, copado__Deployment__c
+                                           FROM copado__step__c
+                                           WHERE copado__Deployment__r.createddate < LAST_N_DAYS: 120
+                                           AND copado__Deployment__r.copado__Status__c IN ('Completed Successfully', 'Cancelled', 'Completed with Errors') 
+                                           WITH SECURITY_ENFORCED];
+
+            for (copado__step__c step : steps) {
+                stepIds.add(step.Id);
+                deploymentIds.add(step.copado__Deployment__c);
+            }
+
+            if (!stepIds.isEmpty()) {
+                for (ContentDocumentLink cdLink : [SELECT Id, ContentDocumentId, LinkedEntityId 
+                                                   FROM ContentDocumentLink 
+                                                   WHERE LinkedEntityId IN :stepIds 
+                                                   WITH SECURITY_ENFORCED]) {
+                    cdIdstoDelete.add(cdLink.ContentDocumentId);
+                }
+            }
+        }
+
+        if (!cdIdstoDelete.isEmpty()) {
+            contentDocuments = [SELECT Id, Title
+                                FROM ContentDocument
+                                WHERE Id IN :cdIdstoDelete
+                                AND Title = 'Rollback metadata.zip' 
+                                WITH SECURITY_ENFORCED];
+        }
+
+        for (ContentDocument cd : contentDocuments) {
+            cdIdstoDeleteWithTitle.add(cd.Id);
+        }
+
+        if (!cdIdstoDeleteWithTitle.isEmpty()) {
+            delete [SELECT Id FROM ContentDocument WHERE Id IN :cdIdstoDeleteWithTitle];
+        }
+
+        // Query promotions related to the deployments
+        if (!deploymentIds.isEmpty()) {
+            List<copado__Promotion__c> promotions = [SELECT Id
+                                                     FROM copado__Promotion__c
+                                                     WHERE copado__Deployment__c IN :deploymentIds 
+                                                     WITH SECURITY_ENFORCED];
+
+            for (copado__Promotion__c promotion : promotions) {
+                promotionIds.add(promotion.Id);
+            }
+        }
+
+        // Query user stories related to the promotions
+        if (!promotionIds.isEmpty()) {
+            List<copado__User_Story__c> userStories = [SELECT Id
+                                                       FROM copado__User_Story__c
+                                                       WHERE copado__Promotion__c IN :promotionIds 
+                                                       WITH SECURITY_ENFORCED];
+
+            for (copado__User_Story__c userStory : userStories) {
+                userStoryIds.add(userStory.Id);
+            }
+        }
+
+        // Update user stories fields
+        if (!userStoryIds.isEmpty()) {
+            List<copado__User_Story__c> userStoriesToUpdate = [SELECT Id, copado__Exclude_from_pipeline__c, copado__Exclude_from_Overlap_awareness__c
+                                                               FROM copado__User_Story__c
+                                                               WHERE Id IN :userStoryIds 
+                                                               WITH SECURITY_ENFORCED];
+
+            for (copado__User_Story__c userStory : userStoriesToUpdate) {
+                userStory.copado__Exclude_from_pipeline__c = true;
+                userStory.copado__Exclude_from_Overlap_awareness__c = true;
+            }
+
+            update userStoriesToUpdate;
+        }
+    }
+}
