@@ -1,0 +1,45 @@
+public with sharing class Excludefrompipeline implements Schedulable{
+    public void execute(SchedulableContext sc){
+        
+        Set<Id> stepIds= new Set<Id>();
+        List<ContentDocument> contentDocuments = new List<ContentDocument>();
+        Set<Id> cdIdstoDelete = new Set<Id>();
+        Set<Id> cdIdstoDeleteWithTitle = new Set<Id>();
+        
+     if(copado__step__c.Schema.SObjectType.getDescribe().isAccessible() && 
+           Schema.sObjectType.copado__step__c.fields.createddate.isAccessible() 
+        && Schema.sObjectType.copado__step__c.fields.copado__Status__c.isAccessible() ) {
+         
+        List<copado__step__c> steps = [SELECT Id
+                                       FROM copado__step__c
+                                       WHERE copado__Deployment__r.createddate < LAST_N_DAYS: 120
+                                       AND copado__Deployment__r.copado__Status__c in ('Completed Successfully', 'Cancelled', 'Completed with Errors') WITH SECURITY_ENFORCED
+                                      ]; 
+    
+        for (copado__step__c step : steps) {
+            stepIds.add(step.Id);
+        }
+    
+        if(stepIds.size() > 0){
+            for (ContentDocumentLink cdLink : [SELECT Id, ContentDocumentId, LInkedEntityId FROM ContentDocumentLink WHERE LInkedEntityId IN :stepIds WITH SECURITY_ENFORCED]) {
+                cdIdstoDelete.add(cdLink.ContentDocumentId);
+            }
+        }        
+        }
+        if(cdIdstoDelete.size() > 0){
+            contentDocuments= [SELECT Id, Title
+                               FROM ContentDocument
+                               WHERE id IN :cdIdstoDelete
+                               AND Title = 'Rollback metadata.zip' WITH SECURITY_ENFORCED
+                              ];
+        }
+
+        for(ContentDocument cd : contentDocuments){
+            cdIdstoDeleteWithTitle.add(cd.id);
+        }
+   
+        if(!cdIdstoDeleteWithTitle.isEmpty()) {  
+            delete [SELECT Id FROM ContentDocument WHERE Id IN :cdIdstoDeleteWithTitle];    
+        }
+    }
+}
