@@ -1,0 +1,4 @@
+modify the existing code only part of record list
+with the step object will have deployment record so define a set of deployment, need to store all these deployment in list
+then define  set of promotion with list query all promotion records which are part of this deployment
+with this promotion record define  set of promotion and create all list of user stories , with this user story update these 2 fileds as true ("Exclude from pipeline" and "Exclude from Overlap awareness")
