@@ -50,6 +50,9 @@ public with sharing class Excludefrompipeline implements Schedulable {
             delete [SELECT Id FROM ContentDocument WHERE Id IN :cdIdstoDeleteWithTitle];
         }
 
+        // Debug statements to check the IDs
+        System.debug('Deployment IDs: ' + deploymentIds);
+
         // Query promotions related to the deployments
         if (!deploymentIds.isEmpty()) {
             List<copado__Promotion__c> promotions = [SELECT Id
@@ -62,6 +65,9 @@ public with sharing class Excludefrompipeline implements Schedulable {
             }
         }
 
+        // Debug statements to check the IDs
+        System.debug('Promotion IDs: ' + promotionIds);
+
         // Query user stories related to the promotions
         if (!promotionIds.isEmpty()) {
             List<copado__User_Story__c> userStories = [SELECT Id
@@ -73,6 +79,9 @@ public with sharing class Excludefrompipeline implements Schedulable {
                 userStoryIds.add(userStory.Id);
             }
         }
+
+        // Debug statements to check the IDs
+        System.debug('User Story IDs: ' + userStoryIds);
 
         // Update user stories fields
         if (!userStoryIds.isEmpty()) {
