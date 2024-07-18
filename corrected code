@@ -1,3 +1,4 @@
+this is the description given to me in the user story--"As part of monthly cleanup job, we are deleting the promotion records which are older than 120 days. We have to get the list of US's attached to each promotion record we retrieve which are identified as older than 120 days. These US's needs to be marked as "Exclude from pipeline" and "Exclude from Overlap awareness" while deleting the promotion records. This needs to be automated and included as well along with the records cleanup"  so i have written the code but while debbuging the code it's not giving any result, correct this code according to description given
 public with sharing class Excludefrompipeline implements Schedulable {
     public void execute(SchedulableContext sc) {
         Set<Id> stepIds = new Set<Id>();
