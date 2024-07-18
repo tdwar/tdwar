@@ -1,0 +1,73 @@
+public with sharing class Excludefrompipeline implements Schedulable {
+    public void execute(SchedulableContext sc) {
+        // Sets to store the IDs of steps, deployments, promotions, and user stories
+        Set<Id> deploymentIds = new Set<Id>();
+        Set<Id> promotionIds = new Set<Id>();
+        Set<Id> userStoryIds = new Set<Id>();
+
+        // Querying steps older than 120 days with specific statuses
+        List<copado__step__c> steps = [SELECT Id, copado__Deployment__c
+                                       FROM copado__step__c
+                                       WHERE createdDate < LAST_N_DAYS:120
+                                       AND copado__Deployment__r.copado__Status__c IN ('Completed Successfully', 'Cancelled', 'Completed with Errors')
+                                       WITH SECURITY_ENFORCED];
+
+        // Collecting deployment IDs from steps
+        for (copado__step__c step : steps) {
+            deploymentIds.add(step.copado__Deployment__c);
+        }
+
+        // Debug statements to check the IDs
+        System.debug('Deployment IDs: ' + deploymentIds);
+
+        // Query promotions related to the deployments
+        if (!deploymentIds.isEmpty()) {
+            List<copado__Deployment__c> deployments = [SELECT Id, copado__Promotion__c
+                                                       FROM copado__Deployment__c
+                                                       WHERE Id IN :deploymentIds
+                                                       WITH SECURITY_ENFORCED];
+
+            for (copado__Deployment__c deployment : deployments) {
+                promotionIds.add(deployment.copado__Promotion__c);
+            }
+        }
+
+        // Debug statements to check the IDs
+        System.debug('Promotion IDs: ' + promotionIds);
+
+        // Query user stories related to the promotions
+        if (!promotionIds.isEmpty()) {
+            List<copado__Promoted_User_Story__c> promotionUserStories = [SELECT Id, copado__Promotion__c, copado__User_Story__c
+                                                                         FROM copado__Promoted_User_Story__c
+                                                                         WHERE copado__Promotion__c IN :promotionIds
+                                                                         WITH SECURITY_ENFORCED];
+
+            for (copado__Promoted_User_Story__c userStory : promotionUserStories) {
+                userStoryIds.add(userStory.copado__User_Story__c);
+            }
+        }
+
+        // Debug statements to check the IDs
+        System.debug('User Story IDs: ' + userStoryIds);
+
+        // Update user stories fields
+        if (!userStoryIds.isEmpty()) {
+            List<copado__User_Story__c> userStoriesToUpdate = [SELECT Id, copado__Exclude_From_CBM__c, copado__Stop_Indexing_Metadata__c
+                                                               FROM copado__User_Story__c
+                                                               WHERE Id IN :userStoryIds
+                                                               WITH SECURITY_ENFORCED];
+
+            for (copado__User_Story__c userStory : userStoriesToUpdate) {
+                userStory.copado__Exclude_From_CBM__c = true;
+                userStory.copado__Stop_Indexing_Metadata__c = true;
+            }
+
+            update userStoriesToUpdate;
+        }
+
+        // Delete the promotion records
+        if (!promotionIds.isEmpty()) {
+            delete [SELECT Id FROM copado__Promotion__c WHERE Id IN :promotionIds WITH SECURITY_ENFORCED];
+        }
+    }
+}
