@@ -1,0 +1,157 @@
+@isTest
+public class ExcludefrompipelineTest {
+
+    @testSetup
+    static void setupTestData() {
+        // Get Profile Id
+        ID profileId = [SELECT Id FROM Profile WHERE  name =: 'System Administrator' LIMIT 1 ].Id;
+        //Get User and assign Api Licence
+        User testUser = [select Id from User where ProfileId=:profileId and IsActive=:True LIMIT 1];
+        copado.GlobalAPI glblAPI = new copado.GlobalAPI();
+        glblAPI.upsertCopadoLicense(testUser.Id, new copado.GlobalAPI.UserLicense(testUser.Id, false, false, true, true, false));
+        
+        system.runAs(testuser){
+            // Create Mock Source Org            
+            copado__Environment__c copadoSource = new copado__Environment__c (Name = 'Source', copado__Platform__c ='Salesforce');
+            insert copadoSource; 
+            // Create Mock Destination Org
+            copado__Environment__c copadoDestination = new copado__Environment__c (Name = 'Destination', copado__Platform__c ='Salesforce');
+            insert copadoDestination; 
+            // Create Mock Source Org credentials
+            copado__Org__c sourceCredentails = new copado__Org__c (Name = 'TestSourceCredentail', copado__Username__c ='Test_Sour@test.com', copado__Org_Type__c='sandbox', copado__Environment__c =copadoSource.id);               
+            insert sourceCredentails;
+            // Create Mock Destination Org credentials            
+            copado__Org__c destinationCredentials = new copado__Org__c (Name = 'TestestinationCredentail', copado__Username__c ='Test_Dest@test.com', copado__Org_Type__c='sandbox', copado__Environment__c =copadoDestination.id);               
+            insert destinationCredentials;
+            // Create Mock Git repo
+            copado__Git_Repository__c repo = new copado__Git_Repository__c(Name = 'CI DEV', copado__Git_Provider__c = 'Github', copado__Branch_Base_URL__c = 'main', copado__Source_Format__c = 'Metadata');
+            insert repo; 
+            // Create Mock pipeline
+            copado__Deployment_Flow__c pipeline = new copado__Deployment_Flow__c(copado__Active__c=true, copado__Git_Repository__c = repo.id, COPADO__ENABLE_COPADO_DX__C = false, COPADO__MAIN_BRANCH__C = 'main');
+            insert pipeline; 
+            // Create Mock pipeline connection from source org and destination org
+            copado__Deployment_Flow_Step__c pipelineFlowSteps = new copado__Deployment_Flow_Step__c(copado__Deployment_Flow__c=pipeline.id, copado__Source_Environment__c = copadoSource.id, copado__Destination_Environment__c = copadoDestination.id);
+            insert pipelineFlowSteps; 
+            // Create integration settings
+            Copado_Integration_Setting__c ci = new Copado_Integration_Setting__c();
+            ci.External_System__c = 'Visual Studio Team Services';
+            ci.Named_Credential__c = 'test';
+            insert ci;
+            // Create Project
+            copado__Project__c project = new copado__Project__c(Name = 'Project', copado__Deployment_Flow__c = pipeline.id, Copado_Integration_Setting__c = ci.id);
+            insert project;
+            // Create mock user story
+            copado__User_Story__c userStory = new copado__User_Story__c(copado__User_Story_Title__c = 'User Story 1', copado__Project__c = project.id, copado__Status__c='Active', createddate=system.today().addDays(-91), lastmodifieddate=system.today().addDays(-91));
+            insert userStory;
+            // Create mock promotion
+            copado__Promotion__c promRec = new copado__Promotion__c(copado__Project__c=project.Id, copado__Source_Environment__c = copadoSource.id, copado__Destination_Environment__c = copadoDestination.id, createddate=system.today().addDays(-181));
+            insert promRec; 
+
+            // Create mock Deployment records
+            List<copado__Deployment__c> deployments = new List<copado__Deployment__c>();
+            deployments.add(new copado__Deployment__c(
+                Name = 'Deployment 0',
+                copado__Promotion__c = promRec.Id,
+                createddate = Date.today().addDays(-30),
+                copado__Status__c = 'Completed Successfully'
+            ));
+            deployments.add(new copado__Deployment__c(
+                Name = 'Deployment 1',
+                copado__Promotion__c = promRec.Id,
+                createddate = Date.today().addDays(-60),
+                copado__Status__c = 'Cancelled'
+            ));
+            deployments.add(new copado__Deployment__c(
+                Name = 'Deployment 2',
+                copado__Promotion__c = promRec.Id,
+                createddate = Date.today().addDays(-90),
+                copado__Status__c = 'Completed Successfully'
+            ));
+            deployments.add(new copado__Deployment__c(
+                Name = 'Deployment 3',
+                copado__Promotion__c = promRec.Id,
+                createddate = Date.today().addDays(-120),
+                copado__Status__c = 'Cancelled'
+            ));
+            deployments.add(new copado__Deployment__c(
+                Name = 'Deployment 4',
+                copado__Promotion__c = promRec.Id,
+                createddate = Date.today().addDays(-150),
+                copado__Status__c = 'Completed Successfully'
+            ));
+            
+            if (deployments.size() > 0) {
+                insert deployments;        
+            }    
+                
+            List<copado__Deployment__c> testDeployment = [SELECT Id, Name, copado__Status__c, LastModifiedDate, createddate
+                                                          FROM copado__Deployment__c];            
+            List<copado__Deployment__c> testUpdateDeployment = new List<copado__Deployment__c>();
+            for (copado__Deployment__c td : testDeployment) {
+                copado__Deployment__c cd = new copado__Deployment__c();
+                cd.Id = td.Id;
+                cd.copado__Status__c = 'Completed Successfully';
+                Test.setCreatedDate(cd.Id, Date.today().addDays(-150));
+                testUpdateDeployment.add(cd);
+            }
+
+            if (testUpdateDeployment.size() > 0) {
+                update testUpdateDeployment;                
+            }  
+   
+            // Create mock Step records
+            List<copado__Step__c> steps = new List<copado__Step__c>();
+            for (copado__Deployment__c deployment : deployments) {
+                steps.add(new copado__Step__c(
+                    Name = 'Step for ' + deployment.Name,
+                    copado__Branch__c = 'promotion/Test',
+                    copado__Deployment__c = deployment.Id,
+                    createddate = deployment.createddate
+                ));
+            }
+        
+            if (steps.size() > 0) {
+                insert steps;     
+            }   
+
+            // Create mock ContentVersion records
+            List<ContentVersion> contentVersions = new List<ContentVersion>();
+            for (copado__Step__c step : steps) {
+                ContentVersion cv = new ContentVersion(
+                    Title = 'Rollback metadata.zip',
+                    PathOnClient = 'Rollback metadata.zip',
+                    VersionData = Blob.valueOf('Test content'),
+                    FirstPublishLocationId = step.Id
+                );
+                contentVersions.add(cv);
+            }
+            insert contentVersions;
+
+            // Ensure ContentDocument is created
+            List<ContentDocument> contentDocs = [SELECT Id FROM ContentDocument];
+            System.assert(contentDocs.size() > 0, 'ContentDocuments should have been created');
+        }
+    }
+
+    @isTest
+    static void testExecute() {
+        // Execute the job
+        Test.startTest();
+        Excludefrompipeline job = new Excludefrompipeline();
+        job.execute(null);
+        Test.stopTest();
+
+        // Verify that the ContentVersions have been deleted
+        List<ContentVersion> deletedVersions = [SELECT Id FROM ContentVersion WHERE Title = 'Rollback metadata.zip'];
+        System.assertEquals(0, deletedVersions.size(), 'All rollback metadata.zip versions should have been deleted');
+
+        // Verify the User Story fields are updated
+        List<copado__User_Story__c> userStories = [SELECT Id, copado__Exclude_From_CBM__c, copado__Stop_Indexing_Metadata__c 
+                                                   FROM copado__User_Story__c 
+                                                   WHERE Name = 'User Story 1'];
+        System.assertEquals(1, userStories.size(), 'There should be one user story');
+        copado__User_Story__c userStory = userStories[0];
+        System.assertEquals(true, userStory.copado__Exclude_From_CBM__c, 'Exclude From CBM should be true');
+        System.assertEquals(true, userStory.copado__Stop_Indexing_Metadata__c, 'Stop Indexing Metadata should be true');
+    }
+}
