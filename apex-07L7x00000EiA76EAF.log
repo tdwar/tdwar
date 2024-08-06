@@ -1,0 +1,1305 @@
+61.0 APEX_CODE,FINEST;APEX_PROFILING,INFO;CALLOUT,INFO;DB,INFO;NBA,INFO;SYSTEM,DEBUG;VALIDATION,INFO;VISUALFORCE,INFO;WAVE,INFO;WORKFLOW,INFO
+07:02:01.1 (1640706)|USER_INFO|[EXTERNAL]|0053c00000C7YvR|copadointegration@humana.nophi.copadotrn|(GMT-04:00) Eastern Daylight Time (America/New_York)|GMT-04:00
+07:02:01.1 (4118846)|FLOW_CREATE_INTERVIEW_BEGIN|00D56000000CKTf||3017x00000XvIjcAAF
+07:02:01.1 (4193955)|FLOW_CREATE_INTERVIEW_END|71398a7640bb4cdd9c25aea9b711912744125f-3795|SendUpdatedValues2TP_UpdatedFlow
+07:02:01.4 (4357888)|USER_INFO|[EXTERNAL]|0053c00000C7YvR|copadointegration@humana.nophi.copadotrn|(GMT-04:00) Eastern Daylight Time (America/New_York)|GMT-04:00
+07:02:01.4 (4369287)|EXECUTION_STARTED
+07:02:01.4 (4375853)|CODE_UNIT_STARTED|[EXTERNAL]|Flow: SendUpdatedValues2TP_UpdatedFlow
+07:02:01.4 (4557567)|CODE_UNIT_FINISHED|Flow: SendUpdatedValues2TP_UpdatedFlow
+07:02:01.4 (4562507)|EXECUTION_FINISHED
+07:02:01.4 (4672471)|USER_INFO|[EXTERNAL]|0053c00000C7YvR|copadointegration@humana.nophi.copadotrn|(GMT-04:00) Eastern Daylight Time (America/New_York)|GMT-04:00
+07:02:01.4 (4704176)|FLOW_START_INTERVIEWS_BEGIN|1
+07:02:01.4 (673586279)|FLOW_START_INTERVIEW_BEGIN|71398a7640bb4cdd9c25aea9b711912744125f-3795|SendUpdatedValues2TP_UpdatedFlow
+07:02:01.4 (673807651)|FLOW_START_INTERVIEW_END|71398a7640bb4cdd9c25aea9b711912744125f-3795|SendUpdatedValues2TP_UpdatedFlow
+07:02:01.706 (706753536)|CODE_UNIT_STARTED|[EXTERNAL]|Flow:01I3c000001Iltb
+07:02:01.709 (709746077)|FLOW_CREATE_INTERVIEW_BEGIN|00D56000000CKTf|3007x00000AzmwQ|3017x00000W3jMN
+07:02:01.709 (709830752)|FLOW_CREATE_INTERVIEW_END|73538a7640bb4cdd9c25aea9b711912744125f-386b|Update Promotion Test Level to Run Specified Tests
+07:02:01.710 (710067961)|FLOW_START_INTERVIEWS_BEGIN|1
+07:02:01.710 (710098550)|FLOW_START_INTERVIEW_BEGIN|73538a7640bb4cdd9c25aea9b711912744125f-386b|Update Promotion Test Level to Run Specified Tests
+07:02:01.710 (710249228)|FLOW_START_INTERVIEW_END|73538a7640bb4cdd9c25aea9b711912744125f-386b|Update Promotion Test Level to Run Specified Tests
+07:02:01.710 (710894937)|FLOW_START_INTERVIEWS_END|1
+07:02:01.710 (710916145)|FLOW_INTERVIEW_FINISHED|73538a7640bb4cdd9c25aea9b711912744125f-386b|Update Promotion Test Level to Run Specified Tests
+07:02:01.706 (714278126)|CODE_UNIT_FINISHED|Flow:01I3c000001Iltb
+07:02:01.723 (723523042)|CODE_UNIT_STARTED|[EXTERNAL]|01q3c000000Hve9|UserStoryTrigger_HUM on User_Story trigger event BeforeUpdate|__sfdc_trigger/UserStoryTrigger_HUM
+07:02:01.723 (723581683)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:8
+07:02:01.723 (723728619)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:8
+07:02:01.723 (725334791)|HEAP_ALLOCATE|[93]|Bytes:3
+07:02:01.723 (725379749)|HEAP_ALLOCATE|[98]|Bytes:152
+07:02:01.723 (725395877)|HEAP_ALLOCATE|[415]|Bytes:408
+07:02:01.723 (725436363)|HEAP_ALLOCATE|[428]|Bytes:408
+07:02:01.723 (725451524)|HEAP_ALLOCATE|[536]|Bytes:48
+07:02:01.723 (725477495)|HEAP_ALLOCATE|[247]|Bytes:6
+07:02:01.723 (725517851)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:4
+07:02:01.723 (725527868)|VARIABLE_SCOPE_BEGIN|[21]|this|UserStoryTrigger_HUM|true|false
+07:02:01.723 (725600110)|VARIABLE_ASSIGNMENT|[21]|this|{}|0x7e0ff714
+07:02:01.723 (725651806)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:4
+07:02:01.723 (725658115)|VARIABLE_SCOPE_BEGIN|[21]|this|UserStoryTrigger_HUM|true|false
+07:02:01.723 (725668831)|VARIABLE_ASSIGNMENT|[21]|this|{}|0x7e0ff714
+07:02:01.723 (725678461)|STATEMENT_EXECUTE|[21]
+07:02:01.723 (725698419)|HEAP_ALLOCATE|[68]|Bytes:5
+07:02:01.723 (725721880)|HEAP_ALLOCATE|[74]|Bytes:5
+07:02:01.723 (725729650)|HEAP_ALLOCATE|[82]|Bytes:7
+07:02:01.723 (725800905)|STATEMENT_EXECUTE|[23]
+07:02:01.723 (725802801)|STATEMENT_EXECUTE|[24]
+07:02:01.723 (731056630)|HEAP_ALLOCATE|[24]|Bytes:16
+07:02:01.723 (731095973)|METHOD_ENTRY|[13]|01p3c000002BU4R|UserStoryTriggerHelper_HUM.UserStoryTriggerHelper_HUM()
+07:02:01.723 (731124949)|STATEMENT_EXECUTE|[13]
+07:02:01.723 (731131279)|STATEMENT_EXECUTE|[13]
+07:02:01.723 (732308735)|SYSTEM_MODE_ENTER|false
+07:02:01.723 (732356269)|HEAP_ALLOCATE|[24]|Bytes:5
+07:02:01.723 (732368288)|SYSTEM_MODE_EXIT|false
+07:02:01.723 (732385142)|METHOD_EXIT|[13]|UserStoryTriggerHelper_HUM
+07:02:01.723 (732434249)|METHOD_ENTRY|[24]|01p3c000002BU4R|UserStoryTriggerHelper_HUM.onBeforeUpdate(List<copado__User_Story__c>, List<copado__User_Story__c>, Map<Id,copado__User_Story__c>, Map<Id,copado__User_Story__c>)
+07:02:01.723 (732502895)|VARIABLE_SCOPE_BEGIN|[33]|oldList|List<copado__User_Story__c>|true|false
+07:02:01.723 (866493302)|VARIABLE_ASSIGNMENT|[33]|oldList|[{"LastModifiedDate":"2024-08-06T10:43:52.000Z","copado__Apex_Tests_Passed__c":false,"SEC_API_Scan_Status__c":"Not Started","Release_Locked__c":false,"cml_Is_Business_Disruption_Failure__c":false,"No_Priority_1_Violation__c":false,"Name":"US-0029875","copado__Latest_Commit_Date__c":"2024-08-05T18:30:59.000Z","Sandbox_Type__c":"Prod-1","CreatedById":"0053c00000C7YvRAAV","copado__QR_Code__c":"_IM1_https://chart.g (181 more) ...","Enable_Logs__c":false,"copado__Progress_Status__c":"_IM1_/img/samples/co (168 more) ...","copado__Promote_and_Deploy__c":false,"copado__Environment__c":"a2j7x0000005bYPAAY","Current_Branch__c":"runway_cpnppilot4","copado__Exclude_From_CBM__c":false,"Retry__c":0,"copado__View_in_Git__c":"_HL_ENCODED_https:// (136 more) ...","copado__Manual_Step_Required__c":false,"Architectural_Review_Needed__c":true,"IsDeleted":false,"copado__Promote_as_Single_Step__c":false,"copado__Total_Story_Points__c":0,"copado__Platform__c":"Salesforce","copado__Validate_Only__c":false,"copado__Promotion_Test_Level__c":"NoTestRun","copado__Total_Actual_Points__c":1,"CreatedDate":"2024-08-05T17:55:44.000Z","Id":"a3p7x000000DIdRAAW","copado__Legal__c":false,"copado__Story_Points_SFDC__c":1,"Humana_Org__c":"Service","SNOW_APPSVCID__c":"APPSVC039173","Base_Branch_Updated__c":false,"OwnerId":"0053c00000C7YvRAAV","copado__Environment_Type__c":"Sandbox","copado__Promote_Change__c":false,"RecordTypeId":"0123c000000l2BQAAY","SecAPI_Scan_Passed__c":true,"copado__Documentation_Complete__c":false,"Security_Level_Passed__c":false,"copado__Project__c":"a357x0000001k5dAAA","is_Testing_Done__c":false,"copado__User_Story_Title__c":"test flow3","Story_Type__c":"External","copado__Metadata_Types_in_Selection__c":"CustomField","copado__Has_Apex_Code__c":false,"copado__Minimum_Apex_Code_Coverage__c":75,"copado__Manual_Tests_Passed__c":false,"copado__Stop_Indexing_Metadata__c":false,"copado__Pull_Requests_Approved__c":false,"Is_HotFix__c":false,"copado__Is_Bundle__c":false,"cmcSf__Apex_Test_Level__c":"No Test Run","SystemModstamp":"2024-08-06T10:43:52.000Z","copado__Data_Privacy__c":false,"copado__Git_Repository__c":"a2v7x000000sZjx","copado__Compliance__c":false,"copado__Org_Credential__c":"a317x000000A9BhAAK","Source_Org__c":"CRM_CPNPPilot1","LastModifiedById":"0053c00000C7YvRAAV"}]|0xb9ff768
+07:02:01.723 (866544855)|VARIABLE_SCOPE_BEGIN|[33]|newList|List<copado__User_Story__c>|true|false
+07:02:01.723 (871311930)|VARIABLE_ASSIGNMENT|[33]|newList|[{"LastModifiedDate":"2024-08-06T10:43:52.000Z","copado__Apex_Tests_Passed__c":false,"SEC_API_Scan_Status__c":"Not Started","Release_Locked__c":false,"cml_Is_Business_Disruption_Failure__c":false,"No_Priority_1_Violation__c":false,"Name":"US-0029875","copado__Latest_Commit_Date__c":"2024-08-05T18:30:59.000Z","Sandbox_Type__c":"Prod-1","CreatedById":"0053c00000C7YvRAAV","copado__QR_Code__c":"_IM1_https://chart.g (181 more) ...","Enable_Logs__c":false,"copado__Progress_Status__c":"_IM1_/img/samples/co (168 more) ...","copado__Promote_and_Deploy__c":false,"copado__Environment__c":"a2j7x0000005bYPAAY","Current_Branch__c":"runway_cpnppilot4","copado__Exclude_From_CBM__c":false,"Retry__c":0,"copado__View_in_Git__c":"_HL_ENCODED_https:// (136 more) ...","copado__Manual_Step_Required__c":false,"Architectural_Review_Needed__c":true,"IsDeleted":false,"copado__Promote_as_Single_Step__c":false,"copado__Total_Story_Points__c":0,"copado__Platform__c":"Salesforce","copado__Validate_Only__c":false,"copado__Promotion_Test_Level__c":"NoTestRun","copado__Total_Actual_Points__c":1,"CreatedDate":"2024-08-05T17:55:44.000Z","Id":"a3p7x000000DIdRAAW","copado__Legal__c":false,"copado__Story_Points_SFDC__c":1,"Humana_Org__c":"Service","SNOW_APPSVCID__c":"APPSVC039173","Base_Branch_Updated__c":false,"OwnerId":"0053c00000C7YvRAAV","copado__Environment_Type__c":"Sandbox","copado__Promote_Change__c":false,"RecordTypeId":"0123c000000l2BQAAY","SecAPI_Scan_Passed__c":true,"copado__Documentation_Complete__c":false,"Security_Level_Passed__c":false,"copado__Project__c":"a357x0000001k5dAAA","is_Testing_Done__c":false,"copado__User_Story_Title__c":"test flow3","Story_Type__c":"External","copado__Metadata_Types_in_Selection__c":"CustomField","copado__Has_Apex_Code__c":false,"copado__Minimum_Apex_Code_Coverage__c":75,"copado__Manual_Tests_Passed__c":false,"copado__Stop_Indexing_Metadata__c":false,"copado__Pull_Requests_Approved__c":false,"Is_HotFix__c":false,"copado__Is_Bundle__c":false,"cmcSf__Apex_Test_Level__c":"No Test Run","SystemModstamp":"2024-08-06T10:43:52.000Z","copado__Data_Privacy__c":false,"copado__Git_Repository__c":"a2v7x000000sZjx","copado__Compliance__c":false,"copado__Org_Credential__c":"a317x000000A9BhAAK","Source_Org__c":"CRM_CPNPPilot1","LastModifiedById":"0053c00000C7YvRAAV"}]|0x6620c440
+07:02:01.723 (871361913)|VARIABLE_SCOPE_BEGIN|[33]|oldMap|Map<Id,copado__User_Story__c>|true|false
+07:02:01.723 (882292071)|VARIABLE_ASSIGNMENT|[33]|oldMap|{"a3p7x000000DIdRAAW":{"LastModifiedDate":"2024-08-06T10:43:52.000Z","copado__Apex_Tests_Passed__c":false,"SEC_API_Scan_Status__c":"Not Started","Release_Locked__c":false,"cml_Is_Business_Disruption_Failure__c":false,"No_Priority_1_Violation__c":false,"Name":"US-0029875","copado__Latest_Commit_Date__c":"2024-08-05T18:30:59.000Z","Sandbox_Type__c":"Prod-1","CreatedById":"0053c00000C7YvRAAV","copado__QR_Code__c":"_IM1_https://chart.g (181 more) ...","Enable_Logs__c":false,"copado__Progress_Status__c":"_IM1_/img/samples/co (168 more) ...","copado__Promote_and_Deploy__c":false,"copado__Environment__c":"a2j7x0000005bYPAAY","Current_Branch__c":"runway_cpnppilot4","copado__Exclude_From_CBM__c":false,"Retry__c":0,"copado__View_in_Git__c":"_HL_ENCODED_https:// (136 more) ...","copado__Manual_Step_Required__c":false,"Architectural_Review_Needed__c":true,"IsDeleted":false,"copado__Promote_as_Single_Step__c":false,"copado__Total_Story_Points__c":0,"copado__Platform__c":"Salesforce","copado__Validate_Only__c":false,"copado__Promotion_Test_Level__c":"NoTestRun","copado__Total_Actual_Points__c":1,"CreatedDate":"2024-08-05T17:55:44.000Z","Id":"a3p7x000000DIdRAAW","copado__Legal__c":false,"copado__Story_Points_SFDC__c":1,"Humana_Org__c":"Service","SNOW_APPSVCID__c":"APPSVC039173","Base_Branch_Updated__c":false,"OwnerId":"0053c00000C7YvRAAV","copado__Environment_Type__c":"Sandbox","copado__Promote_Change__c":false,"RecordTypeId":"0123c000000l2BQAAY","SecAPI_Scan_Passed__c":true,"copado__Documentation_Complete__c":false,"Security_Level_Passed__c":false,"copado__Project__c":"a357x0000001k5dAAA","is_Testing_Done__c":false,"copado__User_Story_Title__c":"test flow3","Story_Type__c":"External","copado__Metadata_Types_in_Selection__c":"CustomField","copado__Has_Apex_Code__c":false,"copado__Minimum_Apex_Code_Coverage__c":75,"copado__Manual_Tests_Passed__c":false,"copado__Stop_Indexing_Metadata__c":false,"copado__Pull_Requests_Approved__c":false,"Is_HotFix__c":false,"copado__Is_Bundle__c":false,"cmcSf__Apex_Test_Level__c":"No Test Run","SystemModstamp":"2024-08-06T10:43:52.000Z","copado__Data_Privacy__c":false,"copado__Git_Repository__c":"a2v7x000000sZjx","copado__Compliance__c":false,"copado__Org_Credential__c":"a317x000000A9BhAAK","Source_Org__c":"CRM_CPNPPilot1","LastModifiedById":"0053c00000C7YvRAAV"}}|0x2dc754ee
+07:02:01.723 (882334335)|VARIABLE_SCOPE_BEGIN|[33]|newMap|Map<Id,copado__User_Story__c>|true|false
+07:02:01.723 (883453797)|VARIABLE_ASSIGNMENT|[33]|newMap|{"a3p7x000000DIdRAAW":{"LastModifiedDate":"2024-08-06T10:43:52.000Z","copado__Apex_Tests_Passed__c":false,"SEC_API_Scan_Status__c":"Not Started","Release_Locked__c":false,"cml_Is_Business_Disruption_Failure__c":false,"No_Priority_1_Violation__c":false,"Name":"US-0029875","copado__Latest_Commit_Date__c":"2024-08-05T18:30:59.000Z","Sandbox_Type__c":"Prod-1","CreatedById":"0053c00000C7YvRAAV","copado__QR_Code__c":"_IM1_https://chart.g (181 more) ...","Enable_Logs__c":false,"copado__Progress_Status__c":"_IM1_/img/samples/co (168 more) ...","copado__Promote_and_Deploy__c":false,"copado__Environment__c":"a2j7x0000005bYPAAY","Current_Branch__c":"runway_cpnppilot4","copado__Exclude_From_CBM__c":false,"Retry__c":0,"copado__View_in_Git__c":"_HL_ENCODED_https:// (136 more) ...","copado__Manual_Step_Required__c":false,"Architectural_Review_Needed__c":true,"IsDeleted":false,"copado__Promote_as_Single_Step__c":false,"copado__Total_Story_Points__c":0,"copado__Platform__c":"Salesforce","copado__Validate_Only__c":false,"copado__Promotion_Test_Level__c":"NoTestRun","copado__Total_Actual_Points__c":1,"CreatedDate":"2024-08-05T17:55:44.000Z","Id":"a3p7x000000DIdRAAW","copado__Legal__c":false,"copado__Story_Points_SFDC__c":1,"Humana_Org__c":"Service","SNOW_APPSVCID__c":"APPSVC039173","Base_Branch_Updated__c":false,"OwnerId":"0053c00000C7YvRAAV","copado__Environment_Type__c":"Sandbox","copado__Promote_Change__c":false,"RecordTypeId":"0123c000000l2BQAAY","SecAPI_Scan_Passed__c":true,"copado__Documentation_Complete__c":false,"Security_Level_Passed__c":false,"copado__Project__c":"a357x0000001k5dAAA","is_Testing_Done__c":false,"copado__User_Story_Title__c":"test flow3","Story_Type__c":"External","copado__Metadata_Types_in_Selection__c":"CustomField","copado__Has_Apex_Code__c":false,"copado__Minimum_Apex_Code_Coverage__c":75,"copado__Manual_Tests_Passed__c":false,"copado__Stop_Indexing_Metadata__c":false,"copado__Pull_Requests_Approved__c":false,"Is_HotFix__c":false,"copado__Is_Bundle__c":false,"cmcSf__Apex_Test_Level__c":"No Test Run","SystemModstamp":"2024-08-06T10:43:52.000Z","copado__Data_Privacy__c":false,"copado__Git_Repository__c":"a2v7x000000sZjx","copado__Compliance__c":false,"copado__Org_Credential__c":"a317x000000A9BhAAK","Source_Org__c":"CRM_CPNPPilot1","LastModifiedById":"0053c00000C7YvRAAV"}}|0x1209c564
+07:02:01.723 (885172801)|SYSTEM_MODE_ENTER|false
+07:02:01.723 (885203131)|HEAP_ALLOCATE|[34]|Bytes:5
+07:02:01.723 (885218363)|STATEMENT_EXECUTE|[33]
+07:02:01.723 (885591977)|HEAP_ALLOCATE|[34]|Bytes:5
+07:02:01.723 (885629409)|HEAP_ALLOCATE|[34]|Bytes:4
+07:02:01.723 (885642659)|VARIABLE_SCOPE_BEGIN|[34]|us|copado__User_Story__c|true|false
+07:02:01.723 (886939064)|VARIABLE_ASSIGNMENT|[34]|us|{"LastModifiedDate":"2024-08-06T10:43:52.000Z","copado__Apex_Tests_Passed__c":false,"SEC_API_Scan_Status__c":"Not Started","Release_Locked__c":false,"cml_Is_Business_Disruption_Failure__c":false,"No_Priority_1_Violation__c":false,"Name":"US-0029875","copado__Latest_Commit_Date__c":"2024-08-05T18:30:59.000Z","Sandbox_Type__c":"Prod-1","CreatedById":"0053c00000C7YvRAAV","copado__QR_Code__c":"_IM1_https://chart.g (181 more) ...","Enable_Logs__c":false,"copado__Progress_Status__c":"_IM1_/img/samples/co (168 more) ...","copado__Promote_and_Deploy__c":false,"copado__Environment__c":"a2j7x0000005bYPAAY","Current_Branch__c":"runway_cpnppilot4","copado__Exclude_From_CBM__c":false,"Retry__c":0,"copado__View_in_Git__c":"_HL_ENCODED_https:// (136 more) ...","copado__Manual_Step_Required__c":false,"Architectural_Review_Needed__c":true,"IsDeleted":false,"copado__Promote_as_Single_Step__c":false,"copado__Total_Story_Points__c":0,"copado__Platform__c":"Salesforce","copado__Validate_Only__c":false,"copado__Promotion_Test_Level__c":"NoTestRun","copado__Total_Actual_Points__c":1,"CreatedDate":"2024-08-05T17:55:44.000Z","Id":"a3p7x000000DIdRAAW","copado__Legal__c":false,"copado__Story_Points_SFDC__c":1,"Humana_Org__c":"Service","SNOW_APPSVCID__c":"APPSVC039173","Base_Branch_Updated__c":false,"OwnerId":"0053c00000C7YvRAAV","copado__Environment_Type__c":"Sandbox","copado__Promote_Change__c":false,"RecordTypeId":"0123c000000l2BQAAY","SecAPI_Scan_Passed__c":true,"copado__Documentation_Complete__c":false,"Security_Level_Passed__c":false,"copado__Project__c":"a357x0000001k5dAAA","is_Testing_Done__c":false,"copado__User_Story_Title__c":"test flow3","Story_Type__c":"External","copado__Metadata_Types_in_Selection__c":"CustomField","copado__Has_Apex_Code__c":false,"copado__Minimum_Apex_Code_Coverage__c":75,"copado__Manual_Tests_Passed__c":false,"copado__Stop_Indexing_Metadata__c":false,"copado__Pull_Requests_Approved__c":false,"Is_HotFix__c":false,"copado__Is_Bundle__c":false,"cmcSf__Apex_Test_Level__c":"No Test Run","SystemModstamp":"2024-08-06T10:43:52.000Z","copado__Data_Privacy__c":false,"copado__Git_Repository__c":"a2v7x000000sZjx","copado__Compliance__c":false,"copado__Org_Credential__c":"a317x000000A9BhAAK","Source_Org__c":"CRM_CPNPPilot1","LastModifiedById":"0053c00000C7YvRAAV"}|0x788a59fc
+07:02:01.723 (886969499)|STATEMENT_EXECUTE|[34]
+07:02:01.723 (887100594)|STATEMENT_EXECUTE|[35]
+07:02:01.723 (887119462)|HEAP_ALLOCATE|[34]|Bytes:5
+07:02:01.723 (887136162)|VARIABLE_ASSIGNMENT|[34]|us|null|
+07:02:01.723 (887139962)|STATEMENT_EXECUTE|[40]
+07:02:01.723 (887158317)|METHOD_ENTRY|[40]|01p3c000002BU4R|UserStoryTriggerHelper_HUM.handleBundleLogic(List<copado__User_Story__c>)
+07:02:01.723 (887180425)|VARIABLE_SCOPE_BEGIN|[43]|newList|List<copado__User_Story__c>|true|false
+07:02:01.723 (888304423)|VARIABLE_ASSIGNMENT|[43]|newList|[{"LastModifiedDate":"2024-08-06T10:43:52.000Z","copado__Apex_Tests_Passed__c":false,"SEC_API_Scan_Status__c":"Not Started","Release_Locked__c":false,"cml_Is_Business_Disruption_Failure__c":false,"No_Priority_1_Violation__c":false,"Name":"US-0029875","copado__Latest_Commit_Date__c":"2024-08-05T18:30:59.000Z","Sandbox_Type__c":"Prod-1","CreatedById":"0053c00000C7YvRAAV","copado__QR_Code__c":"_IM1_https://chart.g (181 more) ...","Enable_Logs__c":false,"copado__Progress_Status__c":"_IM1_/img/samples/co (168 more) ...","copado__Promote_and_Deploy__c":false,"copado__Environment__c":"a2j7x0000005bYPAAY","Current_Branch__c":"runway_cpnppilot4","copado__Exclude_From_CBM__c":false,"Retry__c":0,"copado__View_in_Git__c":"_HL_ENCODED_https:// (136 more) ...","copado__Manual_Step_Required__c":false,"Architectural_Review_Needed__c":true,"IsDeleted":false,"copado__Promote_as_Single_Step__c":false,"copado__Total_Story_Points__c":0,"copado__Platform__c":"Salesforce","copado__Validate_Only__c":false,"copado__Promotion_Test_Level__c":"NoTestRun","copado__Total_Actual_Points__c":1,"CreatedDate":"2024-08-05T17:55:44.000Z","Id":"a3p7x000000DIdRAAW","copado__Legal__c":false,"copado__Story_Points_SFDC__c":1,"Humana_Org__c":"Service","SNOW_APPSVCID__c":"APPSVC039173","Base_Branch_Updated__c":false,"OwnerId":"0053c00000C7YvRAAV","copado__Environment_Type__c":"Sandbox","copado__Promote_Change__c":false,"RecordTypeId":"0123c000000l2BQAAY","SecAPI_Scan_Passed__c":true,"copado__Documentation_Complete__c":false,"Security_Level_Passed__c":false,"copado__Project__c":"a357x0000001k5dAAA","is_Testing_Done__c":false,"copado__User_Story_Title__c":"test flow3","Story_Type__c":"External","copado__Metadata_Types_in_Selection__c":"CustomField","copado__Has_Apex_Code__c":false,"copado__Minimum_Apex_Code_Coverage__c":75,"copado__Manual_Tests_Passed__c":false,"copado__Stop_Indexing_Metadata__c":false,"copado__Pull_Requests_Approved__c":false,"Is_HotFix__c":false,"copado__Is_Bundle__c":false,"cmcSf__Apex_Test_Level__c":"No Test Run","SystemModstamp":"2024-08-06T10:43:52.000Z","copado__Data_Privacy__c":false,"copado__Git_Repository__c":"a2v7x000000sZjx","copado__Compliance__c":false,"copado__Org_Credential__c":"a317x000000A9BhAAK","Source_Org__c":"CRM_CPNPPilot1","LastModifiedById":"0053c00000C7YvRAAV"}]|0x6620c440
+07:02:01.723 (888355734)|HEAP_ALLOCATE|[44]|Bytes:5
+07:02:01.723 (888365302)|STATEMENT_EXECUTE|[43]
+07:02:01.723 (888367505)|STATEMENT_EXECUTE|[44]
+07:02:01.723 (888392784)|HEAP_ALLOCATE|[44]|Bytes:4
+07:02:01.723 (888444423)|VARIABLE_SCOPE_BEGIN|[44]|usBundleIds|Set<Id>|true|false
+07:02:01.723 (888483011)|VARIABLE_ASSIGNMENT|[44]|usBundleIds|[]|0x7d75c316
+07:02:01.723 (888530074)|HEAP_ALLOCATE|[45]|Bytes:5
+07:02:01.723 (888549491)|HEAP_ALLOCATE|[45]|Bytes:4
+07:02:01.723 (888557551)|VARIABLE_SCOPE_BEGIN|[45]|us|copado__User_Story__c|true|false
+07:02:01.723 (889712173)|VARIABLE_ASSIGNMENT|[45]|us|{"LastModifiedDate":"2024-08-06T10:43:52.000Z","copado__Apex_Tests_Passed__c":false,"SEC_API_Scan_Status__c":"Not Started","Release_Locked__c":false,"cml_Is_Business_Disruption_Failure__c":false,"No_Priority_1_Violation__c":false,"Name":"US-0029875","copado__Latest_Commit_Date__c":"2024-08-05T18:30:59.000Z","Sandbox_Type__c":"Prod-1","CreatedById":"0053c00000C7YvRAAV","copado__QR_Code__c":"_IM1_https://chart.g (181 more) ...","Enable_Logs__c":false,"copado__Progress_Status__c":"_IM1_/img/samples/co (168 more) ...","copado__Promote_and_Deploy__c":false,"copado__Environment__c":"a2j7x0000005bYPAAY","Current_Branch__c":"runway_cpnppilot4","copado__Exclude_From_CBM__c":false,"Retry__c":0,"copado__View_in_Git__c":"_HL_ENCODED_https:// (136 more) ...","copado__Manual_Step_Required__c":false,"Architectural_Review_Needed__c":true,"IsDeleted":false,"copado__Promote_as_Single_Step__c":false,"copado__Total_Story_Points__c":0,"copado__Platform__c":"Salesforce","copado__Validate_Only__c":false,"copado__Promotion_Test_Level__c":"NoTestRun","copado__Total_Actual_Points__c":1,"CreatedDate":"2024-08-05T17:55:44.000Z","Id":"a3p7x000000DIdRAAW","copado__Legal__c":false,"copado__Story_Points_SFDC__c":1,"Humana_Org__c":"Service","SNOW_APPSVCID__c":"APPSVC039173","Base_Branch_Updated__c":false,"OwnerId":"0053c00000C7YvRAAV","copado__Environment_Type__c":"Sandbox","copado__Promote_Change__c":false,"RecordTypeId":"0123c000000l2BQAAY","SecAPI_Scan_Passed__c":true,"copado__Documentation_Complete__c":false,"Security_Level_Passed__c":false,"copado__Project__c":"a357x0000001k5dAAA","is_Testing_Done__c":false,"copado__User_Story_Title__c":"test flow3","Story_Type__c":"External","copado__Metadata_Types_in_Selection__c":"CustomField","copado__Has_Apex_Code__c":false,"copado__Minimum_Apex_Code_Coverage__c":75,"copado__Manual_Tests_Passed__c":false,"copado__Stop_Indexing_Metadata__c":false,"copado__Pull_Requests_Approved__c":false,"Is_HotFix__c":false,"copado__Is_Bundle__c":false,"cmcSf__Apex_Test_Level__c":"No Test Run","SystemModstamp":"2024-08-06T10:43:52.000Z","copado__Data_Privacy__c":false,"copado__Git_Repository__c":"a2v7x000000sZjx","copado__Compliance__c":false,"copado__Org_Credential__c":"a317x000000A9BhAAK","Source_Org__c":"CRM_CPNPPilot1","LastModifiedById":"0053c00000C7YvRAAV"}|0x788a59fc
+07:02:01.723 (889749713)|STATEMENT_EXECUTE|[45]
+07:02:01.723 (889781963)|STATEMENT_EXECUTE|[46]
+07:02:01.723 (889801481)|HEAP_ALLOCATE|[45]|Bytes:5
+07:02:01.723 (889821431)|VARIABLE_ASSIGNMENT|[45]|us|null|
+07:02:01.723 (889857093)|STATEMENT_EXECUTE|[51]
+07:02:01.723 (889870548)|METHOD_EXIT|[40]|01p3c000002BU4R|UserStoryTriggerHelper_HUM.handleBundleLogic(List<copado__User_Story__c>)
+07:02:01.723 (889878116)|SYSTEM_MODE_EXIT|false
+07:02:01.723 (889888196)|METHOD_EXIT|[24]|01p3c000002BU4R|UserStoryTriggerHelper_HUM.onBeforeUpdate(List<copado__User_Story__c>, List<copado__User_Story__c>, Map<Id,copado__User_Story__c>, Map<Id,copado__User_Story__c>)
+07:02:01.723 (889910460)|STATEMENT_EXECUTE|[26]
+07:02:01.723 (889919103)|STATEMENT_EXECUTE|[29]
+07:02:01.723 (889924865)|STATEMENT_EXECUTE|[33]
+07:02:01.889 (889934892)|CUMULATIVE_LIMIT_USAGE
+07:02:01.889 (889934892)|LIMIT_USAGE_FOR_NS|(default)|
+  Number of SOQL queries: 1 out of 100
+  Number of query rows: 1 out of 50000
+  Number of SOSL queries: 0 out of 20
+  Number of DML statements: 1 out of 150
+  Number of Publish Immediate DML: 0 out of 150
+  Number of DML rows: 1 out of 10000
+  Maximum CPU time: 480 out of 10000
+  Maximum heap size: 0 out of 6000000
+  Number of callouts: 0 out of 100
+  Number of Email Invocations: 0 out of 10
+  Number of future calls: 0 out of 50
+  Number of queueable jobs added to the queue: 0 out of 50
+  Number of Mobile Apex push calls: 0 out of 10
+
+07:02:01.889 (889934892)|CUMULATIVE_LIMIT_USAGE_END
+
+07:02:01.723 (890148478)|CODE_UNIT_FINISHED|UserStoryTrigger_HUM on User_Story trigger event BeforeUpdate|__sfdc_trigger/UserStoryTrigger_HUM
+07:02:01.893 (893579184)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (904446819)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (910510936)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (910578887)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (910646096)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (914169500)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (917349355)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (917450016)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (927203537)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (927631194)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (929373165)|SOQL_EXECUTE_BEGIN|[869]|Aggregations:0|SELECT Id, Text_Field__c FROM Copado_Setting__mdt WHERE DeveloperName = :tmpVar1 LIMIT 1
+07:02:01.893 (934305493)|SOQL_EXECUTE_END|[869]|Rows:1
+07:02:01.893 (935041498)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (935333709)|SOQL_EXECUTE_BEGIN|[869]|Aggregations:0|SELECT Id, Text_Field__c FROM Copado_Setting__mdt WHERE DeveloperName = :tmpVar1 LIMIT 1
+07:02:01.893 (937396053)|SOQL_EXECUTE_END|[869]|Rows:1
+07:02:01.893 (938175319)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (939228096)|SOQL_EXECUTE_BEGIN|[102]|Aggregations:0|SELECT Id, OwnerId, Environment__c FROM Org__c WHERE Id = :tmpVar1
+07:02:01.893 (950473298)|SOQL_EXECUTE_END|[102]|Rows:1
+07:02:01.893 (951645666)|SOQL_EXECUTE_BEGIN|[107]|Aggregations:0|SELECT Id, Name, Minimum_Apex_Test_Coverage__c FROM Environment__c WHERE Id = :tmpVar1
+07:02:01.893 (958340366)|SOQL_EXECUTE_END|[107]|Rows:1
+07:02:01.893 (960293000)|SOQL_EXECUTE_BEGIN|[115]|Aggregations:0|SELECT Id, Project__c FROM Sprint__c WHERE Id = :tmpVar1
+07:02:01.893 (967563591)|SOQL_EXECUTE_END|[115]|Rows:0
+07:02:01.893 (968277740)|SOQL_EXECUTE_BEGIN|[117]|Aggregations:0|SELECT MAX(Order__c) order, Sprint__c sprint FROM User_Story__c WHERE Sprint__c = :tmpVar1 GROUP BY Sprint__c
+07:02:01.893 (978792619)|SOQL_EXECUTE_END|[117]|Rows:1
+07:02:01.893 (979827691)|SOQL_EXECUTE_BEGIN|[127]|Aggregations:0|SELECT Deployment_Flow__c FROM Project__c WHERE Id = :tmpVar1
+07:02:01.893 (987652976)|SOQL_EXECUTE_END|[127]|Rows:1
+07:02:01.893 (990607139)|SOQL_EXECUTE_BEGIN|[152]|Aggregations:1|SELECT Id, Platform__c, (SELECT Source_Environment__c, copado__Destination_Environment__c, Destination_Environment__r.Name, Destination_Environment__r.Run_all_tests__c FROM Deployment_Flow_Steps__r) FROM Deployment_Flow__c WHERE Id IN :tmpVar1
+07:02:01.893 (1036061220)|SOQL_EXECUTE_END|[152]|Rows:1
+07:02:01.893 (1037621236)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1037653012)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1037687442)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1037723047)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1037861228)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1037909518)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1038039641)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1038118638)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1038148825)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1038289001)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1038332606)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1038396356)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1038576366)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1038776840)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1038869315)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1039137172)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1039168141)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1039243454)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1039311469)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1039572508)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1039609176)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1039720298)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1042573744)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1042861352)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1042905872)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1042986630)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1043036103)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1043311660)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1043353676)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1043390680)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1043420604)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1043439171)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1043458613)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1043491586)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1043505589)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1043520194)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1043636282)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1043693846)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1043714211)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1043730331)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1043746456)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1043783708)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1043798208)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1043833692)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1043850594)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1043886089)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1043901945)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1043919520)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1043952979)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1043967447)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1044001885)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1044013404)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1044034649)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1044043972)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1044169426)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1044194676)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1044241431)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1044269432)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1048465102)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1048730538)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1048771108)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1048879408)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1048978181)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1049098561)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1051182824)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1051229584)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1051261741)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1051319243)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1051418879)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1051482645)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1051607408)|ENTERING_MANAGED_PKG|copado
+07:02:01.893 (1051629363)|ENTERING_MANAGED_PKG|copado
+07:02:02.51 (1051721737)|CUMULATIVE_LIMIT_USAGE
+07:02:02.51 (1051721737)|LIMIT_USAGE_FOR_NS|(default)|
+  Number of SOQL queries: 1 out of 100
+  Number of query rows: 1 out of 50000
+  Number of SOSL queries: 0 out of 20
+  Number of DML statements: 1 out of 150
+  Number of Publish Immediate DML: 0 out of 150
+  Number of DML rows: 1 out of 10000
+  Maximum CPU time: 524 out of 10000
+  Maximum heap size: 0 out of 6000000
+  Number of callouts: 0 out of 100
+  Number of Email Invocations: 0 out of 10
+  Number of future calls: 0 out of 50
+  Number of queueable jobs added to the queue: 0 out of 50
+  Number of Mobile Apex push calls: 0 out of 10
+
+07:02:02.51 (1051721737)|LIMIT_USAGE_FOR_NS|copado|
+  Number of SOQL queries: 6 out of 100
+  Number of query rows: 11 out of 50000
+  Number of SOSL queries: 0 out of 20
+  Number of DML statements: 0 out of 150
+  Number of Publish Immediate DML: 0 out of 150
+  Number of DML rows: 0 out of 10000
+  Maximum CPU time: 0 out of 10000
+  Maximum heap size: 0 out of 6000000
+  Number of callouts: 0 out of 100
+  Number of Email Invocations: 0 out of 10
+  Number of future calls: 0 out of 50
+  Number of queueable jobs added to the queue: 0 out of 50
+  Number of Mobile Apex push calls: 0 out of 10
+
+07:02:02.51 (1051721737)|CUMULATIVE_LIMIT_USAGE_END
+
+07:02:02.66 (1066881193)|CODE_UNIT_STARTED|[EXTERNAL]|Validation:User_Story:a3p7x000000DIdR
+07:02:02.66 (1066900088)|VALIDATION_RULE|03d3c000000g4A4|Test_scratch_orgs_cannot_be_used_for_dev
+07:02:02.66 (1068015899)|VALIDATION_FORMULA|TEXT(copado__Org_Credential__r.copado__Org_Type__c) == 'Scratch Org - Test only'|copado__Org_Credential__r.copado__Org_Type__c=Sandbox
+07:02:02.66 (1068026370)|VALIDATION_PASS
+07:02:02.66 (1068027999)|VALIDATION_RULE|03d56000000TrgR|CredentialsMustBelongToTheEnvironment
+07:02:02.66 (1068219277)|VALIDATION_FORMULA|NOT ( ISBLANK(copado__Environment__c) ) &&
+NOT ( ISBLANK(copado__Org_Credential__c) ) &&
+copado__Environment__c != copado__Org_Credential__r.copado__Environment__c|copado__Org_Credential__c=a317x000000A9Bh , copado__Org_Credential__r.copado__Environment__c=a2j7x0000005bYP , copado__Environment__c=a2j7x0000005bYP
+07:02:02.66 (1068224018)|VALIDATION_PASS
+07:02:02.66 (1068226884)|VALIDATION_RULE|03d56000000WY2k|Excluded_User_Stories_Not_Promotable
+07:02:02.66 (1068573611)|VALIDATION_FORMULA|IF(
+  AND(NOT(ISBLANK(copado__Platform__c)), copado__Platform__c != 'Salesforce'), 
+  (IF(AND(copado__Exclude_From_CBM__c, OR(copado__Promote_Change__c, copado__Promote_and_Deploy__c)), TRUE, FALSE)),
+  FALSE
+)|copado__Promote_Change__c=0 , copado__Platform__c=Salesforce , copado__Promote_and_Deploy__c=0 , copado__Exclude_From_CBM__c=0
+07:02:02.66 (1068579512)|VALIDATION_PASS
+07:02:02.66 (1068580827)|VALIDATION_RULE|03d56000000WbI9|IsReleaseLocked
+07:02:02.66 (1068773919)|VALIDATION_FORMULA|OR(
+AND(
+OR(
+copado__Release__r.Locked__c ,
+PRIORVALUE(Release_Locked__c)
+),
+OR (
+ISCHANGED(copado__Release__c),
+ISNEW()
+) 
+)
+)|copado__Release__r.Locked__c=null , copado__Release__c=null , Release_Locked__c=0
+07:02:02.66 (1068778142)|VALIDATION_PASS
+07:02:02.66 (1068779408)|VALIDATION_RULE|03d7x000000oMAD|Lock_the_Base_Branch
+07:02:02.66 (1068889313)|VALIDATION_FORMULA|AND( ISCHANGED( copado__Base_Branch__c), Base_Branch_Updated__c )|Base_Branch_Updated__c=0 , copado__Base_Branch__c=null
+07:02:02.66 (1068893425)|VALIDATION_PASS
+07:02:02.66 (1068894593)|VALIDATION_RULE|03d7x000000tviP|Prevent_deployment_promote_Ready_Deploy
+07:02:02.66 (1068983913)|VALIDATION_FORMULA|OR(AND( copado__Promote_and_Deploy__c = True, Current_Branch__c = copado__Base_Branch__c,copado__Base_Branch__c <> Null, Current_Branch__c <> Null ),
+AND( copado__Promote_Change__c = True, Current_Branch__c = copado__Base_Branch__c, copado__Base_Branch__c <> Null, Current_Branch__c <> Null))|Current_Branch__c=runway_cpnppilot4 , copado__Promote_Change__c=0 , copado__Promote_and_Deploy__c=0 , copado__Base_Branch__c=null
+07:02:02.66 (1068988668)|VALIDATION_PASS
+07:02:02.66 (1068990009)|VALIDATION_RULE|03d3c000000g7Jk|Promote_and_Deploy_needs_apex_and_PR
+07:02:02.66 (1069082029)|VALIDATION_FORMULA|AND(
+copado__Promote_and_Deploy__c = True,
+NOT( ISNULL(copado__Latest_Commit_Date__c )),
+OR(
+copado__Pull_Requests_Approved__c = False,
+AND(
+copado__Has_Apex_Code__c = True,
+copado__Apex_Tests_Passed__c = False
+)
+)
+)|copado__Has_Apex_Code__c=0 , copado__Pull_Requests_Approved__c=0 , copado__Apex_Tests_Passed__c=0 , copado__Latest_Commit_Date__c=2024-08-05 18:30:59 , copado__Promote_and_Deploy__c=0
+07:02:02.66 (1069086644)|VALIDATION_PASS
+07:02:02.66 (1069087798)|VALIDATION_RULE|03d3c000000g4A3|Promote_User_Story_Apex_validation
+07:02:02.66 (1069186746)|VALIDATION_FORMULA|AND(
+  copado__Has_Apex_Code__c = true,
+  OR(  
+     AND(
+       PRIORVALUE(copado__Promote_Change__c) = false,
+        copado__Promote_Change__c = true
+     ),
+     AND(
+      PRIORVALUE(copado__Promote_and_Deploy__c) = false,
+       copado__Promote_and_Deploy__c = true
+        )
+     ),
+  OR(
+    ISNULL(copado__Apex_Code_Coverage__c),
+    ISNULL(copado__Minimum_Apex_Code_Coverage__c),
+    copado__Apex_Code_Coverage__c < copado__Minimum_Apex_Code_Coverage__c
+  )
+)|copado__Has_Apex_Code__c=0 , copado__Apex_Code_Coverage__c=null , copado__Promote_Change__c=0 , copado__Promote_and_Deploy__c=0 , copado__Minimum_Apex_Code_Coverage__c=75
+07:02:02.66 (1069191630)|VALIDATION_PASS
+07:02:02.66 (1069192857)|VALIDATION_RULE|03d3c000000c2lg|Promote_User_Story_Code_Violation_Check
+07:02:02.66 (1069263651)|VALIDATION_FORMULA|AND(
+OR(copado__Promote_Change__c,copado__Promote_and_Deploy__c),
+NOT( ISNULL(copado__Latest_Commit_Date__c )),
+NOT( No_Priority_1_Violation__c ), copado__Has_Apex_Code__c )|copado__Has_Apex_Code__c=0 , copado__Latest_Commit_Date__c=2024-08-05 18:30:59 , copado__Promote_Change__c=0 , No_Priority_1_Violation__c=0 , copado__Promote_and_Deploy__c=0
+07:02:02.66 (1069267407)|VALIDATION_PASS
+07:02:02.66 (1069268466)|VALIDATION_RULE|03d3c0000007ASx|Promote_User_Story_SecAPI_Scan_Check
+07:02:02.66 (1069369197)|VALIDATION_FORMULA|AND( 
+NOT( ISNULL(copado__Latest_Commit_Date__c )), copado__Project__r.SecAPI_Scan_Required__c,
+OR(copado__Promote_Change__c,copado__Promote_and_Deploy__c),
+NOT( SecAPI_Scan_Passed__c )
+)|SecAPI_Scan_Passed__c=1 , copado__Latest_Commit_Date__c=2024-08-05 18:30:59 , copado__Promote_Change__c=0 , copado__Promote_and_Deploy__c=0 , copado__Project__r.SecAPI_Scan_Required__c=0
+07:02:02.66 (1069372914)|VALIDATION_PASS
+07:02:02.66 (1069374025)|VALIDATION_RULE|03d56000000WYpo|Pull_Requests_Must_Be_Approved
+07:02:02.66 (1069480840)|VALIDATION_FORMULA|AND(
+copado__Pull_Requests_Approved__c  = false,
+NOT( ISNULL(copado__Latest_Commit_Date__c )),
+OR(
+
+AND(
+PRIORVALUE(copado__Promote_Change__c) = false,
+copado__Promote_Change__c = true
+),
+
+AND(
+PRIORVALUE(copado__Promote_and_Deploy__c) = false,
+copado__Promote_and_Deploy__c = true
+)
+
+)
+
+)|copado__Pull_Requests_Approved__c=0 , copado__Latest_Commit_Date__c=2024-08-05 18:30:59 , copado__Promote_Change__c=0 , copado__Promote_and_Deploy__c=0
+07:02:02.66 (1069485154)|VALIDATION_PASS
+07:02:02.66 (1069486507)|VALIDATION_RULE|03d3c000000g7Jl|Ready_to_promote_needs_apex_and_PR
+07:02:02.66 (1069554680)|VALIDATION_FORMULA|AND(
+copado__Promote_Change__c = True,
+NOT( ISNULL(copado__Latest_Commit_Date__c )),
+OR(
+copado__Pull_Requests_Approved__c = False,
+AND(
+copado__Has_Apex_Code__c = True,
+copado__Apex_Tests_Passed__c = False
+)
+)
+)|copado__Has_Apex_Code__c=0 , copado__Pull_Requests_Approved__c=0 , copado__Apex_Tests_Passed__c=0 , copado__Latest_Commit_Date__c=2024-08-05 18:30:59 , copado__Promote_Change__c=0
+07:02:02.66 (1069558362)|VALIDATION_PASS
+07:02:02.66 (1069559537)|VALIDATION_RULE|03d56000000Tq6E|RequireStoryPoints
+07:02:02.66 (1069653874)|VALIDATION_FORMULA|AND(OR(copado__Promote_and_Deploy__c = true, 
+       copado__Promote_Change__c  = true) 
+   , OR(copado__Story_Points_SFDC__c < 1, 
+        ISNULL(copado__Story_Points_SFDC__c)), RecordType.Name = 'User Story')|copado__Promote_Change__c=0 , copado__Promote_and_Deploy__c=0 , copado__Story_Points_SFDC__c=1 , RecordType.Name=User Story
+07:02:02.66 (1069658136)|VALIDATION_PASS
+07:02:02.66 (1069659239)|VALIDATION_RULE|03d56000000VZS6|User_Story_Progress_Range_Validation
+07:02:02.66 (1069712230)|VALIDATION_FORMULA|NOT(ISNULL( copado__Progress__c )) && (copado__Progress__c < 0 &#124;&#124; copado__Progress__c > 1)|copado__Progress__c=null
+07:02:02.66 (1069715538)|VALIDATION_PASS
+07:02:02.66 (1069716457)|VALIDATION_RULE|03d56000000Tq6n|ValidAzureStoryNumber
+07:02:02.66 (1069765583)|VALIDATION_FORMULA|AND(
+NOT(ISNUMBER(External_Id__c)),
+NOT(ISBLANK(External_Id__c)),
+NOT(ISNULL(External_Id__c))
+)|External_Id__c=null
+07:02:02.66 (1069768381)|VALIDATION_PASS
+07:02:02.66 (1069774026)|CODE_UNIT_FINISHED|Validation:User_Story:a3p7x000000DIdR
+07:02:02.94 (1094306682)|CODE_UNIT_STARTED|[EXTERNAL]|01q3c000000Hve9|UserStoryTrigger_HUM on User_Story trigger event AfterUpdate|__sfdc_trigger/UserStoryTrigger_HUM
+07:02:02.94 (1094374043)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:8
+07:02:02.94 (1094445156)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:8
+07:02:02.94 (1094563013)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:4
+07:02:02.94 (1094577448)|VARIABLE_SCOPE_BEGIN|[21]|this|UserStoryTrigger_HUM|true|false
+07:02:02.94 (1094642505)|VARIABLE_ASSIGNMENT|[21]|this|{}|0x430aabbf
+07:02:02.94 (1094680385)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:4
+07:02:02.94 (1094686796)|VARIABLE_SCOPE_BEGIN|[21]|this|UserStoryTrigger_HUM|true|false
+07:02:02.94 (1094698625)|VARIABLE_ASSIGNMENT|[21]|this|{}|0x430aabbf
+07:02:02.94 (1094710001)|STATEMENT_EXECUTE|[21]
+07:02:02.94 (1094728456)|STATEMENT_EXECUTE|[23]
+07:02:02.94 (1094743034)|STATEMENT_EXECUTE|[26]
+07:02:02.94 (1094744627)|STATEMENT_EXECUTE|[27]
+07:02:02.94 (1094840157)|METHOD_ENTRY|[27]|01p3c000002BU4R|UserStoryTriggerHelper_HUM.onAfterUpdate(List<copado__User_Story__c>, List<copado__User_Story__c>, Map<Id,copado__User_Story__c>, Map<Id,copado__User_Story__c>)
+07:02:02.94 (1094876619)|VARIABLE_SCOPE_BEGIN|[120]|oldList|List<copado__User_Story__c>|true|false
+07:02:02.94 (1098528286)|VARIABLE_ASSIGNMENT|[120]|oldList|[{"LastModifiedDate":"2024-08-06T10:43:52.000Z","copado__Apex_Tests_Passed__c":false,"SEC_API_Scan_Status__c":"Not Started","Release_Locked__c":false,"cml_Is_Business_Disruption_Failure__c":false,"No_Priority_1_Violation__c":false,"Name":"US-0029875","copado__Latest_Commit_Date__c":"2024-08-05T18:30:59.000Z","Sandbox_Type__c":"Prod-1","CreatedById":"0053c00000C7YvRAAV","copado__QR_Code__c":"_IM1_https://chart.g (181 more) ...","Enable_Logs__c":false,"copado__Progress_Status__c":"_IM1_/img/samples/co (168 more) ...","copado__Promote_and_Deploy__c":false,"copado__Environment__c":"a2j7x0000005bYPAAY","Current_Branch__c":"runway_cpnppilot4","copado__Exclude_From_CBM__c":false,"Retry__c":0,"copado__View_in_Git__c":"_HL_ENCODED_https:// (136 more) ...","copado__Manual_Step_Required__c":false,"Architectural_Review_Needed__c":true,"IsDeleted":false,"copado__Promote_as_Single_Step__c":false,"copado__Total_Story_Points__c":0,"copado__Platform__c":"Salesforce","copado__Validate_Only__c":false,"copado__Promotion_Test_Level__c":"NoTestRun","copado__Total_Actual_Points__c":1,"CreatedDate":"2024-08-05T17:55:44.000Z","Id":"a3p7x000000DIdRAAW","copado__Legal__c":false,"copado__Story_Points_SFDC__c":1,"Humana_Org__c":"Service","SNOW_APPSVCID__c":"APPSVC039173","Base_Branch_Updated__c":false,"OwnerId":"0053c00000C7YvRAAV","copado__Environment_Type__c":"Sandbox","copado__Promote_Change__c":false,"RecordTypeId":"0123c000000l2BQAAY","SecAPI_Scan_Passed__c":true,"copado__Documentation_Complete__c":false,"Security_Level_Passed__c":false,"copado__Project__c":"a357x0000001k5dAAA","is_Testing_Done__c":false,"copado__User_Story_Title__c":"test flow3","Story_Type__c":"External","copado__Metadata_Types_in_Selection__c":"CustomField","copado__Has_Apex_Code__c":false,"copado__Minimum_Apex_Code_Coverage__c":75,"copado__Manual_Tests_Passed__c":false,"copado__Stop_Indexing_Metadata__c":false,"copado__Pull_Requests_Approved__c":false,"Is_HotFix__c":false,"copado__Is_Bundle__c":false,"cmcSf__Apex_Test_Level__c":"No Test Run","SystemModstamp":"2024-08-06T10:43:52.000Z","copado__Data_Privacy__c":false,"copado__Git_Repository__c":"a2v7x000000sZjx","copado__Compliance__c":false,"copado__Org_Credential__c":"a317x000000A9BhAAK","Source_Org__c":"CRM_CPNPPilot1","LastModifiedById":"0053c00000C7YvRAAV"}]|0x4c6fa56f
+07:02:02.94 (1098559580)|VARIABLE_SCOPE_BEGIN|[120]|newList|List<copado__User_Story__c>|true|false
+07:02:02.94 (1101328671)|VARIABLE_ASSIGNMENT|[120]|newList|[{"LastModifiedDate":"2024-08-06T11:02:02.000Z","copado__Apex_Tests_Passed__c":false,"SEC_API_Scan_Status__c":"Not Started","Release_Locked__c":false,"cml_Is_Business_Disruption_Failure__c":false,"No_Priority_1_Violation__c":false,"Name":"US-0029875","copado__Latest_Commit_Date__c":"2024-08-05T18:30:59.000Z","Sandbox_Type__c":"Prod-1","CreatedById":"0053c00000C7YvRAAV","copado__QR_Code__c":"_IM1_https://chart.g (181 more) ...","Enable_Logs__c":false,"copado__Progress_Status__c":"_IM1_/img/samples/co (168 more) ...","copado__Promote_and_Deploy__c":false,"copado__Environment__c":"a2j7x0000005bYPAAY","Current_Branch__c":"runway_cpnppilot4","copado__Exclude_From_CBM__c":false,"Retry__c":0,"copado__View_in_Git__c":"_HL_ENCODED_https:// (136 more) ...","copado__Manual_Step_Required__c":false,"Architectural_Review_Needed__c":true,"IsDeleted":false,"copado__Promote_as_Single_Step__c":false,"copado__Total_Story_Points__c":0,"copado__Platform__c":"Salesforce","copado__Validate_Only__c":false,"copado__Promotion_Test_Level__c":"NoTestRun","copado__Total_Actual_Points__c":1,"CreatedDate":"2024-08-05T17:55:44.000Z","Id":"a3p7x000000DIdRAAW","copado__Legal__c":false,"copado__Story_Points_SFDC__c":1,"Humana_Org__c":"Service","SNOW_APPSVCID__c":"APPSVC039173","Base_Branch_Updated__c":false,"OwnerId":"0053c00000C7YvRAAV","copado__Environment_Type__c":"Sandbox","copado__Promote_Change__c":false,"RecordTypeId":"0123c000000l2BQAAY","SecAPI_Scan_Passed__c":true,"copado__Documentation_Complete__c":false,"Security_Level_Passed__c":false,"copado__Project__c":"a357x0000001k5dAAA","is_Testing_Done__c":false,"copado__User_Story_Title__c":"test flow3","Story_Type__c":"External","copado__Metadata_Types_in_Selection__c":"CustomField","copado__Has_Apex_Code__c":false,"copado__Minimum_Apex_Code_Coverage__c":75,"copado__Manual_Tests_Passed__c":false,"copado__Stop_Indexing_Metadata__c":false,"copado__Pull_Requests_Approved__c":false,"Is_HotFix__c":false,"copado__Is_Bundle__c":false,"cmcSf__Apex_Test_Level__c":"No Test Run","SystemModstamp":"2024-08-06T11:02:02.000Z","copado__Data_Privacy__c":false,"copado__Git_Repository__c":"a2v7x000000sZjx","copado__Compliance__c":false,"copado__Org_Credential__c":"a317x000000A9BhAAK","Source_Org__c":"CRM_CPNPPilot1","LastModifiedById":"0053c00000C7YvRAAV"}]|0x48f81439
+07:02:02.94 (1101357302)|VARIABLE_SCOPE_BEGIN|[120]|oldMap|Map<Id,copado__User_Story__c>|true|false
+07:02:02.94 (1102001893)|VARIABLE_ASSIGNMENT|[120]|oldMap|{"a3p7x000000DIdRAAW":{"LastModifiedDate":"2024-08-06T10:43:52.000Z","copado__Apex_Tests_Passed__c":false,"SEC_API_Scan_Status__c":"Not Started","Release_Locked__c":false,"cml_Is_Business_Disruption_Failure__c":false,"No_Priority_1_Violation__c":false,"Name":"US-0029875","copado__Latest_Commit_Date__c":"2024-08-05T18:30:59.000Z","Sandbox_Type__c":"Prod-1","CreatedById":"0053c00000C7YvRAAV","copado__QR_Code__c":"_IM1_https://chart.g (181 more) ...","Enable_Logs__c":false,"copado__Progress_Status__c":"_IM1_/img/samples/co (168 more) ...","copado__Promote_and_Deploy__c":false,"copado__Environment__c":"a2j7x0000005bYPAAY","Current_Branch__c":"runway_cpnppilot4","copado__Exclude_From_CBM__c":false,"Retry__c":0,"copado__View_in_Git__c":"_HL_ENCODED_https:// (136 more) ...","copado__Manual_Step_Required__c":false,"Architectural_Review_Needed__c":true,"IsDeleted":false,"copado__Promote_as_Single_Step__c":false,"copado__Total_Story_Points__c":0,"copado__Platform__c":"Salesforce","copado__Validate_Only__c":false,"copado__Promotion_Test_Level__c":"NoTestRun","copado__Total_Actual_Points__c":1,"CreatedDate":"2024-08-05T17:55:44.000Z","Id":"a3p7x000000DIdRAAW","copado__Legal__c":false,"copado__Story_Points_SFDC__c":1,"Humana_Org__c":"Service","SNOW_APPSVCID__c":"APPSVC039173","Base_Branch_Updated__c":false,"OwnerId":"0053c00000C7YvRAAV","copado__Environment_Type__c":"Sandbox","copado__Promote_Change__c":false,"RecordTypeId":"0123c000000l2BQAAY","SecAPI_Scan_Passed__c":true,"copado__Documentation_Complete__c":false,"Security_Level_Passed__c":false,"copado__Project__c":"a357x0000001k5dAAA","is_Testing_Done__c":false,"copado__User_Story_Title__c":"test flow3","Story_Type__c":"External","copado__Metadata_Types_in_Selection__c":"CustomField","copado__Has_Apex_Code__c":false,"copado__Minimum_Apex_Code_Coverage__c":75,"copado__Manual_Tests_Passed__c":false,"copado__Stop_Indexing_Metadata__c":false,"copado__Pull_Requests_Approved__c":false,"Is_HotFix__c":false,"copado__Is_Bundle__c":false,"cmcSf__Apex_Test_Level__c":"No Test Run","SystemModstamp":"2024-08-06T10:43:52.000Z","copado__Data_Privacy__c":false,"copado__Git_Repository__c":"a2v7x000000sZjx","copado__Compliance__c":false,"copado__Org_Credential__c":"a317x000000A9BhAAK","Source_Org__c":"CRM_CPNPPilot1","LastModifiedById":"0053c00000C7YvRAAV"}}|0x65ddb473
+07:02:02.94 (1102021773)|VARIABLE_SCOPE_BEGIN|[120]|newMap|Map<Id,copado__User_Story__c>|true|false
+07:02:02.94 (1102585690)|VARIABLE_ASSIGNMENT|[120]|newMap|{"a3p7x000000DIdRAAW":{"LastModifiedDate":"2024-08-06T11:02:02.000Z","copado__Apex_Tests_Passed__c":false,"SEC_API_Scan_Status__c":"Not Started","Release_Locked__c":false,"cml_Is_Business_Disruption_Failure__c":false,"No_Priority_1_Violation__c":false,"Name":"US-0029875","copado__Latest_Commit_Date__c":"2024-08-05T18:30:59.000Z","Sandbox_Type__c":"Prod-1","CreatedById":"0053c00000C7YvRAAV","copado__QR_Code__c":"_IM1_https://chart.g (181 more) ...","Enable_Logs__c":false,"copado__Progress_Status__c":"_IM1_/img/samples/co (168 more) ...","copado__Promote_and_Deploy__c":false,"copado__Environment__c":"a2j7x0000005bYPAAY","Current_Branch__c":"runway_cpnppilot4","copado__Exclude_From_CBM__c":false,"Retry__c":0,"copado__View_in_Git__c":"_HL_ENCODED_https:// (136 more) ...","copado__Manual_Step_Required__c":false,"Architectural_Review_Needed__c":true,"IsDeleted":false,"copado__Promote_as_Single_Step__c":false,"copado__Total_Story_Points__c":0,"copado__Platform__c":"Salesforce","copado__Validate_Only__c":false,"copado__Promotion_Test_Level__c":"NoTestRun","copado__Total_Actual_Points__c":1,"CreatedDate":"2024-08-05T17:55:44.000Z","Id":"a3p7x000000DIdRAAW","copado__Legal__c":false,"copado__Story_Points_SFDC__c":1,"Humana_Org__c":"Service","SNOW_APPSVCID__c":"APPSVC039173","Base_Branch_Updated__c":false,"OwnerId":"0053c00000C7YvRAAV","copado__Environment_Type__c":"Sandbox","copado__Promote_Change__c":false,"RecordTypeId":"0123c000000l2BQAAY","SecAPI_Scan_Passed__c":true,"copado__Documentation_Complete__c":false,"Security_Level_Passed__c":false,"copado__Project__c":"a357x0000001k5dAAA","is_Testing_Done__c":false,"copado__User_Story_Title__c":"test flow3","Story_Type__c":"External","copado__Metadata_Types_in_Selection__c":"CustomField","copado__Has_Apex_Code__c":false,"copado__Minimum_Apex_Code_Coverage__c":75,"copado__Manual_Tests_Passed__c":false,"copado__Stop_Indexing_Metadata__c":false,"copado__Pull_Requests_Approved__c":false,"Is_HotFix__c":false,"copado__Is_Bundle__c":false,"cmcSf__Apex_Test_Level__c":"No Test Run","SystemModstamp":"2024-08-06T11:02:02.000Z","copado__Data_Privacy__c":false,"copado__Git_Repository__c":"a2v7x000000sZjx","copado__Compliance__c":false,"copado__Org_Credential__c":"a317x000000A9BhAAK","Source_Org__c":"CRM_CPNPPilot1","LastModifiedById":"0053c00000C7YvRAAV"}}|0x65755c93
+07:02:02.94 (1103470325)|SYSTEM_MODE_ENTER|false
+07:02:02.94 (1103489696)|HEAP_ALLOCATE|[121]|Bytes:5
+07:02:02.94 (1103502612)|STATEMENT_EXECUTE|[120]
+07:02:02.94 (1103504065)|STATEMENT_EXECUTE|[121]
+07:02:02.94 (1103524545)|HEAP_ALLOCATE|[121]|Bytes:4
+07:02:02.94 (1103567548)|VARIABLE_SCOPE_BEGIN|[121]|MapReleases|Map<Id,copado__Release__c>|true|false
+07:02:02.94 (1103582161)|VARIABLE_ASSIGNMENT|[121]|MapReleases|{}|0x20b13261
+07:02:02.94 (1103586150)|STATEMENT_EXECUTE|[122]
+07:02:02.94 (1103596474)|HEAP_ALLOCATE|[122]|Bytes:4
+07:02:02.94 (1103635349)|VARIABLE_SCOPE_BEGIN|[122]|recommitedUSIds|Set<Id>|true|false
+07:02:02.94 (1103659093)|VARIABLE_ASSIGNMENT|[122]|recommitedUSIds|[]|0x5f2ad33d
+07:02:02.94 (1103662223)|STATEMENT_EXECUTE|[123]
+07:02:02.94 (1103741843)|HEAP_ALLOCATE|[123]|Bytes:4
+07:02:02.94 (1103781019)|VARIABLE_SCOPE_BEGIN|[123]|pullRequestList|List<copado__Pull_Request__c>|true|false
+07:02:02.94 (1103787040)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:4
+07:02:02.94 (1103792942)|VARIABLE_ASSIGNMENT|[123]|pullRequestList|[]|0x1ac2cc49
+07:02:02.94 (1103836610)|HEAP_ALLOCATE|[124]|Bytes:21
+07:02:02.94 (1104112461)|HEAP_ALLOCATE|[124]|Bytes:4
+07:02:02.94 (1104135639)|STATEMENT_EXECUTE|[124]
+07:02:02.94 (1104172426)|HEAP_ALLOCATE|[125]|Bytes:5
+07:02:02.94 (1104193046)|VARIABLE_SCOPE_BEGIN|[125]|us|copado__User_Story__c|true|false
+07:02:02.94 (1105115836)|VARIABLE_ASSIGNMENT|[125]|us|{"LastModifiedDate":"2024-08-06T11:02:02.000Z","copado__Apex_Tests_Passed__c":false,"SEC_API_Scan_Status__c":"Not Started","Release_Locked__c":false,"cml_Is_Business_Disruption_Failure__c":false,"No_Priority_1_Violation__c":false,"Name":"US-0029875","copado__Latest_Commit_Date__c":"2024-08-05T18:30:59.000Z","Sandbox_Type__c":"Prod-1","CreatedById":"0053c00000C7YvRAAV","copado__QR_Code__c":"_IM1_https://chart.g (181 more) ...","Enable_Logs__c":false,"copado__Progress_Status__c":"_IM1_/img/samples/co (168 more) ...","copado__Promote_and_Deploy__c":false,"copado__Environment__c":"a2j7x0000005bYPAAY","Current_Branch__c":"runway_cpnppilot4","copado__Exclude_From_CBM__c":false,"Retry__c":0,"copado__View_in_Git__c":"_HL_ENCODED_https:// (136 more) ...","copado__Manual_Step_Required__c":false,"Architectural_Review_Needed__c":true,"IsDeleted":false,"copado__Promote_as_Single_Step__c":false,"copado__Total_Story_Points__c":0,"copado__Platform__c":"Salesforce","copado__Validate_Only__c":false,"copado__Promotion_Test_Level__c":"NoTestRun","copado__Total_Actual_Points__c":1,"CreatedDate":"2024-08-05T17:55:44.000Z","Id":"a3p7x000000DIdRAAW","copado__Legal__c":false,"copado__Story_Points_SFDC__c":1,"Humana_Org__c":"Service","SNOW_APPSVCID__c":"APPSVC039173","Base_Branch_Updated__c":false,"OwnerId":"0053c00000C7YvRAAV","copado__Environment_Type__c":"Sandbox","copado__Promote_Change__c":false,"RecordTypeId":"0123c000000l2BQAAY","SecAPI_Scan_Passed__c":true,"copado__Documentation_Complete__c":false,"Security_Level_Passed__c":false,"copado__Project__c":"a357x0000001k5dAAA","is_Testing_Done__c":false,"copado__User_Story_Title__c":"test flow3","Story_Type__c":"External","copado__Metadata_Types_in_Selection__c":"CustomField","copado__Has_Apex_Code__c":false,"copado__Minimum_Apex_Code_Coverage__c":75,"copado__Manual_Tests_Passed__c":false,"copado__Stop_Indexing_Metadata__c":false,"copado__Pull_Requests_Approved__c":false,"Is_HotFix__c":false,"copado__Is_Bundle__c":false,"cmcSf__Apex_Test_Level__c":"No Test Run","SystemModstamp":"2024-08-06T11:02:02.000Z","copado__Data_Privacy__c":false,"copado__Git_Repository__c":"a2v7x000000sZjx","copado__Compliance__c":false,"copado__Org_Credential__c":"a317x000000A9BhAAK","Source_Org__c":"CRM_CPNPPilot1","LastModifiedById":"0053c00000C7YvRAAV"}|0x5f4ed3e3
+07:02:02.94 (1105141237)|STATEMENT_EXECUTE|[125]
+07:02:02.94 (1105159251)|STATEMENT_EXECUTE|[126]
+07:02:02.94 (1105239688)|STATEMENT_EXECUTE|[130]
+07:02:02.94 (1105251051)|HEAP_ALLOCATE|[125]|Bytes:5
+07:02:02.94 (1105264661)|VARIABLE_ASSIGNMENT|[125]|us|null|
+07:02:02.94 (1105288314)|HEAP_ALLOCATE|[135]|Bytes:5
+07:02:02.94 (1105299103)|VARIABLE_SCOPE_BEGIN|[135]|us|copado__User_Story__c|true|false
+07:02:02.94 (1105976223)|VARIABLE_ASSIGNMENT|[135]|us|{"LastModifiedDate":"2024-08-06T10:43:52.000Z","copado__Apex_Tests_Passed__c":false,"SEC_API_Scan_Status__c":"Not Started","Release_Locked__c":false,"cml_Is_Business_Disruption_Failure__c":false,"No_Priority_1_Violation__c":false,"Name":"US-0029875","copado__Latest_Commit_Date__c":"2024-08-05T18:30:59.000Z","Sandbox_Type__c":"Prod-1","CreatedById":"0053c00000C7YvRAAV","copado__QR_Code__c":"_IM1_https://chart.g (181 more) ...","Enable_Logs__c":false,"copado__Progress_Status__c":"_IM1_/img/samples/co (168 more) ...","copado__Promote_and_Deploy__c":false,"copado__Environment__c":"a2j7x0000005bYPAAY","Current_Branch__c":"runway_cpnppilot4","copado__Exclude_From_CBM__c":false,"Retry__c":0,"copado__View_in_Git__c":"_HL_ENCODED_https:// (136 more) ...","copado__Manual_Step_Required__c":false,"Architectural_Review_Needed__c":true,"IsDeleted":false,"copado__Promote_as_Single_Step__c":false,"copado__Total_Story_Points__c":0,"copado__Platform__c":"Salesforce","copado__Validate_Only__c":false,"copado__Promotion_Test_Level__c":"NoTestRun","copado__Total_Actual_Points__c":1,"CreatedDate":"2024-08-05T17:55:44.000Z","Id":"a3p7x000000DIdRAAW","copado__Legal__c":false,"copado__Story_Points_SFDC__c":1,"Humana_Org__c":"Service","SNOW_APPSVCID__c":"APPSVC039173","Base_Branch_Updated__c":false,"OwnerId":"0053c00000C7YvRAAV","copado__Environment_Type__c":"Sandbox","copado__Promote_Change__c":false,"RecordTypeId":"0123c000000l2BQAAY","SecAPI_Scan_Passed__c":true,"copado__Documentation_Complete__c":false,"Security_Level_Passed__c":false,"copado__Project__c":"a357x0000001k5dAAA","is_Testing_Done__c":false,"copado__User_Story_Title__c":"test flow3","Story_Type__c":"External","copado__Metadata_Types_in_Selection__c":"CustomField","copado__Has_Apex_Code__c":false,"copado__Minimum_Apex_Code_Coverage__c":75,"copado__Manual_Tests_Passed__c":false,"copado__Stop_Indexing_Metadata__c":false,"copado__Pull_Requests_Approved__c":false,"Is_HotFix__c":false,"copado__Is_Bundle__c":false,"cmcSf__Apex_Test_Level__c":"No Test Run","SystemModstamp":"2024-08-06T10:43:52.000Z","copado__Data_Privacy__c":false,"copado__Git_Repository__c":"a2v7x000000sZjx","copado__Compliance__c":false,"copado__Org_Credential__c":"a317x000000A9BhAAK","Source_Org__c":"CRM_CPNPPilot1","LastModifiedById":"0053c00000C7YvRAAV"}|0x1feb032a
+07:02:02.94 (1105994262)|STATEMENT_EXECUTE|[135]
+07:02:02.94 (1106005512)|STATEMENT_EXECUTE|[136]
+07:02:02.94 (1106016363)|HEAP_ALLOCATE|[135]|Bytes:5
+07:02:02.94 (1106026287)|VARIABLE_ASSIGNMENT|[135]|us|null|
+07:02:02.94 (1106053648)|STATEMENT_EXECUTE|[141]
+07:02:02.94 (1106068743)|STATEMENT_EXECUTE|[145]
+07:02:02.94 (1106079852)|STATEMENT_EXECUTE|[153]
+07:02:02.94 (1106085354)|SYSTEM_MODE_EXIT|false
+07:02:02.94 (1106099164)|METHOD_EXIT|[27]|01p3c000002BU4R|UserStoryTriggerHelper_HUM.onAfterUpdate(List<copado__User_Story__c>, List<copado__User_Story__c>, Map<Id,copado__User_Story__c>, Map<Id,copado__User_Story__c>)
+07:02:02.94 (1106110557)|STATEMENT_EXECUTE|[29]
+07:02:02.94 (1106112692)|STATEMENT_EXECUTE|[33]
+07:02:02.106 (1106120992)|CUMULATIVE_LIMIT_USAGE
+07:02:02.106 (1106120992)|LIMIT_USAGE_FOR_NS|(default)|
+  Number of SOQL queries: 1 out of 100
+  Number of query rows: 1 out of 50000
+  Number of SOSL queries: 0 out of 20
+  Number of DML statements: 1 out of 150
+  Number of Publish Immediate DML: 0 out of 150
+  Number of DML rows: 1 out of 10000
+  Maximum CPU time: 524 out of 10000
+  Maximum heap size: 0 out of 6000000
+  Number of callouts: 0 out of 100
+  Number of Email Invocations: 0 out of 10
+  Number of future calls: 0 out of 50
+  Number of queueable jobs added to the queue: 0 out of 50
+  Number of Mobile Apex push calls: 0 out of 10
+
+07:02:02.106 (1106120992)|LIMIT_USAGE_FOR_NS|copado|
+  Number of SOQL queries: 6 out of 100
+  Number of query rows: 11 out of 50000
+  Number of SOSL queries: 0 out of 20
+  Number of DML statements: 0 out of 150
+  Number of Publish Immediate DML: 0 out of 150
+  Number of DML rows: 0 out of 10000
+  Maximum CPU time: 0 out of 10000
+  Maximum heap size: 0 out of 6000000
+  Number of callouts: 0 out of 100
+  Number of Email Invocations: 0 out of 10
+  Number of future calls: 0 out of 50
+  Number of queueable jobs added to the queue: 0 out of 50
+  Number of Mobile Apex push calls: 0 out of 10
+
+07:02:02.106 (1106120992)|CUMULATIVE_LIMIT_USAGE_END
+
+07:02:02.94 (1106303655)|CODE_UNIT_FINISHED|UserStoryTrigger_HUM on User_Story trigger event AfterUpdate|__sfdc_trigger/UserStoryTrigger_HUM
+07:02:02.107 (1107666916)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1107859391)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1107885199)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1108043320)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1108079913)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1108291311)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1108313805)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1108342428)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1108367585)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1108440738)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1108487574)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1108505111)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1108564279)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1108605205)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1108639047)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1108658239)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1108770067)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1108942147)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1109022872)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1109096751)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1109119616)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1112930172)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1113117726)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1114700143)|SOQL_EXECUTE_BEGIN|[61]|Aggregations:0|SELECT Insert__c, Update__c, Delete__c, Undelete__c FROM Data_Change_Event_Condition__c WHERE Object_Api_Name__c = :tmpVar1
+07:02:02.107 (1122436672)|SOQL_EXECUTE_END|[61]|Rows:0
+07:02:02.107 (1122603612)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1122651347)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1122979615)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1123017389)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1123059309)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1123134082)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1123162632)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1123193769)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1123210328)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1123328597)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1123390523)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1123469412)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1123528753)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1123622217)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1131875120)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1131917928)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1131968759)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1132076652)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1132100373)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1132116767)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1132156983)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1132169381)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1132199977)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1132240778)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1132378382)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1132406898)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1132418119)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1132486923)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1132518306)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1132742791)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1132757338)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1132775965)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1132836835)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1132900944)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1132941100)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1132956829)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1132974899)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1132991705)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1133006196)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1133021936)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1133047408)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1133056337)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1133066318)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1133148940)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1133179427)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1133226337)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1133248934)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1133260207)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1133270937)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1133299693)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1133310587)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1133325588)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1133349364)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1135707105)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1135741590)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1138801084)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1138837349)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1138903658)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1138990150)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1139053277)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1139167914)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1139182872)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1139217293)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1139260106)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1139308530)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1141832566)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1142302118)|ENTERING_MANAGED_PKG|copado
+07:02:02.107 (1142323440)|ENTERING_MANAGED_PKG|copado
+07:02:02.142 (1142473149)|CUMULATIVE_LIMIT_USAGE
+07:02:02.142 (1142473149)|LIMIT_USAGE_FOR_NS|(default)|
+  Number of SOQL queries: 1 out of 100
+  Number of query rows: 1 out of 50000
+  Number of SOSL queries: 0 out of 20
+  Number of DML statements: 1 out of 150
+  Number of Publish Immediate DML: 0 out of 150
+  Number of DML rows: 1 out of 10000
+  Maximum CPU time: 524 out of 10000
+  Maximum heap size: 0 out of 6000000
+  Number of callouts: 0 out of 100
+  Number of Email Invocations: 0 out of 10
+  Number of future calls: 0 out of 50
+  Number of queueable jobs added to the queue: 0 out of 50
+  Number of Mobile Apex push calls: 0 out of 10
+
+07:02:02.142 (1142473149)|LIMIT_USAGE_FOR_NS|copado|
+  Number of SOQL queries: 7 out of 100
+  Number of query rows: 11 out of 50000
+  Number of SOSL queries: 0 out of 20
+  Number of DML statements: 0 out of 150
+  Number of Publish Immediate DML: 0 out of 150
+  Number of DML rows: 0 out of 10000
+  Maximum CPU time: 0 out of 10000
+  Maximum heap size: 0 out of 6000000
+  Number of callouts: 0 out of 100
+  Number of Email Invocations: 0 out of 10
+  Number of future calls: 0 out of 50
+  Number of queueable jobs added to the queue: 0 out of 50
+  Number of Mobile Apex push calls: 0 out of 10
+
+07:02:02.142 (1142473149)|CUMULATIVE_LIMIT_USAGE_END
+
+07:02:02.144 (1144560121)|CODE_UNIT_STARTED|[EXTERNAL]|Workflow:01I3c000001Iltb
+07:02:02.144 (1154154911)|WF_RULE_EVAL_BEGIN|Workflow
+07:02:02.144 (1154183593)|WF_CRITERIA_BEGIN|[User Story: US-0029875 a3p7x000000DIdR]|Peer_Review_Comment_update_in_Azure3013c000000cQkB|01Q3c000000OyMH|ON_RECURSIVE_UPDATE|0
+07:02:02.144 (1154339837)|WF_FORMULA|Formula:ENCODED:[treatNullAsNull]true|Values:
+07:02:02.144 (1154344798)|WF_CRITERIA_END|true
+07:02:02.144 (1155699225)|WF_SPOOL_ACTION_BEGIN|Workflow
+07:02:02.144 (1155740197)|WF_ACTION| Flow Trigger: 1;
+07:02:02.144 (1155742827)|WF_RULE_EVAL_END
+07:02:02.157 (1157718329)|FLOW_CREATE_INTERVIEW_BEGIN|00D56000000CKTf|3003c000000bxB0|3013c000000cQkB
+07:02:02.157 (1158594728)|FLOW_CREATE_INTERVIEW_END|73588a7640bb4cdd9c25aea9b711912744125f-3870|Peer Review Comment update in Azure
+07:02:02.144 (1158635847)|WF_FLOW_ACTION_BEGIN|09L3c000000HOKB
+07:02:02.159 (1159348246)|FLOW_START_INTERVIEWS_BEGIN|1
+07:02:02.159 (1159383288)|FLOW_START_INTERVIEW_BEGIN|73588a7640bb4cdd9c25aea9b711912744125f-3870|Peer Review Comment update in Azure
+07:02:02.159 (1167604509)|FLOW_START_INTERVIEW_END|73588a7640bb4cdd9c25aea9b711912744125f-3870|Peer Review Comment update in Azure
+07:02:02.159 (1167617811)|FLOW_START_INTERVIEWS_END|1
+07:02:02.159 (1167625586)|FLOW_INTERVIEW_FINISHED|73588a7640bb4cdd9c25aea9b711912744125f-3870|Peer Review Comment update in Azure
+07:02:02.144 (1169361815)|WF_FLOW_ACTION_END|09L3c000000HOKB
+07:02:02.144 (1169481581)|WF_ACTIONS_END| Flow Trigger: 1;
+07:02:02.144 (1169491091)|CODE_UNIT_FINISHED|Workflow:01I3c000001Iltb
+07:02:02.169 (1169581396)|CODE_UNIT_STARTED|[EXTERNAL]|Flow:01I3c000001Iltb
+07:02:02.171 (1171022703)|FLOW_CREATE_INTERVIEW_BEGIN|00D56000000CKTf|3007x00000G1JQn|3017x00000Vbkmn
+07:02:02.171 (1171078858)|FLOW_CREATE_INTERVIEW_END|73598a7640bb4cdd9c25aea9b711912744125f-3871|E3 &#124; Source org field populate
+07:02:02.171 (1171234098)|FLOW_START_INTERVIEWS_BEGIN|1
+07:02:02.171 (1171254120)|FLOW_START_INTERVIEW_BEGIN|73598a7640bb4cdd9c25aea9b711912744125f-3871|E3 &#124; Source org field populate
+07:02:02.171 (1171366762)|FLOW_START_INTERVIEW_END|73598a7640bb4cdd9c25aea9b711912744125f-3871|E3 &#124; Source org field populate
+07:02:02.171 (1171746657)|FLOW_START_INTERVIEWS_END|1
+07:02:02.171 (1171757210)|FLOW_INTERVIEW_FINISHED|73598a7640bb4cdd9c25aea9b711912744125f-3871|E3 &#124; Source org field populate
+07:02:02.172 (1172646500)|FLOW_CREATE_INTERVIEW_BEGIN|00D56000000CKTf|3005600000066SC|3017x00000XvIjc
+07:02:02.172 (1172687450)|FLOW_CREATE_INTERVIEW_END|73608a7640bb4cdd9c25aea9b711912744125f-3872|SendUpdatedValues2TP_UpdatedFlow
+07:02:02.172 (1172794359)|FLOW_START_INTERVIEWS_BEGIN|1
+07:02:02.172 (1172825759)|FLOW_START_INTERVIEW_BEGIN|73608a7640bb4cdd9c25aea9b711912744125f-3872|SendUpdatedValues2TP_UpdatedFlow
+07:02:02.172 (1172957834)|FLOW_START_INTERVIEW_END|73608a7640bb4cdd9c25aea9b711912744125f-3872|SendUpdatedValues2TP_UpdatedFlow
+07:02:02.194 (1194285264)|CODE_UNIT_STARTED|[EXTERNAL]|01q3c000000Hve9|UserStoryTrigger_HUM on User_Story trigger event BeforeUpdate|__sfdc_trigger/UserStoryTrigger_HUM
+07:02:02.194 (1194368926)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:8
+07:02:02.194 (1194435663)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:8
+07:02:02.194 (1194533539)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:4
+07:02:02.194 (1194546233)|VARIABLE_SCOPE_BEGIN|[21]|this|UserStoryTrigger_HUM|true|false
+07:02:02.194 (1194607003)|VARIABLE_ASSIGNMENT|[21]|this|{}|0x5575d9
+07:02:02.194 (1194637757)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:4
+07:02:02.194 (1194643370)|VARIABLE_SCOPE_BEGIN|[21]|this|UserStoryTrigger_HUM|true|false
+07:02:02.194 (1194654454)|VARIABLE_ASSIGNMENT|[21]|this|{}|0x5575d9
+07:02:02.194 (1194664794)|STATEMENT_EXECUTE|[21]
+07:02:02.194 (1194679307)|STATEMENT_EXECUTE|[23]
+07:02:02.194 (1194681724)|STATEMENT_EXECUTE|[24]
+07:02:02.194 (1194744842)|METHOD_ENTRY|[24]|01p3c000002BU4R|UserStoryTriggerHelper_HUM.onBeforeUpdate(List<copado__User_Story__c>, List<copado__User_Story__c>, Map<Id,copado__User_Story__c>, Map<Id,copado__User_Story__c>)
+07:02:02.194 (1194753778)|VARIABLE_SCOPE_BEGIN|[33]|oldList|List<copado__User_Story__c>|true|false
+07:02:02.194 (1199754249)|VARIABLE_ASSIGNMENT|[33]|oldList|[{"LastModifiedDate":"2024-08-06T11:02:02.000Z","copado__Apex_Tests_Passed__c":false,"SEC_API_Scan_Status__c":"Not Started","Release_Locked__c":false,"cml_Is_Business_Disruption_Failure__c":false,"No_Priority_1_Violation__c":false,"Name":"US-0029875","copado__Latest_Commit_Date__c":"2024-08-05T18:30:59.000Z","Sandbox_Type__c":"Prod-1","CreatedById":"0053c00000C7YvRAAV","copado__QR_Code__c":"_IM1_https://chart.g (181 more) ...","Enable_Logs__c":false,"copado__Progress_Status__c":"_IM1_/img/samples/co (168 more) ...","copado__Promote_and_Deploy__c":false,"copado__Environment__c":"a2j7x0000005bYPAAY","Current_Branch__c":"runway_cpnppilot4","copado__Exclude_From_CBM__c":false,"Retry__c":0,"copado__View_in_Git__c":"_HL_ENCODED_https:// (136 more) ...","copado__Manual_Step_Required__c":false,"Architectural_Review_Needed__c":true,"IsDeleted":false,"copado__Promote_as_Single_Step__c":false,"copado__Total_Story_Points__c":0,"copado__Platform__c":"Salesforce","copado__Validate_Only__c":false,"copado__Promotion_Test_Level__c":"NoTestRun","copado__Total_Actual_Points__c":1,"CreatedDate":"2024-08-05T17:55:44.000Z","Id":"a3p7x000000DIdRAAW","copado__Legal__c":false,"copado__Story_Points_SFDC__c":1,"Humana_Org__c":"Service","SNOW_APPSVCID__c":"APPSVC039173","Base_Branch_Updated__c":false,"OwnerId":"0053c00000C7YvRAAV","copado__Environment_Type__c":"Sandbox","copado__Promote_Change__c":false,"RecordTypeId":"0123c000000l2BQAAY","SecAPI_Scan_Passed__c":true,"copado__Documentation_Complete__c":false,"Security_Level_Passed__c":false,"copado__Project__c":"a357x0000001k5dAAA","is_Testing_Done__c":false,"copado__User_Story_Title__c":"test flow3","Story_Type__c":"External","copado__Metadata_Types_in_Selection__c":"CustomField","copado__Has_Apex_Code__c":false,"copado__Minimum_Apex_Code_Coverage__c":75,"copado__Manual_Tests_Passed__c":false,"copado__Stop_Indexing_Metadata__c":false,"copado__Pull_Requests_Approved__c":false,"Is_HotFix__c":false,"copado__Is_Bundle__c":false,"cmcSf__Apex_Test_Level__c":"No Test Run","SystemModstamp":"2024-08-06T11:02:02.000Z","copado__Data_Privacy__c":false,"copado__Git_Repository__c":"a2v7x000000sZjx","copado__Compliance__c":false,"copado__Org_Credential__c":"a317x000000A9BhAAK","Source_Org__c":"CRM_CPNPPilot1","LastModifiedById":"0053c00000C7YvRAAV"}]|0x5860f31a
+07:02:02.194 (1199797751)|VARIABLE_SCOPE_BEGIN|[33]|newList|List<copado__User_Story__c>|true|false
+07:02:02.194 (1204271926)|VARIABLE_ASSIGNMENT|[33]|newList|[{"LastModifiedDate":"2024-08-06T11:02:02.000Z","copado__Apex_Tests_Passed__c":false,"SEC_API_Scan_Status__c":"Not Started","Release_Locked__c":false,"cml_Is_Business_Disruption_Failure__c":false,"No_Priority_1_Violation__c":false,"Name":"US-0029875","copado__Latest_Commit_Date__c":"2024-08-05T18:30:59.000Z","Sandbox_Type__c":"Prod-1","CreatedById":"0053c00000C7YvRAAV","copado__QR_Code__c":"_IM1_https://chart.g (181 more) ...","Enable_Logs__c":false,"copado__Progress_Status__c":"_IM1_/img/samples/co (168 more) ...","copado__Promote_and_Deploy__c":false,"copado__Environment__c":"a2j7x0000005bYPAAY","Current_Branch__c":"runway_cpnppilot4","copado__Exclude_From_CBM__c":false,"Retry__c":0,"copado__View_in_Git__c":"_HL_ENCODED_https:// (136 more) ...","copado__Manual_Step_Required__c":false,"Architectural_Review_Needed__c":true,"IsDeleted":false,"copado__Promote_as_Single_Step__c":false,"copado__Total_Story_Points__c":0,"copado__Platform__c":"Salesforce","copado__Validate_Only__c":false,"copado__Promotion_Test_Level__c":"NoTestRun","copado__Total_Actual_Points__c":1,"CreatedDate":"2024-08-05T17:55:44.000Z","Id":"a3p7x000000DIdRAAW","copado__Legal__c":false,"copado__Story_Points_SFDC__c":1,"Humana_Org__c":"Service","SNOW_APPSVCID__c":"APPSVC039173","Base_Branch_Updated__c":false,"OwnerId":"0053c00000C7YvRAAV","copado__Environment_Type__c":"Sandbox","copado__Promote_Change__c":false,"RecordTypeId":"0123c000000l2BQAAY","SecAPI_Scan_Passed__c":true,"copado__Documentation_Complete__c":false,"Security_Level_Passed__c":false,"copado__Project__c":"a357x0000001k5dAAA","is_Testing_Done__c":false,"copado__User_Story_Title__c":"test flow3","Story_Type__c":"External","copado__Metadata_Types_in_Selection__c":"CustomField","copado__Has_Apex_Code__c":false,"copado__Minimum_Apex_Code_Coverage__c":75,"copado__Manual_Tests_Passed__c":false,"copado__Stop_Indexing_Metadata__c":false,"copado__Pull_Requests_Approved__c":false,"Is_HotFix__c":false,"copado__Is_Bundle__c":false,"cmcSf__Apex_Test_Level__c":"No Test Run","SystemModstamp":"2024-08-06T11:02:02.000Z","copado__Data_Privacy__c":false,"copado__Git_Repository__c":"a2v7x000000sZjx","copado__Compliance__c":false,"copado__Org_Credential__c":"a317x000000A9BhAAK","Source_Org__c":"CRM_CPNPPilot1","LastModifiedById":"0053c00000C7YvRAAV"}]|0x1f8afed5
+07:02:02.194 (1204312935)|VARIABLE_SCOPE_BEGIN|[33]|oldMap|Map<Id,copado__User_Story__c>|true|false
+07:02:02.194 (1205535669)|VARIABLE_ASSIGNMENT|[33]|oldMap|{"a3p7x000000DIdRAAW":{"LastModifiedDate":"2024-08-06T11:02:02.000Z","copado__Apex_Tests_Passed__c":false,"SEC_API_Scan_Status__c":"Not Started","Release_Locked__c":false,"cml_Is_Business_Disruption_Failure__c":false,"No_Priority_1_Violation__c":false,"Name":"US-0029875","copado__Latest_Commit_Date__c":"2024-08-05T18:30:59.000Z","Sandbox_Type__c":"Prod-1","CreatedById":"0053c00000C7YvRAAV","copado__QR_Code__c":"_IM1_https://chart.g (181 more) ...","Enable_Logs__c":false,"copado__Progress_Status__c":"_IM1_/img/samples/co (168 more) ...","copado__Promote_and_Deploy__c":false,"copado__Environment__c":"a2j7x0000005bYPAAY","Current_Branch__c":"runway_cpnppilot4","copado__Exclude_From_CBM__c":false,"Retry__c":0,"copado__View_in_Git__c":"_HL_ENCODED_https:// (136 more) ...","copado__Manual_Step_Required__c":false,"Architectural_Review_Needed__c":true,"IsDeleted":false,"copado__Promote_as_Single_Step__c":false,"copado__Total_Story_Points__c":0,"copado__Platform__c":"Salesforce","copado__Validate_Only__c":false,"copado__Promotion_Test_Level__c":"NoTestRun","copado__Total_Actual_Points__c":1,"CreatedDate":"2024-08-05T17:55:44.000Z","Id":"a3p7x000000DIdRAAW","copado__Legal__c":false,"copado__Story_Points_SFDC__c":1,"Humana_Org__c":"Service","SNOW_APPSVCID__c":"APPSVC039173","Base_Branch_Updated__c":false,"OwnerId":"0053c00000C7YvRAAV","copado__Environment_Type__c":"Sandbox","copado__Promote_Change__c":false,"RecordTypeId":"0123c000000l2BQAAY","SecAPI_Scan_Passed__c":true,"copado__Documentation_Complete__c":false,"Security_Level_Passed__c":false,"copado__Project__c":"a357x0000001k5dAAA","is_Testing_Done__c":false,"copado__User_Story_Title__c":"test flow3","Story_Type__c":"External","copado__Metadata_Types_in_Selection__c":"CustomField","copado__Has_Apex_Code__c":false,"copado__Minimum_Apex_Code_Coverage__c":75,"copado__Manual_Tests_Passed__c":false,"copado__Stop_Indexing_Metadata__c":false,"copado__Pull_Requests_Approved__c":false,"Is_HotFix__c":false,"copado__Is_Bundle__c":false,"cmcSf__Apex_Test_Level__c":"No Test Run","SystemModstamp":"2024-08-06T11:02:02.000Z","copado__Data_Privacy__c":false,"copado__Git_Repository__c":"a2v7x000000sZjx","copado__Compliance__c":false,"copado__Org_Credential__c":"a317x000000A9BhAAK","Source_Org__c":"CRM_CPNPPilot1","LastModifiedById":"0053c00000C7YvRAAV"}}|0xee28d8e
+07:02:02.194 (1205571931)|VARIABLE_SCOPE_BEGIN|[33]|newMap|Map<Id,copado__User_Story__c>|true|false
+07:02:02.194 (1206644531)|VARIABLE_ASSIGNMENT|[33]|newMap|{"a3p7x000000DIdRAAW":{"LastModifiedDate":"2024-08-06T11:02:02.000Z","copado__Apex_Tests_Passed__c":false,"SEC_API_Scan_Status__c":"Not Started","Release_Locked__c":false,"cml_Is_Business_Disruption_Failure__c":false,"No_Priority_1_Violation__c":false,"Name":"US-0029875","copado__Latest_Commit_Date__c":"2024-08-05T18:30:59.000Z","Sandbox_Type__c":"Prod-1","CreatedById":"0053c00000C7YvRAAV","copado__QR_Code__c":"_IM1_https://chart.g (181 more) ...","Enable_Logs__c":false,"copado__Progress_Status__c":"_IM1_/img/samples/co (168 more) ...","copado__Promote_and_Deploy__c":false,"copado__Environment__c":"a2j7x0000005bYPAAY","Current_Branch__c":"runway_cpnppilot4","copado__Exclude_From_CBM__c":false,"Retry__c":0,"copado__View_in_Git__c":"_HL_ENCODED_https:// (136 more) ...","copado__Manual_Step_Required__c":false,"Architectural_Review_Needed__c":true,"IsDeleted":false,"copado__Promote_as_Single_Step__c":false,"copado__Total_Story_Points__c":0,"copado__Platform__c":"Salesforce","copado__Validate_Only__c":false,"copado__Promotion_Test_Level__c":"NoTestRun","copado__Total_Actual_Points__c":1,"CreatedDate":"2024-08-05T17:55:44.000Z","Id":"a3p7x000000DIdRAAW","copado__Legal__c":false,"copado__Story_Points_SFDC__c":1,"Humana_Org__c":"Service","SNOW_APPSVCID__c":"APPSVC039173","Base_Branch_Updated__c":false,"OwnerId":"0053c00000C7YvRAAV","copado__Environment_Type__c":"Sandbox","copado__Promote_Change__c":false,"RecordTypeId":"0123c000000l2BQAAY","SecAPI_Scan_Passed__c":true,"copado__Documentation_Complete__c":false,"Security_Level_Passed__c":false,"copado__Project__c":"a357x0000001k5dAAA","is_Testing_Done__c":false,"copado__User_Story_Title__c":"test flow3","Story_Type__c":"External","copado__Metadata_Types_in_Selection__c":"CustomField","copado__Has_Apex_Code__c":false,"copado__Minimum_Apex_Code_Coverage__c":75,"copado__Manual_Tests_Passed__c":false,"copado__Stop_Indexing_Metadata__c":false,"copado__Pull_Requests_Approved__c":false,"Is_HotFix__c":false,"copado__Is_Bundle__c":false,"cmcSf__Apex_Test_Level__c":"No Test Run","SystemModstamp":"2024-08-06T11:02:02.000Z","copado__Data_Privacy__c":false,"copado__Git_Repository__c":"a2v7x000000sZjx","copado__Compliance__c":false,"copado__Org_Credential__c":"a317x000000A9BhAAK","Source_Org__c":"CRM_CPNPPilot1","LastModifiedById":"0053c00000C7YvRAAV"}}|0x502779a5
+07:02:02.194 (1208023273)|SYSTEM_MODE_ENTER|false
+07:02:02.194 (1208047879)|HEAP_ALLOCATE|[34]|Bytes:5
+07:02:02.194 (1208061855)|STATEMENT_EXECUTE|[33]
+07:02:02.194 (1208115578)|HEAP_ALLOCATE|[34]|Bytes:5
+07:02:02.194 (1208142881)|HEAP_ALLOCATE|[34]|Bytes:4
+07:02:02.194 (1208155975)|VARIABLE_SCOPE_BEGIN|[34]|us|copado__User_Story__c|true|false
+07:02:02.194 (1210072525)|VARIABLE_ASSIGNMENT|[34]|us|{"LastModifiedDate":"2024-08-06T11:02:02.000Z","copado__Apex_Tests_Passed__c":false,"SEC_API_Scan_Status__c":"Not Started","Release_Locked__c":false,"cml_Is_Business_Disruption_Failure__c":false,"No_Priority_1_Violation__c":false,"Name":"US-0029875","copado__Latest_Commit_Date__c":"2024-08-05T18:30:59.000Z","Sandbox_Type__c":"Prod-1","CreatedById":"0053c00000C7YvRAAV","copado__QR_Code__c":"_IM1_https://chart.g (181 more) ...","Enable_Logs__c":false,"copado__Progress_Status__c":"_IM1_/img/samples/co (168 more) ...","copado__Promote_and_Deploy__c":false,"copado__Environment__c":"a2j7x0000005bYPAAY","Current_Branch__c":"runway_cpnppilot4","copado__Exclude_From_CBM__c":false,"Retry__c":0,"copado__View_in_Git__c":"_HL_ENCODED_https:// (136 more) ...","copado__Manual_Step_Required__c":false,"Architectural_Review_Needed__c":true,"IsDeleted":false,"copado__Promote_as_Single_Step__c":false,"copado__Total_Story_Points__c":0,"copado__Platform__c":"Salesforce","copado__Validate_Only__c":false,"copado__Promotion_Test_Level__c":"NoTestRun","copado__Total_Actual_Points__c":1,"CreatedDate":"2024-08-05T17:55:44.000Z","Id":"a3p7x000000DIdRAAW","copado__Legal__c":false,"copado__Story_Points_SFDC__c":1,"Humana_Org__c":"Service","SNOW_APPSVCID__c":"APPSVC039173","Base_Branch_Updated__c":false,"OwnerId":"0053c00000C7YvRAAV","copado__Environment_Type__c":"Sandbox","copado__Promote_Change__c":false,"RecordTypeId":"0123c000000l2BQAAY","SecAPI_Scan_Passed__c":true,"copado__Documentation_Complete__c":false,"Security_Level_Passed__c":false,"copado__Project__c":"a357x0000001k5dAAA","is_Testing_Done__c":false,"copado__User_Story_Title__c":"test flow3","Story_Type__c":"External","copado__Metadata_Types_in_Selection__c":"CustomField","copado__Has_Apex_Code__c":false,"copado__Minimum_Apex_Code_Coverage__c":75,"copado__Manual_Tests_Passed__c":false,"copado__Stop_Indexing_Metadata__c":false,"copado__Pull_Requests_Approved__c":false,"Is_HotFix__c":false,"copado__Is_Bundle__c":false,"cmcSf__Apex_Test_Level__c":"No Test Run","SystemModstamp":"2024-08-06T11:02:02.000Z","copado__Data_Privacy__c":false,"copado__Git_Repository__c":"a2v7x000000sZjx","copado__Compliance__c":false,"copado__Org_Credential__c":"a317x000000A9BhAAK","Source_Org__c":"CRM_CPNPPilot1","LastModifiedById":"0053c00000C7YvRAAV"}|0x2a6ed5a
+07:02:02.194 (1210118899)|STATEMENT_EXECUTE|[34]
+07:02:02.194 (1210219386)|STATEMENT_EXECUTE|[35]
+07:02:02.194 (1210238038)|HEAP_ALLOCATE|[34]|Bytes:5
+07:02:02.194 (1210303540)|VARIABLE_ASSIGNMENT|[34]|us|null|
+07:02:02.194 (1210309319)|STATEMENT_EXECUTE|[40]
+07:02:02.194 (1210320695)|METHOD_ENTRY|[40]|01p3c000002BU4R|UserStoryTriggerHelper_HUM.handleBundleLogic(List<copado__User_Story__c>)
+07:02:02.194 (1210330119)|VARIABLE_SCOPE_BEGIN|[43]|newList|List<copado__User_Story__c>|true|false
+07:02:02.194 (1211811210)|VARIABLE_ASSIGNMENT|[43]|newList|[{"LastModifiedDate":"2024-08-06T11:02:02.000Z","copado__Apex_Tests_Passed__c":false,"SEC_API_Scan_Status__c":"Not Started","Release_Locked__c":false,"cml_Is_Business_Disruption_Failure__c":false,"No_Priority_1_Violation__c":false,"Name":"US-0029875","copado__Latest_Commit_Date__c":"2024-08-05T18:30:59.000Z","Sandbox_Type__c":"Prod-1","CreatedById":"0053c00000C7YvRAAV","copado__QR_Code__c":"_IM1_https://chart.g (181 more) ...","Enable_Logs__c":false,"copado__Progress_Status__c":"_IM1_/img/samples/co (168 more) ...","copado__Promote_and_Deploy__c":false,"copado__Environment__c":"a2j7x0000005bYPAAY","Current_Branch__c":"runway_cpnppilot4","copado__Exclude_From_CBM__c":false,"Retry__c":0,"copado__View_in_Git__c":"_HL_ENCODED_https:// (136 more) ...","copado__Manual_Step_Required__c":false,"Architectural_Review_Needed__c":true,"IsDeleted":false,"copado__Promote_as_Single_Step__c":false,"copado__Total_Story_Points__c":0,"copado__Platform__c":"Salesforce","copado__Validate_Only__c":false,"copado__Promotion_Test_Level__c":"NoTestRun","copado__Total_Actual_Points__c":1,"CreatedDate":"2024-08-05T17:55:44.000Z","Id":"a3p7x000000DIdRAAW","copado__Legal__c":false,"copado__Story_Points_SFDC__c":1,"Humana_Org__c":"Service","SNOW_APPSVCID__c":"APPSVC039173","Base_Branch_Updated__c":false,"OwnerId":"0053c00000C7YvRAAV","copado__Environment_Type__c":"Sandbox","copado__Promote_Change__c":false,"RecordTypeId":"0123c000000l2BQAAY","SecAPI_Scan_Passed__c":true,"copado__Documentation_Complete__c":false,"Security_Level_Passed__c":false,"copado__Project__c":"a357x0000001k5dAAA","is_Testing_Done__c":false,"copado__User_Story_Title__c":"test flow3","Story_Type__c":"External","copado__Metadata_Types_in_Selection__c":"CustomField","copado__Has_Apex_Code__c":false,"copado__Minimum_Apex_Code_Coverage__c":75,"copado__Manual_Tests_Passed__c":false,"copado__Stop_Indexing_Metadata__c":false,"copado__Pull_Requests_Approved__c":false,"Is_HotFix__c":false,"copado__Is_Bundle__c":false,"cmcSf__Apex_Test_Level__c":"No Test Run","SystemModstamp":"2024-08-06T11:02:02.000Z","copado__Data_Privacy__c":false,"copado__Git_Repository__c":"a2v7x000000sZjx","copado__Compliance__c":false,"copado__Org_Credential__c":"a317x000000A9BhAAK","Source_Org__c":"CRM_CPNPPilot1","LastModifiedById":"0053c00000C7YvRAAV"}]|0x1f8afed5
+07:02:02.194 (1211861175)|HEAP_ALLOCATE|[44]|Bytes:5
+07:02:02.194 (1211870612)|STATEMENT_EXECUTE|[43]
+07:02:02.194 (1211872634)|STATEMENT_EXECUTE|[44]
+07:02:02.194 (1211904197)|HEAP_ALLOCATE|[44]|Bytes:4
+07:02:02.194 (1211947512)|VARIABLE_SCOPE_BEGIN|[44]|usBundleIds|Set<Id>|true|false
+07:02:02.194 (1211997707)|VARIABLE_ASSIGNMENT|[44]|usBundleIds|[]|0x479d07d2
+07:02:02.194 (1212043557)|HEAP_ALLOCATE|[45]|Bytes:5
+07:02:02.194 (1212064033)|HEAP_ALLOCATE|[45]|Bytes:4
+07:02:02.194 (1212090297)|VARIABLE_SCOPE_BEGIN|[45]|us|copado__User_Story__c|true|false
+07:02:02.194 (1213300945)|VARIABLE_ASSIGNMENT|[45]|us|{"LastModifiedDate":"2024-08-06T11:02:02.000Z","copado__Apex_Tests_Passed__c":false,"SEC_API_Scan_Status__c":"Not Started","Release_Locked__c":false,"cml_Is_Business_Disruption_Failure__c":false,"No_Priority_1_Violation__c":false,"Name":"US-0029875","copado__Latest_Commit_Date__c":"2024-08-05T18:30:59.000Z","Sandbox_Type__c":"Prod-1","CreatedById":"0053c00000C7YvRAAV","copado__QR_Code__c":"_IM1_https://chart.g (181 more) ...","Enable_Logs__c":false,"copado__Progress_Status__c":"_IM1_/img/samples/co (168 more) ...","copado__Promote_and_Deploy__c":false,"copado__Environment__c":"a2j7x0000005bYPAAY","Current_Branch__c":"runway_cpnppilot4","copado__Exclude_From_CBM__c":false,"Retry__c":0,"copado__View_in_Git__c":"_HL_ENCODED_https:// (136 more) ...","copado__Manual_Step_Required__c":false,"Architectural_Review_Needed__c":true,"IsDeleted":false,"copado__Promote_as_Single_Step__c":false,"copado__Total_Story_Points__c":0,"copado__Platform__c":"Salesforce","copado__Validate_Only__c":false,"copado__Promotion_Test_Level__c":"NoTestRun","copado__Total_Actual_Points__c":1,"CreatedDate":"2024-08-05T17:55:44.000Z","Id":"a3p7x000000DIdRAAW","copado__Legal__c":false,"copado__Story_Points_SFDC__c":1,"Humana_Org__c":"Service","SNOW_APPSVCID__c":"APPSVC039173","Base_Branch_Updated__c":false,"OwnerId":"0053c00000C7YvRAAV","copado__Environment_Type__c":"Sandbox","copado__Promote_Change__c":false,"RecordTypeId":"0123c000000l2BQAAY","SecAPI_Scan_Passed__c":true,"copado__Documentation_Complete__c":false,"Security_Level_Passed__c":false,"copado__Project__c":"a357x0000001k5dAAA","is_Testing_Done__c":false,"copado__User_Story_Title__c":"test flow3","Story_Type__c":"External","copado__Metadata_Types_in_Selection__c":"CustomField","copado__Has_Apex_Code__c":false,"copado__Minimum_Apex_Code_Coverage__c":75,"copado__Manual_Tests_Passed__c":false,"copado__Stop_Indexing_Metadata__c":false,"copado__Pull_Requests_Approved__c":false,"Is_HotFix__c":false,"copado__Is_Bundle__c":false,"cmcSf__Apex_Test_Level__c":"No Test Run","SystemModstamp":"2024-08-06T11:02:02.000Z","copado__Data_Privacy__c":false,"copado__Git_Repository__c":"a2v7x000000sZjx","copado__Compliance__c":false,"copado__Org_Credential__c":"a317x000000A9BhAAK","Source_Org__c":"CRM_CPNPPilot1","LastModifiedById":"0053c00000C7YvRAAV"}|0x2a6ed5a
+07:02:02.194 (1213339295)|STATEMENT_EXECUTE|[45]
+07:02:02.194 (1213355971)|STATEMENT_EXECUTE|[46]
+07:02:02.194 (1213374933)|HEAP_ALLOCATE|[45]|Bytes:5
+07:02:02.194 (1213394575)|VARIABLE_ASSIGNMENT|[45]|us|null|
+07:02:02.194 (1213411636)|STATEMENT_EXECUTE|[51]
+07:02:02.194 (1213424796)|METHOD_EXIT|[40]|01p3c000002BU4R|UserStoryTriggerHelper_HUM.handleBundleLogic(List<copado__User_Story__c>)
+07:02:02.194 (1213432829)|SYSTEM_MODE_EXIT|false
+07:02:02.194 (1213443170)|METHOD_EXIT|[24]|01p3c000002BU4R|UserStoryTriggerHelper_HUM.onBeforeUpdate(List<copado__User_Story__c>, List<copado__User_Story__c>, Map<Id,copado__User_Story__c>, Map<Id,copado__User_Story__c>)
+07:02:02.194 (1213456886)|STATEMENT_EXECUTE|[26]
+07:02:02.194 (1213464935)|STATEMENT_EXECUTE|[29]
+07:02:02.194 (1213470055)|STATEMENT_EXECUTE|[33]
+07:02:02.213 (1213479216)|CUMULATIVE_LIMIT_USAGE
+07:02:02.213 (1213479216)|LIMIT_USAGE_FOR_NS|(default)|
+  Number of SOQL queries: 1 out of 100
+  Number of query rows: 1 out of 50000
+  Number of SOSL queries: 0 out of 20
+  Number of DML statements: 2 out of 150
+  Number of Publish Immediate DML: 0 out of 150
+  Number of DML rows: 2 out of 10000
+  Maximum CPU time: 597 out of 10000
+  Maximum heap size: 0 out of 6000000
+  Number of callouts: 0 out of 100
+  Number of Email Invocations: 0 out of 10
+  Number of future calls: 0 out of 50
+  Number of queueable jobs added to the queue: 0 out of 50
+  Number of Mobile Apex push calls: 0 out of 10
+
+07:02:02.213 (1213479216)|LIMIT_USAGE_FOR_NS|copado|
+  Number of SOQL queries: 7 out of 100
+  Number of query rows: 11 out of 50000
+  Number of SOSL queries: 0 out of 20
+  Number of DML statements: 0 out of 150
+  Number of Publish Immediate DML: 0 out of 150
+  Number of DML rows: 0 out of 10000
+  Maximum CPU time: 0 out of 10000
+  Maximum heap size: 0 out of 6000000
+  Number of callouts: 0 out of 100
+  Number of Email Invocations: 0 out of 10
+  Number of future calls: 0 out of 50
+  Number of queueable jobs added to the queue: 0 out of 50
+  Number of Mobile Apex push calls: 0 out of 10
+
+07:02:02.213 (1213479216)|CUMULATIVE_LIMIT_USAGE_END
+
+07:02:02.194 (1213710870)|CODE_UNIT_FINISHED|UserStoryTrigger_HUM on User_Story trigger event BeforeUpdate|__sfdc_trigger/UserStoryTrigger_HUM
+07:02:02.215 (1215374294)|ENTERING_MANAGED_PKG|copado
+07:02:02.215 (1215651825)|ENTERING_MANAGED_PKG|copado
+07:02:02.215 (1215690174)|ENTERING_MANAGED_PKG|copado
+07:02:02.215 (1215894874)|ENTERING_MANAGED_PKG|copado
+07:02:02.215 (1215920633)|ENTERING_MANAGED_PKG|copado
+07:02:02.215 (1215938353)|ENTERING_MANAGED_PKG|copado
+07:02:02.215 (1216964943)|SOQL_EXECUTE_BEGIN|[102]|Aggregations:0|SELECT Id, OwnerId, Environment__c FROM Org__c WHERE Id = :tmpVar1
+07:02:02.215 (1222462558)|SOQL_EXECUTE_END|[102]|Rows:1
+07:02:02.215 (1223229221)|SOQL_EXECUTE_BEGIN|[107]|Aggregations:0|SELECT Id, Name, Minimum_Apex_Test_Coverage__c FROM Environment__c WHERE Id = :tmpVar1
+07:02:02.215 (1227693059)|SOQL_EXECUTE_END|[107]|Rows:1
+07:02:02.215 (1228305688)|SOQL_EXECUTE_BEGIN|[115]|Aggregations:0|SELECT Id, Project__c FROM Sprint__c WHERE Id = :tmpVar1
+07:02:02.215 (1231254062)|SOQL_EXECUTE_END|[115]|Rows:0
+07:02:02.215 (1232012148)|SOQL_EXECUTE_BEGIN|[117]|Aggregations:0|SELECT MAX(Order__c) order, Sprint__c sprint FROM User_Story__c WHERE Sprint__c = :tmpVar1 GROUP BY Sprint__c
+07:02:02.215 (1242682635)|SOQL_EXECUTE_END|[117]|Rows:1
+07:02:02.215 (1243736361)|SOQL_EXECUTE_BEGIN|[127]|Aggregations:0|SELECT Deployment_Flow__c FROM Project__c WHERE Id = :tmpVar1
+07:02:02.215 (1248696948)|SOQL_EXECUTE_END|[127]|Rows:1
+07:02:02.215 (1250426450)|SOQL_EXECUTE_BEGIN|[152]|Aggregations:1|SELECT Id, Platform__c, (SELECT Source_Environment__c, copado__Destination_Environment__c, Destination_Environment__r.Name, Destination_Environment__r.Run_all_tests__c FROM Deployment_Flow_Steps__r) FROM Deployment_Flow__c WHERE Id IN :tmpVar1
+07:02:02.215 (1264804922)|SOQL_EXECUTE_END|[152]|Rows:1
+07:02:02.215 (1266158479)|ENTERING_MANAGED_PKG|copado
+07:02:02.215 (1266192970)|ENTERING_MANAGED_PKG|copado
+07:02:02.215 (1266216473)|ENTERING_MANAGED_PKG|copado
+07:02:02.215 (1266257054)|ENTERING_MANAGED_PKG|copado
+07:02:02.215 (1266362525)|ENTERING_MANAGED_PKG|copado
+07:02:02.215 (1266417460)|ENTERING_MANAGED_PKG|copado
+07:02:02.215 (1266529671)|ENTERING_MANAGED_PKG|copado
+07:02:02.215 (1266599708)|ENTERING_MANAGED_PKG|copado
+07:02:02.215 (1266624611)|ENTERING_MANAGED_PKG|copado
+07:02:02.215 (1266712693)|ENTERING_MANAGED_PKG|copado
+07:02:02.215 (1266749665)|ENTERING_MANAGED_PKG|copado
+07:02:02.215 (1266806827)|ENTERING_MANAGED_PKG|copado
+07:02:02.215 (1266974761)|ENTERING_MANAGED_PKG|copado
+07:02:02.215 (1267012624)|ENTERING_MANAGED_PKG|copado
+07:02:02.215 (1267027246)|ENTERING_MANAGED_PKG|copado
+07:02:02.215 (1267124650)|ENTERING_MANAGED_PKG|copado
+07:02:02.215 (1267403639)|ENTERING_MANAGED_PKG|copado
+07:02:02.215 (1267423227)|ENTERING_MANAGED_PKG|copado
+07:02:02.215 (1267449754)|ENTERING_MANAGED_PKG|copado
+07:02:02.215 (1267510750)|ENTERING_MANAGED_PKG|copado
+07:02:02.215 (1267578628)|ENTERING_MANAGED_PKG|copado
+07:02:02.215 (1267651653)|ENTERING_MANAGED_PKG|copado
+07:02:02.215 (1267673703)|ENTERING_MANAGED_PKG|copado
+07:02:02.215 (1267699252)|ENTERING_MANAGED_PKG|copado
+07:02:02.215 (1267722672)|ENTERING_MANAGED_PKG|copado
+07:02:02.215 (1267743969)|ENTERING_MANAGED_PKG|copado
+07:02:02.215 (1267765422)|ENTERING_MANAGED_PKG|copado
+07:02:02.215 (1267817897)|ENTERING_MANAGED_PKG|copado
+07:02:02.215 (1267831117)|ENTERING_MANAGED_PKG|copado
+07:02:02.215 (1267862540)|ENTERING_MANAGED_PKG|copado
+07:02:02.215 (1267979574)|ENTERING_MANAGED_PKG|copado
+07:02:02.215 (1268011601)|ENTERING_MANAGED_PKG|copado
+07:02:02.215 (1268035519)|ENTERING_MANAGED_PKG|copado
+07:02:02.215 (1268061311)|ENTERING_MANAGED_PKG|copado
+07:02:02.215 (1268082519)|ENTERING_MANAGED_PKG|copado
+07:02:02.215 (1268098168)|ENTERING_MANAGED_PKG|copado
+07:02:02.215 (1268143177)|ENTERING_MANAGED_PKG|copado
+07:02:02.215 (1268219682)|ENTERING_MANAGED_PKG|copado
+07:02:02.215 (1268287519)|ENTERING_MANAGED_PKG|copado
+07:02:02.215 (1268362564)|ENTERING_MANAGED_PKG|copado
+07:02:02.215 (1268377391)|ENTERING_MANAGED_PKG|copado
+07:02:02.215 (1268415415)|ENTERING_MANAGED_PKG|copado
+07:02:02.215 (1268472516)|ENTERING_MANAGED_PKG|copado
+07:02:02.215 (1268507902)|ENTERING_MANAGED_PKG|copado
+07:02:02.215 (1268593970)|ENTERING_MANAGED_PKG|copado
+07:02:02.215 (1268609872)|ENTERING_MANAGED_PKG|copado
+07:02:02.268 (1268672882)|CUMULATIVE_LIMIT_USAGE
+07:02:02.268 (1268672882)|LIMIT_USAGE_FOR_NS|(default)|
+  Number of SOQL queries: 1 out of 100
+  Number of query rows: 1 out of 50000
+  Number of SOSL queries: 0 out of 20
+  Number of DML statements: 2 out of 150
+  Number of Publish Immediate DML: 0 out of 150
+  Number of DML rows: 2 out of 10000
+  Maximum CPU time: 597 out of 10000
+  Maximum heap size: 0 out of 6000000
+  Number of callouts: 0 out of 100
+  Number of Email Invocations: 0 out of 10
+  Number of future calls: 0 out of 50
+  Number of queueable jobs added to the queue: 0 out of 50
+  Number of Mobile Apex push calls: 0 out of 10
+
+07:02:02.268 (1268672882)|LIMIT_USAGE_FOR_NS|copado|
+  Number of SOQL queries: 13 out of 100
+  Number of query rows: 20 out of 50000
+  Number of SOSL queries: 0 out of 20
+  Number of DML statements: 0 out of 150
+  Number of Publish Immediate DML: 0 out of 150
+  Number of DML rows: 0 out of 10000
+  Maximum CPU time: 0 out of 10000
+  Maximum heap size: 0 out of 6000000
+  Number of callouts: 0 out of 100
+  Number of Email Invocations: 0 out of 10
+  Number of future calls: 0 out of 50
+  Number of queueable jobs added to the queue: 0 out of 50
+  Number of Mobile Apex push calls: 0 out of 10
+
+07:02:02.268 (1268672882)|CUMULATIVE_LIMIT_USAGE_END
+
+07:02:02.274 (1274254065)|CODE_UNIT_STARTED|[EXTERNAL]|Validation:User_Story:a3p7x000000DIdR
+07:02:02.274 (1274277528)|VALIDATION_RULE|03d3c000000g4A4|Test_scratch_orgs_cannot_be_used_for_dev
+07:02:02.274 (1274446700)|VALIDATION_FORMULA|TEXT(copado__Org_Credential__r.copado__Org_Type__c) == 'Scratch Org - Test only'|copado__Org_Credential__r.copado__Org_Type__c=Sandbox
+07:02:02.274 (1274452658)|VALIDATION_PASS
+07:02:02.274 (1274454388)|VALIDATION_RULE|03d56000000TrgR|CredentialsMustBelongToTheEnvironment
+07:02:02.274 (1274638867)|VALIDATION_FORMULA|NOT ( ISBLANK(copado__Environment__c) ) &&
+NOT ( ISBLANK(copado__Org_Credential__c) ) &&
+copado__Environment__c != copado__Org_Credential__r.copado__Environment__c|copado__Org_Credential__c=a317x000000A9Bh , copado__Org_Credential__r.copado__Environment__c=a2j7x0000005bYP , copado__Environment__c=a2j7x0000005bYP
+07:02:02.274 (1274645594)|VALIDATION_PASS
+07:02:02.274 (1274647047)|VALIDATION_RULE|03d56000000WY2k|Excluded_User_Stories_Not_Promotable
+07:02:02.274 (1275046850)|VALIDATION_FORMULA|IF(
+  AND(NOT(ISBLANK(copado__Platform__c)), copado__Platform__c != 'Salesforce'), 
+  (IF(AND(copado__Exclude_From_CBM__c, OR(copado__Promote_Change__c, copado__Promote_and_Deploy__c)), TRUE, FALSE)),
+  FALSE
+)|copado__Promote_Change__c=0 , copado__Platform__c=Salesforce , copado__Promote_and_Deploy__c=0 , copado__Exclude_From_CBM__c=0
+07:02:02.274 (1275055449)|VALIDATION_PASS
+07:02:02.274 (1275057055)|VALIDATION_RULE|03d56000000WbI9|IsReleaseLocked
+07:02:02.274 (1275289107)|VALIDATION_FORMULA|OR(
+AND(
+OR(
+copado__Release__r.Locked__c ,
+PRIORVALUE(Release_Locked__c)
+),
+OR (
+ISCHANGED(copado__Release__c),
+ISNEW()
+) 
+)
+)|copado__Release__r.Locked__c=null , copado__Release__c=null , Release_Locked__c=0
+07:02:02.274 (1275294568)|VALIDATION_PASS
+07:02:02.274 (1275296365)|VALIDATION_RULE|03d7x000000oMAD|Lock_the_Base_Branch
+07:02:02.274 (1275393451)|VALIDATION_FORMULA|AND( ISCHANGED( copado__Base_Branch__c), Base_Branch_Updated__c )|Base_Branch_Updated__c=0 , copado__Base_Branch__c=null
+07:02:02.274 (1275398569)|VALIDATION_PASS
+07:02:02.274 (1275400161)|VALIDATION_RULE|03d7x000000tviP|Prevent_deployment_promote_Ready_Deploy
+07:02:02.274 (1275535167)|VALIDATION_FORMULA|OR(AND( copado__Promote_and_Deploy__c = True, Current_Branch__c = copado__Base_Branch__c,copado__Base_Branch__c <> Null, Current_Branch__c <> Null ),
+AND( copado__Promote_Change__c = True, Current_Branch__c = copado__Base_Branch__c, copado__Base_Branch__c <> Null, Current_Branch__c <> Null))|Current_Branch__c=runway_cpnppilot4 , copado__Promote_Change__c=0 , copado__Promote_and_Deploy__c=0 , copado__Base_Branch__c=null
+07:02:02.274 (1275541979)|VALIDATION_PASS
+07:02:02.274 (1275543561)|VALIDATION_RULE|03d3c000000g7Jk|Promote_and_Deploy_needs_apex_and_PR
+07:02:02.274 (1275733260)|VALIDATION_FORMULA|AND(
+copado__Promote_and_Deploy__c = True,
+NOT( ISNULL(copado__Latest_Commit_Date__c )),
+OR(
+copado__Pull_Requests_Approved__c = False,
+AND(
+copado__Has_Apex_Code__c = True,
+copado__Apex_Tests_Passed__c = False
+)
+)
+)|copado__Has_Apex_Code__c=0 , copado__Pull_Requests_Approved__c=0 , copado__Apex_Tests_Passed__c=0 , copado__Latest_Commit_Date__c=2024-08-05 18:30:59 , copado__Promote_and_Deploy__c=0
+07:02:02.274 (1275740369)|VALIDATION_PASS
+07:02:02.274 (1275741886)|VALIDATION_RULE|03d3c000000g4A3|Promote_User_Story_Apex_validation
+07:02:02.274 (1275896760)|VALIDATION_FORMULA|AND(
+  copado__Has_Apex_Code__c = true,
+  OR(  
+     AND(
+       PRIORVALUE(copado__Promote_Change__c) = false,
+        copado__Promote_Change__c = true
+     ),
+     AND(
+      PRIORVALUE(copado__Promote_and_Deploy__c) = false,
+       copado__Promote_and_Deploy__c = true
+        )
+     ),
+  OR(
+    ISNULL(copado__Apex_Code_Coverage__c),
+    ISNULL(copado__Minimum_Apex_Code_Coverage__c),
+    copado__Apex_Code_Coverage__c < copado__Minimum_Apex_Code_Coverage__c
+  )
+)|copado__Has_Apex_Code__c=0 , copado__Apex_Code_Coverage__c=null , copado__Promote_Change__c=0 , copado__Promote_and_Deploy__c=0 , copado__Minimum_Apex_Code_Coverage__c=75
+07:02:02.274 (1275905810)|VALIDATION_PASS
+07:02:02.274 (1275907368)|VALIDATION_RULE|03d3c000000c2lg|Promote_User_Story_Code_Violation_Check
+07:02:02.274 (1276034543)|VALIDATION_FORMULA|AND(
+OR(copado__Promote_Change__c,copado__Promote_and_Deploy__c),
+NOT( ISNULL(copado__Latest_Commit_Date__c )),
+NOT( No_Priority_1_Violation__c ), copado__Has_Apex_Code__c )|copado__Has_Apex_Code__c=0 , copado__Latest_Commit_Date__c=2024-08-05 18:30:59 , copado__Promote_Change__c=0 , No_Priority_1_Violation__c=0 , copado__Promote_and_Deploy__c=0
+07:02:02.274 (1276041196)|VALIDATION_PASS
+07:02:02.274 (1276042658)|VALIDATION_RULE|03d3c0000007ASx|Promote_User_Story_SecAPI_Scan_Check
+07:02:02.274 (1276184813)|VALIDATION_FORMULA|AND( 
+NOT( ISNULL(copado__Latest_Commit_Date__c )), copado__Project__r.SecAPI_Scan_Required__c,
+OR(copado__Promote_Change__c,copado__Promote_and_Deploy__c),
+NOT( SecAPI_Scan_Passed__c )
+)|SecAPI_Scan_Passed__c=1 , copado__Latest_Commit_Date__c=2024-08-05 18:30:59 , copado__Promote_Change__c=0 , copado__Promote_and_Deploy__c=0 , copado__Project__r.SecAPI_Scan_Required__c=0
+07:02:02.274 (1276190764)|VALIDATION_PASS
+07:02:02.274 (1276194339)|VALIDATION_RULE|03d56000000WYpo|Pull_Requests_Must_Be_Approved
+07:02:02.274 (1276379204)|VALIDATION_FORMULA|AND(
+copado__Pull_Requests_Approved__c  = false,
+NOT( ISNULL(copado__Latest_Commit_Date__c )),
+OR(
+
+AND(
+PRIORVALUE(copado__Promote_Change__c) = false,
+copado__Promote_Change__c = true
+),
+
+AND(
+PRIORVALUE(copado__Promote_and_Deploy__c) = false,
+copado__Promote_and_Deploy__c = true
+)
+
+)
+
+)|copado__Pull_Requests_Approved__c=0 , copado__Latest_Commit_Date__c=2024-08-05 18:30:59 , copado__Promote_Change__c=0 , copado__Promote_and_Deploy__c=0
+07:02:02.274 (1276408942)|VALIDATION_PASS
+07:02:02.274 (1276410422)|VALIDATION_RULE|03d3c000000g7Jl|Ready_to_promote_needs_apex_and_PR
+07:02:02.274 (1276532935)|VALIDATION_FORMULA|AND(
+copado__Promote_Change__c = True,
+NOT( ISNULL(copado__Latest_Commit_Date__c )),
+OR(
+copado__Pull_Requests_Approved__c = False,
+AND(
+copado__Has_Apex_Code__c = True,
+copado__Apex_Tests_Passed__c = False
+)
+)
+)|copado__Has_Apex_Code__c=0 , copado__Pull_Requests_Approved__c=0 , copado__Apex_Tests_Passed__c=0 , copado__Latest_Commit_Date__c=2024-08-05 18:30:59 , copado__Promote_Change__c=0
+07:02:02.274 (1276539277)|VALIDATION_PASS
+07:02:02.274 (1276540690)|VALIDATION_RULE|03d56000000Tq6E|RequireStoryPoints
+07:02:02.274 (1276682193)|VALIDATION_FORMULA|AND(OR(copado__Promote_and_Deploy__c = true, 
+       copado__Promote_Change__c  = true) 
+   , OR(copado__Story_Points_SFDC__c < 1, 
+        ISNULL(copado__Story_Points_SFDC__c)), RecordType.Name = 'User Story')|copado__Promote_Change__c=0 , copado__Promote_and_Deploy__c=0 , copado__Story_Points_SFDC__c=1 , RecordType.Name=User Story
+07:02:02.274 (1276688873)|VALIDATION_PASS
+07:02:02.274 (1276690608)|VALIDATION_RULE|03d56000000VZS6|User_Story_Progress_Range_Validation
+07:02:02.274 (1276775075)|VALIDATION_FORMULA|NOT(ISNULL( copado__Progress__c )) && (copado__Progress__c < 0 &#124;&#124; copado__Progress__c > 1)|copado__Progress__c=null
+07:02:02.274 (1276780470)|VALIDATION_PASS
+07:02:02.274 (1276781961)|VALIDATION_RULE|03d56000000Tq6n|ValidAzureStoryNumber
+07:02:02.274 (1276906105)|VALIDATION_FORMULA|AND(
+NOT(ISNUMBER(External_Id__c)),
+NOT(ISBLANK(External_Id__c)),
+NOT(ISNULL(External_Id__c))
+)|External_Id__c=null
+07:02:02.274 (1276911103)|VALIDATION_PASS
+07:02:02.274 (1276918283)|CODE_UNIT_FINISHED|Validation:User_Story:a3p7x000000DIdR
+07:02:02.287 (1287712056)|CODE_UNIT_STARTED|[EXTERNAL]|01q3c000000Hve9|UserStoryTrigger_HUM on User_Story trigger event AfterUpdate|__sfdc_trigger/UserStoryTrigger_HUM
+07:02:02.287 (1287763625)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:8
+07:02:02.287 (1287810757)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:8
+07:02:02.287 (1287906527)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:4
+07:02:02.287 (1287917252)|VARIABLE_SCOPE_BEGIN|[21]|this|UserStoryTrigger_HUM|true|false
+07:02:02.287 (1287972288)|VARIABLE_ASSIGNMENT|[21]|this|{}|0x69aa05f5
+07:02:02.287 (1288009359)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:4
+07:02:02.287 (1288016058)|VARIABLE_SCOPE_BEGIN|[21]|this|UserStoryTrigger_HUM|true|false
+07:02:02.287 (1288026664)|VARIABLE_ASSIGNMENT|[21]|this|{}|0x69aa05f5
+07:02:02.287 (1288036792)|STATEMENT_EXECUTE|[21]
+07:02:02.287 (1288054693)|STATEMENT_EXECUTE|[23]
+07:02:02.287 (1288064055)|STATEMENT_EXECUTE|[26]
+07:02:02.287 (1288065563)|STATEMENT_EXECUTE|[27]
+07:02:02.287 (1288132067)|METHOD_ENTRY|[27]|01p3c000002BU4R|UserStoryTriggerHelper_HUM.onAfterUpdate(List<copado__User_Story__c>, List<copado__User_Story__c>, Map<Id,copado__User_Story__c>, Map<Id,copado__User_Story__c>)
+07:02:02.287 (1288141746)|VARIABLE_SCOPE_BEGIN|[120]|oldList|List<copado__User_Story__c>|true|false
+07:02:02.287 (1291579335)|VARIABLE_ASSIGNMENT|[120]|oldList|[{"LastModifiedDate":"2024-08-06T11:02:02.000Z","copado__Apex_Tests_Passed__c":false,"SEC_API_Scan_Status__c":"Not Started","Release_Locked__c":false,"cml_Is_Business_Disruption_Failure__c":false,"No_Priority_1_Violation__c":false,"Name":"US-0029875","copado__Latest_Commit_Date__c":"2024-08-05T18:30:59.000Z","Sandbox_Type__c":"Prod-1","CreatedById":"0053c00000C7YvRAAV","copado__QR_Code__c":"_IM1_https://chart.g (181 more) ...","Enable_Logs__c":false,"copado__Progress_Status__c":"_IM1_/img/samples/co (168 more) ...","copado__Promote_and_Deploy__c":false,"copado__Environment__c":"a2j7x0000005bYPAAY","Current_Branch__c":"runway_cpnppilot4","copado__Exclude_From_CBM__c":false,"Retry__c":0,"copado__View_in_Git__c":"_HL_ENCODED_https:// (136 more) ...","copado__Manual_Step_Required__c":false,"Architectural_Review_Needed__c":true,"IsDeleted":false,"copado__Promote_as_Single_Step__c":false,"copado__Total_Story_Points__c":0,"copado__Platform__c":"Salesforce","copado__Validate_Only__c":false,"copado__Promotion_Test_Level__c":"NoTestRun","copado__Total_Actual_Points__c":1,"CreatedDate":"2024-08-05T17:55:44.000Z","Id":"a3p7x000000DIdRAAW","copado__Legal__c":false,"copado__Story_Points_SFDC__c":1,"Humana_Org__c":"Service","SNOW_APPSVCID__c":"APPSVC039173","Base_Branch_Updated__c":false,"OwnerId":"0053c00000C7YvRAAV","copado__Environment_Type__c":"Sandbox","copado__Promote_Change__c":false,"RecordTypeId":"0123c000000l2BQAAY","SecAPI_Scan_Passed__c":true,"copado__Documentation_Complete__c":false,"Security_Level_Passed__c":false,"copado__Project__c":"a357x0000001k5dAAA","is_Testing_Done__c":false,"copado__User_Story_Title__c":"test flow3","Story_Type__c":"External","copado__Metadata_Types_in_Selection__c":"CustomField","copado__Has_Apex_Code__c":false,"copado__Minimum_Apex_Code_Coverage__c":75,"copado__Manual_Tests_Passed__c":false,"copado__Stop_Indexing_Metadata__c":false,"copado__Pull_Requests_Approved__c":false,"Is_HotFix__c":false,"copado__Is_Bundle__c":false,"cmcSf__Apex_Test_Level__c":"No Test Run","SystemModstamp":"2024-08-06T11:02:02.000Z","copado__Data_Privacy__c":false,"copado__Git_Repository__c":"a2v7x000000sZjx","copado__Compliance__c":false,"copado__Org_Credential__c":"a317x000000A9BhAAK","Source_Org__c":"CRM_CPNPPilot1","LastModifiedById":"0053c00000C7YvRAAV"}]|0x181f0137
+07:02:02.287 (1291606860)|VARIABLE_SCOPE_BEGIN|[120]|newList|List<copado__User_Story__c>|true|false
+07:02:02.287 (1294327855)|VARIABLE_ASSIGNMENT|[120]|newList|[{"LastModifiedDate":"2024-08-06T11:02:02.000Z","copado__Apex_Tests_Passed__c":false,"SEC_API_Scan_Status__c":"Not Started","Release_Locked__c":false,"cml_Is_Business_Disruption_Failure__c":false,"No_Priority_1_Violation__c":false,"Name":"US-0029875","copado__Latest_Commit_Date__c":"2024-08-05T18:30:59.000Z","Sandbox_Type__c":"Prod-1","CreatedById":"0053c00000C7YvRAAV","copado__QR_Code__c":"_IM1_https://chart.g (181 more) ...","Enable_Logs__c":false,"copado__Progress_Status__c":"_IM1_/img/samples/co (168 more) ...","copado__Promote_and_Deploy__c":false,"copado__Environment__c":"a2j7x0000005bYPAAY","Current_Branch__c":"runway_cpnppilot4","copado__Exclude_From_CBM__c":false,"Retry__c":0,"copado__View_in_Git__c":"_HL_ENCODED_https:// (136 more) ...","copado__Manual_Step_Required__c":false,"Architectural_Review_Needed__c":true,"IsDeleted":false,"copado__Promote_as_Single_Step__c":false,"copado__Total_Story_Points__c":0,"copado__Platform__c":"Salesforce","copado__Validate_Only__c":false,"copado__Promotion_Test_Level__c":"NoTestRun","copado__Total_Actual_Points__c":1,"CreatedDate":"2024-08-05T17:55:44.000Z","Id":"a3p7x000000DIdRAAW","copado__Legal__c":false,"copado__Story_Points_SFDC__c":1,"Humana_Org__c":"Service","SNOW_APPSVCID__c":"APPSVC039173","Base_Branch_Updated__c":false,"OwnerId":"0053c00000C7YvRAAV","copado__Environment_Type__c":"Sandbox","copado__Promote_Change__c":false,"RecordTypeId":"0123c000000l2BQAAY","SecAPI_Scan_Passed__c":true,"copado__Documentation_Complete__c":false,"Security_Level_Passed__c":false,"copado__Project__c":"a357x0000001k5dAAA","is_Testing_Done__c":false,"copado__User_Story_Title__c":"test flow3","Story_Type__c":"External","copado__Metadata_Types_in_Selection__c":"CustomField","copado__Has_Apex_Code__c":false,"copado__Minimum_Apex_Code_Coverage__c":75,"copado__Manual_Tests_Passed__c":false,"copado__Stop_Indexing_Metadata__c":false,"copado__Pull_Requests_Approved__c":false,"Is_HotFix__c":false,"copado__Is_Bundle__c":false,"cmcSf__Apex_Test_Level__c":"No Test Run","SystemModstamp":"2024-08-06T11:02:02.000Z","copado__Data_Privacy__c":false,"copado__Git_Repository__c":"a2v7x000000sZjx","copado__Compliance__c":false,"copado__Org_Credential__c":"a317x000000A9BhAAK","Source_Org__c":"CRM_CPNPPilot1","LastModifiedById":"0053c00000C7YvRAAV"}]|0x637f0f2b
+07:02:02.287 (1294350441)|VARIABLE_SCOPE_BEGIN|[120]|oldMap|Map<Id,copado__User_Story__c>|true|false
+07:02:02.287 (1294989633)|VARIABLE_ASSIGNMENT|[120]|oldMap|{"a3p7x000000DIdRAAW":{"LastModifiedDate":"2024-08-06T11:02:02.000Z","copado__Apex_Tests_Passed__c":false,"SEC_API_Scan_Status__c":"Not Started","Release_Locked__c":false,"cml_Is_Business_Disruption_Failure__c":false,"No_Priority_1_Violation__c":false,"Name":"US-0029875","copado__Latest_Commit_Date__c":"2024-08-05T18:30:59.000Z","Sandbox_Type__c":"Prod-1","CreatedById":"0053c00000C7YvRAAV","copado__QR_Code__c":"_IM1_https://chart.g (181 more) ...","Enable_Logs__c":false,"copado__Progress_Status__c":"_IM1_/img/samples/co (168 more) ...","copado__Promote_and_Deploy__c":false,"copado__Environment__c":"a2j7x0000005bYPAAY","Current_Branch__c":"runway_cpnppilot4","copado__Exclude_From_CBM__c":false,"Retry__c":0,"copado__View_in_Git__c":"_HL_ENCODED_https:// (136 more) ...","copado__Manual_Step_Required__c":false,"Architectural_Review_Needed__c":true,"IsDeleted":false,"copado__Promote_as_Single_Step__c":false,"copado__Total_Story_Points__c":0,"copado__Platform__c":"Salesforce","copado__Validate_Only__c":false,"copado__Promotion_Test_Level__c":"NoTestRun","copado__Total_Actual_Points__c":1,"CreatedDate":"2024-08-05T17:55:44.000Z","Id":"a3p7x000000DIdRAAW","copado__Legal__c":false,"copado__Story_Points_SFDC__c":1,"Humana_Org__c":"Service","SNOW_APPSVCID__c":"APPSVC039173","Base_Branch_Updated__c":false,"OwnerId":"0053c00000C7YvRAAV","copado__Environment_Type__c":"Sandbox","copado__Promote_Change__c":false,"RecordTypeId":"0123c000000l2BQAAY","SecAPI_Scan_Passed__c":true,"copado__Documentation_Complete__c":false,"Security_Level_Passed__c":false,"copado__Project__c":"a357x0000001k5dAAA","is_Testing_Done__c":false,"copado__User_Story_Title__c":"test flow3","Story_Type__c":"External","copado__Metadata_Types_in_Selection__c":"CustomField","copado__Has_Apex_Code__c":false,"copado__Minimum_Apex_Code_Coverage__c":75,"copado__Manual_Tests_Passed__c":false,"copado__Stop_Indexing_Metadata__c":false,"copado__Pull_Requests_Approved__c":false,"Is_HotFix__c":false,"copado__Is_Bundle__c":false,"cmcSf__Apex_Test_Level__c":"No Test Run","SystemModstamp":"2024-08-06T11:02:02.000Z","copado__Data_Privacy__c":false,"copado__Git_Repository__c":"a2v7x000000sZjx","copado__Compliance__c":false,"copado__Org_Credential__c":"a317x000000A9BhAAK","Source_Org__c":"CRM_CPNPPilot1","LastModifiedById":"0053c00000C7YvRAAV"}}|0x5da9ab28
+07:02:02.287 (1295011167)|VARIABLE_SCOPE_BEGIN|[120]|newMap|Map<Id,copado__User_Story__c>|true|false
+07:02:02.287 (1295607565)|VARIABLE_ASSIGNMENT|[120]|newMap|{"a3p7x000000DIdRAAW":{"LastModifiedDate":"2024-08-06T11:02:02.000Z","copado__Apex_Tests_Passed__c":false,"SEC_API_Scan_Status__c":"Not Started","Release_Locked__c":false,"cml_Is_Business_Disruption_Failure__c":false,"No_Priority_1_Violation__c":false,"Name":"US-0029875","copado__Latest_Commit_Date__c":"2024-08-05T18:30:59.000Z","Sandbox_Type__c":"Prod-1","CreatedById":"0053c00000C7YvRAAV","copado__QR_Code__c":"_IM1_https://chart.g (181 more) ...","Enable_Logs__c":false,"copado__Progress_Status__c":"_IM1_/img/samples/co (168 more) ...","copado__Promote_and_Deploy__c":false,"copado__Environment__c":"a2j7x0000005bYPAAY","Current_Branch__c":"runway_cpnppilot4","copado__Exclude_From_CBM__c":false,"Retry__c":0,"copado__View_in_Git__c":"_HL_ENCODED_https:// (136 more) ...","copado__Manual_Step_Required__c":false,"Architectural_Review_Needed__c":true,"IsDeleted":false,"copado__Promote_as_Single_Step__c":false,"copado__Total_Story_Points__c":0,"copado__Platform__c":"Salesforce","copado__Validate_Only__c":false,"copado__Promotion_Test_Level__c":"NoTestRun","copado__Total_Actual_Points__c":1,"CreatedDate":"2024-08-05T17:55:44.000Z","Id":"a3p7x000000DIdRAAW","copado__Legal__c":false,"copado__Story_Points_SFDC__c":1,"Humana_Org__c":"Service","SNOW_APPSVCID__c":"APPSVC039173","Base_Branch_Updated__c":false,"OwnerId":"0053c00000C7YvRAAV","copado__Environment_Type__c":"Sandbox","copado__Promote_Change__c":false,"RecordTypeId":"0123c000000l2BQAAY","SecAPI_Scan_Passed__c":true,"copado__Documentation_Complete__c":false,"Security_Level_Passed__c":false,"copado__Project__c":"a357x0000001k5dAAA","is_Testing_Done__c":false,"copado__User_Story_Title__c":"test flow3","Story_Type__c":"External","copado__Metadata_Types_in_Selection__c":"CustomField","copado__Has_Apex_Code__c":false,"copado__Minimum_Apex_Code_Coverage__c":75,"copado__Manual_Tests_Passed__c":false,"copado__Stop_Indexing_Metadata__c":false,"copado__Pull_Requests_Approved__c":false,"Is_HotFix__c":false,"copado__Is_Bundle__c":false,"cmcSf__Apex_Test_Level__c":"No Test Run","SystemModstamp":"2024-08-06T11:02:02.000Z","copado__Data_Privacy__c":false,"copado__Git_Repository__c":"a2v7x000000sZjx","copado__Compliance__c":false,"copado__Org_Credential__c":"a317x000000A9BhAAK","Source_Org__c":"CRM_CPNPPilot1","LastModifiedById":"0053c00000C7YvRAAV"}}|0x78af6501
+07:02:02.287 (1296692005)|SYSTEM_MODE_ENTER|false
+07:02:02.287 (1296712928)|HEAP_ALLOCATE|[121]|Bytes:5
+07:02:02.287 (1296725030)|STATEMENT_EXECUTE|[120]
+07:02:02.287 (1296726367)|STATEMENT_EXECUTE|[121]
+07:02:02.287 (1296746941)|HEAP_ALLOCATE|[121]|Bytes:4
+07:02:02.287 (1296763783)|VARIABLE_SCOPE_BEGIN|[121]|MapReleases|Map<Id,copado__Release__c>|true|false
+07:02:02.287 (1296778565)|VARIABLE_ASSIGNMENT|[121]|MapReleases|{}|0x42fb0674
+07:02:02.287 (1296782277)|STATEMENT_EXECUTE|[122]
+07:02:02.287 (1296791514)|HEAP_ALLOCATE|[122]|Bytes:4
+07:02:02.287 (1296823121)|VARIABLE_SCOPE_BEGIN|[122]|recommitedUSIds|Set<Id>|true|false
+07:02:02.287 (1296876989)|VARIABLE_ASSIGNMENT|[122]|recommitedUSIds|[]|0x68f7cf32
+07:02:02.287 (1296880803)|STATEMENT_EXECUTE|[123]
+07:02:02.287 (1296889611)|HEAP_ALLOCATE|[123]|Bytes:4
+07:02:02.287 (1296899124)|VARIABLE_SCOPE_BEGIN|[123]|pullRequestList|List<copado__Pull_Request__c>|true|false
+07:02:02.287 (1296905901)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:4
+07:02:02.287 (1296911286)|VARIABLE_ASSIGNMENT|[123]|pullRequestList|[]|0xbcf6fea
+07:02:02.287 (1297028902)|HEAP_ALLOCATE|[124]|Bytes:4
+07:02:02.287 (1297044450)|STATEMENT_EXECUTE|[124]
+07:02:02.287 (1297066777)|HEAP_ALLOCATE|[125]|Bytes:5
+07:02:02.287 (1297088003)|VARIABLE_SCOPE_BEGIN|[125]|us|copado__User_Story__c|true|false
+07:02:02.287 (1297877548)|VARIABLE_ASSIGNMENT|[125]|us|{"LastModifiedDate":"2024-08-06T11:02:02.000Z","copado__Apex_Tests_Passed__c":false,"SEC_API_Scan_Status__c":"Not Started","Release_Locked__c":false,"cml_Is_Business_Disruption_Failure__c":false,"No_Priority_1_Violation__c":false,"Name":"US-0029875","copado__Latest_Commit_Date__c":"2024-08-05T18:30:59.000Z","Sandbox_Type__c":"Prod-1","CreatedById":"0053c00000C7YvRAAV","copado__QR_Code__c":"_IM1_https://chart.g (181 more) ...","Enable_Logs__c":false,"copado__Progress_Status__c":"_IM1_/img/samples/co (168 more) ...","copado__Promote_and_Deploy__c":false,"copado__Environment__c":"a2j7x0000005bYPAAY","Current_Branch__c":"runway_cpnppilot4","copado__Exclude_From_CBM__c":false,"Retry__c":0,"copado__View_in_Git__c":"_HL_ENCODED_https:// (136 more) ...","copado__Manual_Step_Required__c":false,"Architectural_Review_Needed__c":true,"IsDeleted":false,"copado__Promote_as_Single_Step__c":false,"copado__Total_Story_Points__c":0,"copado__Platform__c":"Salesforce","copado__Validate_Only__c":false,"copado__Promotion_Test_Level__c":"NoTestRun","copado__Total_Actual_Points__c":1,"CreatedDate":"2024-08-05T17:55:44.000Z","Id":"a3p7x000000DIdRAAW","copado__Legal__c":false,"copado__Story_Points_SFDC__c":1,"Humana_Org__c":"Service","SNOW_APPSVCID__c":"APPSVC039173","Base_Branch_Updated__c":false,"OwnerId":"0053c00000C7YvRAAV","copado__Environment_Type__c":"Sandbox","copado__Promote_Change__c":false,"RecordTypeId":"0123c000000l2BQAAY","SecAPI_Scan_Passed__c":true,"copado__Documentation_Complete__c":false,"Security_Level_Passed__c":false,"copado__Project__c":"a357x0000001k5dAAA","is_Testing_Done__c":false,"copado__User_Story_Title__c":"test flow3","Story_Type__c":"External","copado__Metadata_Types_in_Selection__c":"CustomField","copado__Has_Apex_Code__c":false,"copado__Minimum_Apex_Code_Coverage__c":75,"copado__Manual_Tests_Passed__c":false,"copado__Stop_Indexing_Metadata__c":false,"copado__Pull_Requests_Approved__c":false,"Is_HotFix__c":false,"copado__Is_Bundle__c":false,"cmcSf__Apex_Test_Level__c":"No Test Run","SystemModstamp":"2024-08-06T11:02:02.000Z","copado__Data_Privacy__c":false,"copado__Git_Repository__c":"a2v7x000000sZjx","copado__Compliance__c":false,"copado__Org_Credential__c":"a317x000000A9BhAAK","Source_Org__c":"CRM_CPNPPilot1","LastModifiedById":"0053c00000C7YvRAAV"}|0x3da42ebc
+07:02:02.287 (1297896337)|STATEMENT_EXECUTE|[125]
+07:02:02.287 (1297914798)|STATEMENT_EXECUTE|[126]
+07:02:02.287 (1297950925)|STATEMENT_EXECUTE|[130]
+07:02:02.287 (1297958505)|HEAP_ALLOCATE|[125]|Bytes:5
+07:02:02.287 (1297970460)|VARIABLE_ASSIGNMENT|[125]|us|null|
+07:02:02.287 (1297990257)|HEAP_ALLOCATE|[135]|Bytes:5
+07:02:02.287 (1298003424)|VARIABLE_SCOPE_BEGIN|[135]|us|copado__User_Story__c|true|false
+07:02:02.287 (1298826481)|VARIABLE_ASSIGNMENT|[135]|us|{"LastModifiedDate":"2024-08-06T11:02:02.000Z","copado__Apex_Tests_Passed__c":false,"SEC_API_Scan_Status__c":"Not Started","Release_Locked__c":false,"cml_Is_Business_Disruption_Failure__c":false,"No_Priority_1_Violation__c":false,"Name":"US-0029875","copado__Latest_Commit_Date__c":"2024-08-05T18:30:59.000Z","Sandbox_Type__c":"Prod-1","CreatedById":"0053c00000C7YvRAAV","copado__QR_Code__c":"_IM1_https://chart.g (181 more) ...","Enable_Logs__c":false,"copado__Progress_Status__c":"_IM1_/img/samples/co (168 more) ...","copado__Promote_and_Deploy__c":false,"copado__Environment__c":"a2j7x0000005bYPAAY","Current_Branch__c":"runway_cpnppilot4","copado__Exclude_From_CBM__c":false,"Retry__c":0,"copado__View_in_Git__c":"_HL_ENCODED_https:// (136 more) ...","copado__Manual_Step_Required__c":false,"Architectural_Review_Needed__c":true,"IsDeleted":false,"copado__Promote_as_Single_Step__c":false,"copado__Total_Story_Points__c":0,"copado__Platform__c":"Salesforce","copado__Validate_Only__c":false,"copado__Promotion_Test_Level__c":"NoTestRun","copado__Total_Actual_Points__c":1,"CreatedDate":"2024-08-05T17:55:44.000Z","Id":"a3p7x000000DIdRAAW","copado__Legal__c":false,"copado__Story_Points_SFDC__c":1,"Humana_Org__c":"Service","SNOW_APPSVCID__c":"APPSVC039173","Base_Branch_Updated__c":false,"OwnerId":"0053c00000C7YvRAAV","copado__Environment_Type__c":"Sandbox","copado__Promote_Change__c":false,"RecordTypeId":"0123c000000l2BQAAY","SecAPI_Scan_Passed__c":true,"copado__Documentation_Complete__c":false,"Security_Level_Passed__c":false,"copado__Project__c":"a357x0000001k5dAAA","is_Testing_Done__c":false,"copado__User_Story_Title__c":"test flow3","Story_Type__c":"External","copado__Metadata_Types_in_Selection__c":"CustomField","copado__Has_Apex_Code__c":false,"copado__Minimum_Apex_Code_Coverage__c":75,"copado__Manual_Tests_Passed__c":false,"copado__Stop_Indexing_Metadata__c":false,"copado__Pull_Requests_Approved__c":false,"Is_HotFix__c":false,"copado__Is_Bundle__c":false,"cmcSf__Apex_Test_Level__c":"No Test Run","SystemModstamp":"2024-08-06T11:02:02.000Z","copado__Data_Privacy__c":false,"copado__Git_Repository__c":"a2v7x000000sZjx","copado__Compliance__c":false,"copado__Org_Credential__c":"a317x000000A9BhAAK","Source_Org__c":"CRM_CPNPPilot1","LastModifiedById":"0053c00000C7YvRAAV"}|0x56438abf
+07:02:02.287 (1298861685)|STATEMENT_EXECUTE|[135]
+07:02:02.287 (1298887424)|STATEMENT_EXECUTE|[136]
+07:02:02.287 (1298913381)|HEAP_ALLOCATE|[135]|Bytes:5
+07:02:02.287 (1298932827)|VARIABLE_ASSIGNMENT|[135]|us|null|
+07:02:02.287 (1298945882)|STATEMENT_EXECUTE|[141]
+07:02:02.287 (1298954207)|STATEMENT_EXECUTE|[145]
+07:02:02.287 (1298961058)|STATEMENT_EXECUTE|[153]
+07:02:02.287 (1298966307)|SYSTEM_MODE_EXIT|false
+07:02:02.287 (1298983282)|METHOD_EXIT|[27]|01p3c000002BU4R|UserStoryTriggerHelper_HUM.onAfterUpdate(List<copado__User_Story__c>, List<copado__User_Story__c>, Map<Id,copado__User_Story__c>, Map<Id,copado__User_Story__c>)
+07:02:02.287 (1298995556)|STATEMENT_EXECUTE|[29]
+07:02:02.287 (1298997396)|STATEMENT_EXECUTE|[33]
+07:02:02.299 (1299005189)|CUMULATIVE_LIMIT_USAGE
+07:02:02.299 (1299005189)|LIMIT_USAGE_FOR_NS|(default)|
+  Number of SOQL queries: 1 out of 100
+  Number of query rows: 1 out of 50000
+  Number of SOSL queries: 0 out of 20
+  Number of DML statements: 2 out of 150
+  Number of Publish Immediate DML: 0 out of 150
+  Number of DML rows: 2 out of 10000
+  Maximum CPU time: 597 out of 10000
+  Maximum heap size: 0 out of 6000000
+  Number of callouts: 0 out of 100
+  Number of Email Invocations: 0 out of 10
+  Number of future calls: 0 out of 50
+  Number of queueable jobs added to the queue: 0 out of 50
+  Number of Mobile Apex push calls: 0 out of 10
+
+07:02:02.299 (1299005189)|LIMIT_USAGE_FOR_NS|copado|
+  Number of SOQL queries: 13 out of 100
+  Number of query rows: 20 out of 50000
+  Number of SOSL queries: 0 out of 20
+  Number of DML statements: 0 out of 150
+  Number of Publish Immediate DML: 0 out of 150
+  Number of DML rows: 0 out of 10000
+  Maximum CPU time: 0 out of 10000
+  Maximum heap size: 0 out of 6000000
+  Number of callouts: 0 out of 100
+  Number of Email Invocations: 0 out of 10
+  Number of future calls: 0 out of 50
+  Number of queueable jobs added to the queue: 0 out of 50
+  Number of Mobile Apex push calls: 0 out of 10
+
+07:02:02.299 (1299005189)|CUMULATIVE_LIMIT_USAGE_END
+
+07:02:02.287 (1299172499)|CODE_UNIT_FINISHED|UserStoryTrigger_HUM on User_Story trigger event AfterUpdate|__sfdc_trigger/UserStoryTrigger_HUM
+07:02:02.300 (1300976170)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1301470915)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1301530598)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1301844900)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1301872684)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1302055028)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1302093562)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1302113919)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1302148409)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1302232510)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1302284046)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1302302357)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1302375829)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1302406071)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1302436479)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1302454990)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1302582978)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1302743703)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1302804369)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1302903917)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1302922298)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1302999266)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1303019080)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1303194955)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1303223778)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1303252369)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1303324119)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1303350917)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1303389994)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1303403098)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1303461614)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1303524960)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1303603071)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1303657862)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1303731040)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1303941083)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1303968156)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1304049221)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1304063392)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1304076123)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1304112175)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1304123350)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1304168404)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1304222017)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1304379495)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1304417017)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1304431019)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1304511046)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1304549923)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1304827250)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1304873008)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1304899992)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1304954163)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1305000821)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1305055875)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1305078765)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1305137310)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1305161596)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1305182332)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1305221199)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1305260128)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1305273284)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1305289103)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1305405199)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1305440836)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1305465487)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1305482723)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1305495036)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1305507635)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1305534435)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1305546915)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1305562405)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1305584930)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1305606912)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1305622490)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1305668196)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1305738952)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1305805551)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1305906554)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1305921633)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1305963206)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1306044630)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1306102375)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1306547733)|ENTERING_MANAGED_PKG|copado
+07:02:02.300 (1306566158)|ENTERING_MANAGED_PKG|copado
+07:02:02.306 (1306756200)|CUMULATIVE_LIMIT_USAGE
+07:02:02.306 (1306756200)|LIMIT_USAGE_FOR_NS|(default)|
+  Number of SOQL queries: 1 out of 100
+  Number of query rows: 1 out of 50000
+  Number of SOSL queries: 0 out of 20
+  Number of DML statements: 2 out of 150
+  Number of Publish Immediate DML: 0 out of 150
+  Number of DML rows: 2 out of 10000
+  Maximum CPU time: 597 out of 10000
+  Maximum heap size: 0 out of 6000000
+  Number of callouts: 0 out of 100
+  Number of Email Invocations: 0 out of 10
+  Number of future calls: 0 out of 50
+  Number of queueable jobs added to the queue: 0 out of 50
+  Number of Mobile Apex push calls: 0 out of 10
+
+07:02:02.306 (1306756200)|LIMIT_USAGE_FOR_NS|copado|
+  Number of SOQL queries: 13 out of 100
+  Number of query rows: 20 out of 50000
+  Number of SOSL queries: 0 out of 20
+  Number of DML statements: 0 out of 150
+  Number of Publish Immediate DML: 0 out of 150
+  Number of DML rows: 0 out of 10000
+  Maximum CPU time: 0 out of 10000
+  Maximum heap size: 0 out of 6000000
+  Number of callouts: 0 out of 100
+  Number of Email Invocations: 0 out of 10
+  Number of future calls: 0 out of 50
+  Number of queueable jobs added to the queue: 0 out of 50
+  Number of Mobile Apex push calls: 0 out of 10
+
+07:02:02.306 (1306756200)|CUMULATIVE_LIMIT_USAGE_END
+
+07:02:02.316 (1316059044)|CODE_UNIT_STARTED|[EXTERNAL]|01p3c000001AD1N|UserStoryHandler.callFactory4ThirdPartyUpdate(List<copado__User_Story__c>)
+07:02:02.316 (1316085946)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:8
+07:02:02.316 (1316153956)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:5
+07:02:02.316 (1316173063)|METHOD_ENTRY|[8]|01p3c000001AD1N|UserStoryHandler.UserStoryHandler()
+07:02:02.316 (1316179883)|STATEMENT_EXECUTE|[8]
+07:02:02.316 (1316184817)|STATEMENT_EXECUTE|[8]
+07:02:02.316 (1316191624)|METHOD_EXIT|[8]|UserStoryHandler
+07:02:02.316 (1316215883)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:8
+07:02:02.316 (1316235981)|VARIABLE_SCOPE_BEGIN|[11]|usRecords|List<copado__User_Story__c>|true|false
+07:02:02.316 (1319834426)|VARIABLE_ASSIGNMENT|[11]|usRecords|[{"LastModifiedDate":"2024-08-06T11:02:02.000Z","copado__Apex_Tests_Passed__c":false,"SEC_API_Scan_Status__c":"Not Started","Release_Locked__c":false,"cml_Is_Business_Disruption_Failure__c":false,"No_Priority_1_Violation__c":false,"Name":"US-0029875","copado__Latest_Commit_Date__c":"2024-08-05T18:30:59.000Z","Sandbox_Type__c":"Prod-1","CreatedById":"0053c00000C7YvRAAV","copado__QR_Code__c":"_IM1_https://chart.g (181 more) ...","Enable_Logs__c":false,"copado__Progress_Status__c":"_IM1_/img/samples/co (168 more) ...","copado__Promote_and_Deploy__c":false,"copado__Environment__c":"a2j7x0000005bYPAAY","Current_Branch__c":"runway_cpnppilot4","copado__Exclude_From_CBM__c":false,"Retry__c":0.0,"copado__View_in_Git__c":"_HL_ENCODED_https:// (136 more) ...","copado__Manual_Step_Required__c":false,"Architectural_Review_Needed__c":true,"IsDeleted":false,"copado__Promote_as_Single_Step__c":false,"copado__Total_Story_Points__c":0.0,"copado__Platform__c":"Salesforce","copado__Validate_Only__c":false,"copado__Promotion_Test_Level__c":"NoTestRun","copado__Total_Actual_Points__c":1.0,"CreatedDate":"2024-08-05T17:55:44.000Z","Id":"a3p7x000000DIdRAAW","copado__Legal__c":false,"copado__Story_Points_SFDC__c":1.0,"Humana_Org__c":"Service","SNOW_APPSVCID__c":"APPSVC039173","Base_Branch_Updated__c":false,"OwnerId":"0053c00000C7YvRAAV","copado__Environment_Type__c":"Sandbox","copado__Promote_Change__c":false,"RecordTypeId":"0123c000000l2BQAAY","SecAPI_Scan_Passed__c":true,"copado__Documentation_Complete__c":false,"Security_Level_Passed__c":false,"copado__Project__c":"a357x0000001k5dAAA","is_Testing_Done__c":false,"copado__User_Story_Title__c":"test flow3","Story_Type__c":"External","copado__Metadata_Types_in_Selection__c":"CustomField","copado__Has_Apex_Code__c":false,"copado__Minimum_Apex_Code_Coverage__c":75.0,"copado__Manual_Tests_Passed__c":false,"copado__Stop_Indexing_Metadata__c":false,"copado__Pull_Requests_Approved__c":false,"Is_HotFix__c":false,"copado__Is_Bundle__c":false,"cmcSf__Apex_Test_Level__c":"No Test Run","SystemModstamp":"2024-08-06T11:02:02.000Z","copado__Data_Privacy__c":false,"copado__Git_Repository__c":"a2v7x000000sZjx","copado__Compliance__c":false,"copado__Org_Credential__c":"a317x000000A9BhAAK","Source_Org__c":"CRM_CPNPPilot1","LastModifiedById":"0053c00000C7YvRAAV"}]|0x6b60d4aa
+07:02:02.316 (1319871077)|STATEMENT_EXECUTE|[11]
+07:02:02.316 (1319872676)|STATEMENT_EXECUTE|[12]
+07:02:02.316 (1319888872)|HEAP_ALLOCATE|[12]|Bytes:4
+07:02:02.316 (1319935983)|VARIABLE_SCOPE_BEGIN|[12]|usIds|Set<Id>|true|false
+07:02:02.316 (1319962496)|VARIABLE_ASSIGNMENT|[12]|usIds|[]|0x30809c1b
+07:02:02.316 (1320011255)|HEAP_ALLOCATE|[13]|Bytes:5
+07:02:02.316 (1320029825)|HEAP_ALLOCATE|[13]|Bytes:8
+07:02:02.316 (1320037656)|VARIABLE_SCOPE_BEGIN|[13]|us|copado__User_Story__c|true|false
+07:02:02.316 (1320733112)|VARIABLE_ASSIGNMENT|[13]|us|{"LastModifiedDate":"2024-08-06T11:02:02.000Z","copado__Apex_Tests_Passed__c":false,"SEC_API_Scan_Status__c":"Not Started","Release_Locked__c":false,"cml_Is_Business_Disruption_Failure__c":false,"No_Priority_1_Violation__c":false,"Name":"US-0029875","copado__Latest_Commit_Date__c":"2024-08-05T18:30:59.000Z","Sandbox_Type__c":"Prod-1","CreatedById":"0053c00000C7YvRAAV","copado__QR_Code__c":"_IM1_https://chart.g (181 more) ...","Enable_Logs__c":false,"copado__Progress_Status__c":"_IM1_/img/samples/co (168 more) ...","copado__Promote_and_Deploy__c":false,"copado__Environment__c":"a2j7x0000005bYPAAY","Current_Branch__c":"runway_cpnppilot4","copado__Exclude_From_CBM__c":false,"Retry__c":0.0,"copado__View_in_Git__c":"_HL_ENCODED_https:// (136 more) ...","copado__Manual_Step_Required__c":false,"Architectural_Review_Needed__c":true,"IsDeleted":false,"copado__Promote_as_Single_Step__c":false,"copado__Total_Story_Points__c":0.0,"copado__Platform__c":"Salesforce","copado__Validate_Only__c":false,"copado__Promotion_Test_Level__c":"NoTestRun","copado__Total_Actual_Points__c":1.0,"CreatedDate":"2024-08-05T17:55:44.000Z","Id":"a3p7x000000DIdRAAW","copado__Legal__c":false,"copado__Story_Points_SFDC__c":1.0,"Humana_Org__c":"Service","SNOW_APPSVCID__c":"APPSVC039173","Base_Branch_Updated__c":false,"OwnerId":"0053c00000C7YvRAAV","copado__Environment_Type__c":"Sandbox","copado__Promote_Change__c":false,"RecordTypeId":"0123c000000l2BQAAY","SecAPI_Scan_Passed__c":true,"copado__Documentation_Complete__c":false,"Security_Level_Passed__c":false,"copado__Project__c":"a357x0000001k5dAAA","is_Testing_Done__c":false,"copado__User_Story_Title__c":"test flow3","Story_Type__c":"External","copado__Metadata_Types_in_Selection__c":"CustomField","copado__Has_Apex_Code__c":false,"copado__Minimum_Apex_Code_Coverage__c":75.0,"copado__Manual_Tests_Passed__c":false,"copado__Stop_Indexing_Metadata__c":false,"copado__Pull_Requests_Approved__c":false,"Is_HotFix__c":false,"copado__Is_Bundle__c":false,"cmcSf__Apex_Test_Level__c":"No Test Run","SystemModstamp":"2024-08-06T11:02:02.000Z","copado__Data_Privacy__c":false,"copado__Git_Repository__c":"a2v7x000000sZjx","copado__Compliance__c":false,"copado__Org_Credential__c":"a317x000000A9BhAAK","Source_Org__c":"CRM_CPNPPilot1","LastModifiedById":"0053c00000C7YvRAAV"}|0x41e21cea
+07:02:02.316 (1320764925)|STATEMENT_EXECUTE|[13]
+07:02:02.316 (1320767208)|STATEMENT_EXECUTE|[14]
+07:02:02.316 (1320879143)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:4
+07:02:02.316 (1320903354)|HEAP_ALLOCATE|[13]|Bytes:5
+07:02:02.316 (1320919814)|VARIABLE_ASSIGNMENT|[13]|us|null|
+07:02:02.316 (1320966568)|STATEMENT_EXECUTE|[16]
+07:02:02.316 (1320967574)|STATEMENT_EXECUTE|[17]
+07:02:02.316 (1320971596)|HEAP_ALLOCATE|[17]|Bytes:16
+07:02:02.316 (1320975991)|HEAP_ALLOCATE|[17]|Bytes:28
+07:02:02.316 (1320988894)|HEAP_ALLOCATE|[17]|Bytes:4
+07:02:02.316 (1321010897)|HEAP_ALLOCATE|[17]|Bytes:4
+07:02:02.316 (1321017439)|HEAP_ALLOCATE|[17]|Bytes:7
+07:02:02.316 (1321036189)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:8
+07:02:02.316 (1321042353)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:8
+07:02:02.337 (1337946315)|CUMULATIVE_LIMIT_USAGE
+07:02:02.337 (1337946315)|LIMIT_USAGE_FOR_NS|(default)|
+  Number of SOQL queries: 1 out of 100
+  Number of query rows: 1 out of 50000
+  Number of SOSL queries: 0 out of 20
+  Number of DML statements: 2 out of 150
+  Number of Publish Immediate DML: 0 out of 150
+  Number of DML rows: 2 out of 10000
+  Maximum CPU time: 661 out of 10000
+  Maximum heap size: 0 out of 6000000
+  Number of callouts: 0 out of 100
+  Number of Email Invocations: 0 out of 10
+  Number of future calls: 1 out of 50
+  Number of queueable jobs added to the queue: 0 out of 50
+  Number of Mobile Apex push calls: 0 out of 10
+
+07:02:02.337 (1337946315)|LIMIT_USAGE_FOR_NS|copado|
+  Number of SOQL queries: 13 out of 100
+  Number of query rows: 20 out of 50000
+  Number of SOSL queries: 0 out of 20
+  Number of DML statements: 0 out of 150
+  Number of Publish Immediate DML: 0 out of 150
+  Number of DML rows: 0 out of 10000
+  Maximum CPU time: 0 out of 10000
+  Maximum heap size: 0 out of 6000000
+  Number of callouts: 0 out of 100
+  Number of Email Invocations: 0 out of 10
+  Number of future calls: 0 out of 50
+  Number of queueable jobs added to the queue: 0 out of 50
+  Number of Mobile Apex push calls: 0 out of 10
+
+07:02:02.337 (1337946315)|CUMULATIVE_LIMIT_USAGE_END
+
+07:02:02.316 (1337989974)|CODE_UNIT_FINISHED|UserStoryHandler.callFactory4ThirdPartyUpdate(List<copado__User_Story__c>)
+07:02:02.172 (1339076030)|FLOW_START_INTERVIEWS_END|1
+07:02:02.172 (1339104563)|FLOW_INTERVIEW_FINISHED|73608a7640bb4cdd9c25aea9b711912744125f-3872|SendUpdatedValues2TP_UpdatedFlow
+07:02:02.169 (1340121701)|CODE_UNIT_FINISHED|Flow:01I3c000001Iltb
+07:02:02.340 (1340831926)|CODE_UNIT_STARTED|[EXTERNAL]|Flow:01I3c000001Iltb
+07:02:02.340 (1340884034)|CODE_UNIT_FINISHED|Flow:01I3c000001Iltb
+07:02:02.344 (1344738724)|CODE_UNIT_STARTED|[EXTERNAL]|01p3c000001AD1N|UserStoryHandler.callFactory4ThirdPartyUpdate(List<copado__User_Story__c>)
+07:02:02.344 (1344761826)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:8
+07:02:02.344 (1344831706)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:8
+07:02:02.344 (1344920127)|VARIABLE_SCOPE_BEGIN|[11]|usRecords|List<copado__User_Story__c>|true|false
+07:02:02.344 (1345072586)|VARIABLE_ASSIGNMENT|[11]|usRecords|[{"LastModifiedDate":"2024-08-06T10:43:52.000Z","SEC_API_Scan_Status__c":"Not Started","copado__Apex_Tests_Passed__c":false,"Release_Locked__c":false,"cml_Is_Business_Disruption_Failure__c":false,"No_Priority_1_Violation__c":false,"Name":"US-0029875","copado__Latest_Commit_Date__c":"2024-08-05T18:30:59.000Z","Sandbox_Type__c":"Prod-1","CreatedById":"0053c00000C7YvRAAV","copado__QR_Code__c":"<img src=\"https://ch (205 more) ...","Enable_Logs__c":false,"copado__Progress_Status__c":"<img src=\"/img/sampl (270 more) ...","copado__Promote_and_Deploy__c":false,"Current_Branch__c":"runway_cpnppilot4","copado__Environment__c":"a2j7x0000005bYPAAY","Retry__c":0.0,"copado__Exclude_From_CBM__c":false,"10":"0","copado__View_in_Git__c":"<a href=\"https://dev (137 more) ...","Architectural_Review_Needed__c":true,"copado__Manual_Step_Required__c":false,"11":"D","12":"I","IsDeleted":false,"copado__Promote_as_Single_Step__c":false,"13":"d","14":"R","15":"A","16":"A","copado__Total_Story_Points__c":0.0,"17":"W","copado__Platform__c":"Salesforce","LastViewedDate":"2024-08-06T11:01:59.000Z","copado__Validate_Only__c":false,"0":"a","1":"3","2":"p","3":"7","4":"x","5":"0","copado__Promotion_Test_Level__c":"NoTestRun","6":"0","7":"0","copado__Total_Actual_Points__c":1.0,"8":"0","CreatedDate":"2024-08-05T17:55:44.000Z","9":"0","Id":"a3p7x000000DIdRAAW","copado__Legal__c":false,"copado__Story_Points_SFDC__c":1.0,"Humana_Org__c":"Service","SNOW_APPSVCID__c":"APPSVC039173","LastReferencedDate":"2024-08-06T11:01:59.000Z","Base_Branch_Updated__c":false,"OwnerId":"0053c00000C7YvRAAV","copado__Environment_Type__c":"Sandbox","copado__Promote_Change__c":false,"RecordTypeId":"0123c000000l2BQAAY","SecAPI_Scan_Passed__c":true,"copado__Documentation_Complete__c":false,"Security_Level_Passed__c":false,"copado__Project__c":"a357x0000001k5dAAA","is_Testing_Done__c":false,"Story_Type__c":"External","copado__User_Story_Title__c":"test flow3","copado__Metadata_Types_in_Selection__c":"CustomField","copado__Has_Apex_Code__c":false,"copado__Minimum_Apex_Code_Coverage__c":75.0,"copado__Manual_Tests_Passed__c":false,"copado__Stop_Indexing_Metadata__c":false,"copado__Pull_Requests_Approved__c":false,"Is_HotFix__c":false,"copado__Is_Bundle__c":false,"cmcSf__Apex_Test_Level__c":"No Test Run","SystemModstamp":"2024-08-06T10:43:52.000Z","copado__Data_Privacy__c":false,"copado__Git_Repository__c":"a2v7x000000sZjx","copado__Compliance__c":false,"copado__Org_Credential__c":"a317x000000A9BhAAK","Source_Org__c":"CRM_CPNPPilot1","LastModifiedById":"0053c00000C7YvRAAV"}]|0x141998d
+07:02:02.344 (1345100025)|STATEMENT_EXECUTE|[11]
+07:02:02.344 (1345101600)|STATEMENT_EXECUTE|[12]
+07:02:02.344 (1345109375)|HEAP_ALLOCATE|[12]|Bytes:4
+07:02:02.344 (1345127355)|VARIABLE_SCOPE_BEGIN|[12]|usIds|Set<Id>|true|false
+07:02:02.344 (1345146314)|VARIABLE_ASSIGNMENT|[12]|usIds|[]|0x18d0ba24
+07:02:02.344 (1345173091)|HEAP_ALLOCATE|[13]|Bytes:5
+07:02:02.344 (1345188669)|HEAP_ALLOCATE|[13]|Bytes:8
+07:02:02.344 (1345194673)|VARIABLE_SCOPE_BEGIN|[13]|us|copado__User_Story__c|true|false
+07:02:02.344 (1345273116)|VARIABLE_ASSIGNMENT|[13]|us|{"LastModifiedDate":"2024-08-06T10:43:52.000Z","SEC_API_Scan_Status__c":"Not Started","copado__Apex_Tests_Passed__c":false,"Release_Locked__c":false,"cml_Is_Business_Disruption_Failure__c":false,"No_Priority_1_Violation__c":false,"Name":"US-0029875","copado__Latest_Commit_Date__c":"2024-08-05T18:30:59.000Z","Sandbox_Type__c":"Prod-1","CreatedById":"0053c00000C7YvRAAV","copado__QR_Code__c":"<img src=\"https://ch (205 more) ...","Enable_Logs__c":false,"copado__Progress_Status__c":"<img src=\"/img/sampl (270 more) ...","copado__Promote_and_Deploy__c":false,"Current_Branch__c":"runway_cpnppilot4","copado__Environment__c":"a2j7x0000005bYPAAY","Retry__c":0.0,"copado__Exclude_From_CBM__c":false,"10":"0","copado__View_in_Git__c":"<a href=\"https://dev (137 more) ...","Architectural_Review_Needed__c":true,"copado__Manual_Step_Required__c":false,"11":"D","12":"I","IsDeleted":false,"copado__Promote_as_Single_Step__c":false,"13":"d","14":"R","15":"A","16":"A","copado__Total_Story_Points__c":0.0,"17":"W","copado__Platform__c":"Salesforce","LastViewedDate":"2024-08-06T11:01:59.000Z","copado__Validate_Only__c":false,"0":"a","1":"3","2":"p","3":"7","4":"x","5":"0","copado__Promotion_Test_Level__c":"NoTestRun","6":"0","7":"0","copado__Total_Actual_Points__c":1.0,"8":"0","CreatedDate":"2024-08-05T17:55:44.000Z","9":"0","Id":"a3p7x000000DIdRAAW","copado__Legal__c":false,"copado__Story_Points_SFDC__c":1.0,"Humana_Org__c":"Service","SNOW_APPSVCID__c":"APPSVC039173","LastReferencedDate":"2024-08-06T11:01:59.000Z","Base_Branch_Updated__c":false,"OwnerId":"0053c00000C7YvRAAV","copado__Environment_Type__c":"Sandbox","copado__Promote_Change__c":false,"RecordTypeId":"0123c000000l2BQAAY","SecAPI_Scan_Passed__c":true,"copado__Documentation_Complete__c":false,"Security_Level_Passed__c":false,"copado__Project__c":"a357x0000001k5dAAA","is_Testing_Done__c":false,"Story_Type__c":"External","copado__User_Story_Title__c":"test flow3","copado__Metadata_Types_in_Selection__c":"CustomField","copado__Has_Apex_Code__c":false,"copado__Minimum_Apex_Code_Coverage__c":75.0,"copado__Manual_Tests_Passed__c":false,"copado__Stop_Indexing_Metadata__c":false,"copado__Pull_Requests_Approved__c":false,"Is_HotFix__c":false,"copado__Is_Bundle__c":false,"cmcSf__Apex_Test_Level__c":"No Test Run","SystemModstamp":"2024-08-06T10:43:52.000Z","copado__Data_Privacy__c":false,"copado__Git_Repository__c":"a2v7x000000sZjx","copado__Compliance__c":false,"copado__Org_Credential__c":"a317x000000A9BhAAK","Source_Org__c":"CRM_CPNPPilot1","LastModifiedById":"0053c00000C7YvRAAV"}|0x3c811d87
+07:02:02.344 (1345289256)|STATEMENT_EXECUTE|[13]
+07:02:02.344 (1345290468)|STATEMENT_EXECUTE|[14]
+07:02:02.344 (1345306899)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:4
+07:02:02.344 (1345315302)|HEAP_ALLOCATE|[13]|Bytes:5
+07:02:02.344 (1345322594)|VARIABLE_ASSIGNMENT|[13]|us|null|
+07:02:02.344 (1345370152)|STATEMENT_EXECUTE|[16]
+07:02:02.344 (1345371668)|STATEMENT_EXECUTE|[17]
+07:02:02.344 (1345382134)|HEAP_ALLOCATE|[17]|Bytes:4
+07:02:02.344 (1345401186)|HEAP_ALLOCATE|[17]|Bytes:4
+07:02:02.344 (1345418052)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:8
+07:02:02.344 (1345424249)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:8
+07:02:02.361 (1361505914)|CUMULATIVE_LIMIT_USAGE
+07:02:02.361 (1361505914)|LIMIT_USAGE_FOR_NS|(default)|
+  Number of SOQL queries: 1 out of 100
+  Number of query rows: 1 out of 50000
+  Number of SOSL queries: 0 out of 20
+  Number of DML statements: 2 out of 150
+  Number of Publish Immediate DML: 0 out of 150
+  Number of DML rows: 2 out of 10000
+  Maximum CPU time: 674 out of 10000
+  Maximum heap size: 0 out of 6000000
+  Number of callouts: 0 out of 100
+  Number of Email Invocations: 0 out of 10
+  Number of future calls: 2 out of 50
+  Number of queueable jobs added to the queue: 0 out of 50
+  Number of Mobile Apex push calls: 0 out of 10
+
+07:02:02.361 (1361505914)|LIMIT_USAGE_FOR_NS|copado|
+  Number of SOQL queries: 13 out of 100
+  Number of query rows: 20 out of 50000
+  Number of SOSL queries: 0 out of 20
+  Number of DML statements: 0 out of 150
+  Number of Publish Immediate DML: 0 out of 150
+  Number of DML rows: 0 out of 10000
+  Maximum CPU time: 0 out of 10000
+  Maximum heap size: 0 out of 6000000
+  Number of callouts: 0 out of 100
+  Number of Email Invocations: 0 out of 10
+  Number of future calls: 0 out of 50
+  Number of queueable jobs added to the queue: 0 out of 50
+  Number of Mobile Apex push calls: 0 out of 10
+
+07:02:02.361 (1361505914)|CUMULATIVE_LIMIT_USAGE_END
+
+07:02:02.344 (1361537989)|CODE_UNIT_FINISHED|UserStoryHandler.callFactory4ThirdPartyUpdate(List<copado__User_Story__c>)
+07:02:02.362 (1362144856)|FLOW_START_INTERVIEWS_END|1
+07:02:02.362 (1362176178)|FLOW_INTERVIEW_FINISHED|71398a7640bb4cdd9c25aea9b711912744125f-3795|SendUpdatedValues2TP_UpdatedFlow
+07:02:02.364 (1364777494)|USER_INFO|[EXTERNAL]|0053c00000C7YvR|copadointegration@humana.nophi.copadotrn|(GMT-04:00) Eastern Daylight Time (America/New_York)|GMT-04:00
