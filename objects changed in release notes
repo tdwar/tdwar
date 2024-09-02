@@ -1,0 +1,69 @@
+Object Name	Changes
+Persona	System Admins can no longer remove or reassign themselves to different Personas; another admin must handle this.
+Promotion	Promotions respect configured queues, ensuring sequential execution if multiple promotions use the same queue.
+User Story	Warning message displayed for user story dependencies that block progress until resolved.
+Metadata	Metadata now displays correctly on the Rollback Select and Compare Metadata page.
+Deployment	"Deploy Later" button issue fixed; scheduled deployments now function correctly.
+Named Credential	Fixed issue with Named Credential label not updating in custom settings.
+
+Object Name	Changes
+User Story Bundle	Improved handling of multiple user stories affecting the same component.
+Package Version	Added a new Lightning Web Component (LWC) banner.
+Deployment, Validation, Git Promotion	Improved rollback functionality with better error reporting.
+User Story, Promotion	JIRA callouts now trigger only on actual status changes.
+Test Manager	Fixed random error pop-ups for Dutch locale settings.
+Deployment, Git	Fixed the issue where the Deploy Changes button would get stuck.
+CI Job, External CI Setting, User Story, Environment	Fixed search functionality during CI Jobs creation.
+
+Object	Change
+Git Repository	Simplified authentication process for GitHub and GitLab.
+Data Set (Data_Set__c)	Added new field: Platform (Platform__c) - Picklist with values Salesforce, SFDX, Others.
+Pipeline (Pipeline__c)	Removed fields: Enable Copado Dx and Copado Dx Mode.
+
+Object	Changes
+Custom Function	Creation controlled by CustomFunctionEnabled flag.
+Promotion	Quality gates apply only to regular promotions.
+Persona	New Feature tab to enable/disable functionalities; permissions may need updates.
+Source Format Pipelines User Story	New Commit Data component for Commit Data page.
+User Story Bundle	Bug fix applied; no manual changes required.
+Back Promotion & Validation Deployment	Quality gates will be skipped for these processes.
+Persona (Add Users Modal)	Bug fix for maintaining user selection after search.
+
+Object	Change
+User Story	Promotion blocked if tests are in progress or have failed.
+User Story	Add or update the User Story: Pending Tests field to track test status.
+System Property	Create IgnoreTestStatusForPromotion with value true if overriding test status checks.
+Promotion	Add View in Git field to navigate to the promotion branch in Git.
+Picklist Value Set	Activate PackageDistribution value in Copado Actions picklist.
+Promotions and Deployments	Fixed error issue on record pages after v22.14.2 installation.
+
+Object	Changes
+Git Repository	Update Page Layout Assignments for all profiles.
+Persona Management	Deactivate the "Restrict Standard Persona Modification" validation rule if upgrading from v22.14.2.
+Credentials	Configure a batch class to recalculate and re-share credentials when sharing options change.
+Functions	AES256 encryption implemented for function payloads (no manual action required).
+Job Queue	Use the "Continue Queue Execution" button to start the next job step while the previous one is in progress.
+
+Object	Change
+Data Template	New Import Templates Wizard for JSON and zip file uploads.
+Copado Data Template Extension	Ability to import pre-built data templates from the extension package.
+Environment	UI updates including removal of fields, rearrangement of tabs, and addition of Extension Details tab.
+Credential	Rearranged buttons for better accessibility.
+Pipeline Manager	Renamed buttons for promotions, added "All" option in display records per page.
+User Story	Enhanced logic for handling user stories in Continuous Delivery automation.
+Permission Sets	Addition of new Apex classes (e.g., QualityGatesCheckerCtrl) and access requirements.
+
+Object	Changes/Updates
+System Property	- Mandatory value enforcement.
+- Hide Value updates for hidden and visible values.
+Result Page (Logs)	- Logs over 2 MB will only be downloadable, not displayed directly.
+Quality Gate Rule	- Execution sequence affects process flow.
+- Removal of "When branch is ready" option.
+User Story	- Created By and Last Modified By fields moved.
+- New Quality Gates Checker component added.
+Promotion	- Latest tests and Quality Gates Checker added to the Test tab.
+- Removal of Copado Test Manager component.
+Automation Rule	- Automation rules automatically created/deleted for 'After' quality gates.
+- New field: Quality Gate Rule Condition.
+Pipeline	- Updated Automation Rules related list under the Automations tab.
+Apex Classes	- New class QualityGatesCheckerCtrl added.
