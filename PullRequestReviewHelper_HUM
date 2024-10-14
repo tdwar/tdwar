@@ -1,0 +1,398 @@
+/*******************************************************************************************************************************
+Apex Class Name : PullRequestReviewHelper_HUM
+Function        : Handler class for Pull Request Review
+Test Class      : PullRequestReviewHelper_HUM_Test
+Modification Log:  
+* Modification ID    Developer Name            Date                       Description
+*---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+* 1.0                P Sri Krishna Prasad       01/20/2023                4208148: Original version
+  1.1                Niharika Garg              10/01/2024                6702698 : Added onBeforeInsert method to update username 
+*---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+public with sharing class PullRequestReviewHelper_HUM {
+    
+    public class addException extends Exception{}
+    
+    //endpoint api version
+    public final static string authApiVersion='/reviewers?api-version=5.1';
+    //headers for callout
+    public final static string contentTypeHeader4Patch='Content-Type:application/json-patch+json';
+    public final static string connectionHeader='Connection:keep-alive';
+    public final static string overridePostMethod='X-HTTP-Method-Override:PATCH';
+    public final static string NAMED_CREDENTIALS='callout:Azure_Ado_User/';
+    Public final static string APIS_REPO='/_apis/git/repositories';
+    
+    Public Static boolean isExecuted = false;
+    
+    public static void onAfterInsert(Map<Id, copado__Pull_Request_Review__c> newMap) {
+        
+        if(!isExecuted){
+            Set<Id> pullRequestIDs = new Set<ID>();
+            List<Id> pullRequestReviewIDs = new List<ID>();
+            for (copado__Pull_Request_Review__c prReviewRec : newMap.values()) {
+                system.debug('inside the code..');
+                if(!prReviewRec.PR_Submitter__c){
+                    pullRequestIDs.add(prReviewRec.copado__Pull_Request__c);
+                    pullRequestReviewIDs.add(prReviewRec.Id);
+                }    
+            }
+            
+            if(pullRequestReviewIDs.size() > 0){
+                getFullUserNameCallout(pullRequestReviewIDs, pullRequestIDs);
+            }    
+        }
+    }
+    Public Static List<copado__Pull_Request_Review__c> duplicateRecordCheck(List<copado__Pull_Request_Review__c> prRevList){
+        boolean isDuplicate = false;
+        Set<Id> pullRequestIDs = new Set<ID>();
+        Set<Id> pullRequestReviewIDs = new Set<ID>();
+        for (copado__Pull_Request_Review__c prReviewRec : prRevList) {
+            pullRequestIDs.add(prReviewRec.copado__Pull_Request__c);
+            pullRequestReviewIDs.add(prReviewRec.Id);
+        }
+       
+        if(!Schema.sObjectType.copado__Pull_Request_Review__c.isAccessible() || !Schema.sObjectType.copado__Pull_Request_Review__c.fields.Id.isAccessible() 
+          || !Schema.sObjectType.copado__Pull_Request_Review__c.fields.copado__Username__c.isAccessible()){ 
+            throw new addException('no access to object'); 
+        }
+        List<copado__Pull_Request_Review__c> prReviewRecList = [Select id,copado__Username__c
+                                                                from copado__Pull_Request_Review__c 
+                                                                where copado__Pull_Request__c IN :pullRequestIDs];
+        
+       
+        /*
+        List<copado__Pull_Request_Review__c> deletePRRRecords = new List<copado__Pull_Request_Review__c>();
+        for(copado__Pull_Request_Review__c prReviewRec : prRevList){
+            for(copado__Pull_Request_Review__c rec: prReviewRecList){
+                if(!pullRequestReviewIDs.contains(rec.Id) && rec.copado__Username__c==prReviewRec.copado__Username__c){
+                    if(rec.Id==prReviewRec.Id){
+                   	 	deletePRRRecords.add(prReviewRec);
+                    	isDuplicate = true;
+					}
+                }
+            }
+        }
+        Set<copado__Pull_Request_Review__c> myset = new Set<copado__Pull_Request_Review__c>();
+        List<copado__Pull_Request_Review__c> myresult = new List<copado__Pull_Request_Review__c>();
+        
+        myset.addAll(deletePRRRecords);
+        myresult.addAll(myset);
+        
+        if(Schema.sObjectType.copado__Pull_Request_Review__c.isDeletable() && deletePRRRecords.size()>0){
+            system.debug('Im here to delete'+deletePRRRecords);
+            //delete deletePRRRecords;
+              delete myresult;
+        }
+*/
+        
+        List<copado__Pull_Request_Review__c> lstpullrequestreview = new List<copado__Pull_Request_Review__c>();   
+         List<copado__Pull_Request_Review__c> lstDeletepullrequestreview = new List<copado__Pull_Request_Review__c>();
+         Map<String,String> mappullrequestreviews = new Map<String,String>();
+         lstpullrequestreview = [SELECT id,copado__Username__c,PR_Submitter__c,Required_Reviewer__c,copado__Review_Action__c,createddate FROM copado__Pull_Request_Review__c where copado__Pull_Request__c IN :pullRequestIDs order by createddate Asc];
+       
+        
+        for(copado__Pull_Request_Review__c cprr : lstpullrequestreview){
+            if(mappullrequestreviews.containskey(cprr.copado__Username__c)){
+               lstDeletepullrequestreview.add(cprr);  
+            }
+            Else{
+              mappullrequestreviews.put(cprr.copado__Username__c,cprr.id); 
+            }
+        }
+        
+        if(lstDeletepullrequestreview.size() > 0){  
+            
+        }
+        
+        
+        //return isDuplicate;
+        return lstDeletepullrequestreview;
+    }
+    
+    @future(callout = true)
+    public static void getFullUserNameCallout(List<Id> pullRequestReviewIDs, Set<Id> pullRequestIDs){
+        isExecuted = true;
+        if(!Schema.sObjectType.copado__Pull_Request_Review__c.isAccessible() || !Schema.sObjectType.copado__Pull_Request_Review__c.fields.Id.isAccessible() 
+          || !Schema.sObjectType.copado__Pull_Request_Review__c.fields.copado__Username__c.isAccessible()
+          || !Schema.sObjectType.copado__Pull_Request_Review__c.fields.copado__Pull_Request__c.isAccessible()){ 
+            throw new addException('no access to object'); 
+        }
+         
+        List <copado__Pull_Request_Review__c> newpullrequestreview = new List <copado__Pull_Request_Review__c> ();
+        
+        newpullrequestreview =  [Select id,copado__Username__c,Username__c,copado__Pull_Request__c,copado__Pull_Request__r.copado__Requested_Reviewers__c,
+                                                copado__Pull_Request__r.copado__Url__c,copado__Pull_Request__r.copado__Request_Number__c
+                                                from copado__Pull_Request_Review__c where id=:pullRequestReviewIDs.get(0)];
+        
+        if(newpullrequestreview.size() > 0){
+            copado__Pull_Request_Review__c prRec = [Select id,copado__Username__c,Username__c,copado__Pull_Request__c,copado__Pull_Request__r.copado__Requested_Reviewers__c,
+                                                copado__Pull_Request__r.copado__Url__c,copado__Pull_Request__r.copado__Request_Number__c
+                                                from copado__Pull_Request_Review__c where id=:newpullrequestreview.get(0).id];
+            
+            List<copado__Pull_Request_Review__c> prRec1 = [Select id,copado__Username__c,Username__c,copado__Pull_Request__c,copado__Pull_Request__r.copado__Requested_Reviewers__c,
+                                                copado__Pull_Request__r.copado__Url__c,copado__Pull_Request__r.copado__Request_Number__c
+                                                from copado__Pull_Request_Review__c where copado__Pull_Request__c=:prRec.copado__Pull_Request__c];
+          
+            
+           List<copado__Pull_Request_Review__c> dellst = new List<copado__Pull_Request_Review__c>();
+        dellst = duplicateRecordCheck(new List<copado__Pull_Request_Review__c>{prRec});
+        //Boolean checkDuplicateRecord = duplicateRecordCheck(new List<copado__Pull_Request_Review__c>{prRec});
+        
+      //  if(!checkDuplicateRecord){
+            List<String> userNameList = new List<String>();
+            String requestedReviewers = prRec.copado__Pull_Request__r.copado__Requested_Reviewers__c;
+            List<String> requestedReviewersList = requestedReviewers!=null && requestedReviewers.contains(',')?requestedReviewers.split(','):new List<String>{requestedReviewers};
+            String trimmedVal = prRec.copado__Username__c.contains('...')?prRec.copado__Username__c.replace('...', ''):prRec.copado__Username__c;
+            String actualUserName;
+            for(String str:requestedReviewersList){
+                if(str.contains(trimmedVal)){
+                    userNameList.add(str);
+                }
+            }
+            String prURL = prRec.copado__Pull_Request__r.copado__Url__c;
+            //String responseBody = makeCallout(prURL, trimmedVal);
+            //
+           
+            
+            map<string,copado__Pull_Request_Review__c> calloutresponse = makeCallout(prURL, trimmedVal);
+            
+            List<copado__Pull_Request_Review__c> prupdatelist = new List<copado__Pull_Request_Review__c>();
+            
+            For(copado__Pull_Request_Review__c prr: prRec1){
+                if(calloutresponse.containskey(prr.Username__c)){
+                    copado__Pull_Request_Review__c cpprs = new copado__Pull_Request_Review__c();
+                    cpprs.id = prr.Id;
+                    cpprs.Username__c = calloutresponse.get(prr.Username__c).Username__c;
+                    cpprs.copado__Username__c = calloutresponse.get(prr.Username__c).copado__Username__c;
+                    cpprs.copado__Review_Action__c =calloutresponse.get(prr.Username__c).copado__Review_Action__c;
+                    cpprs.PR_Submitter__c =calloutresponse.get(prr.Username__c).PR_Submitter__c;
+                    cpprs.Required_Reviewer__c =calloutresponse.get(prr.Username__c).Required_Reviewer__c;
+                    prupdatelist.add(cpprs);
+                }
+            }
+           
+            if(Schema.sObjectType.copado__Pull_Request_Review__c.isUpdateable() && Schema.sObjectType.copado__Pull_Request_Review__c.fields.Username__c.isUpdateable()){
+                
+                //Update new copado__Pull_Request_Review__c(Id=prRec.Id, Username__c = responseBody);
+                if(prupdatelist.size() >0){
+                    //update prupdatelist;
+                    
+                    Database.SaveResult[] drList = Database.update(prupdatelist, false);
+	
+            // Iterate through each returned result
+            for(Database.SaveResult dr : drList) {
+                if (dr.isSuccess()) {
+                    //isDuplicate = true;
+                    // Operation was successful, so get the ID of the record that was processed
+                    System.debug('Successfully updated Pull Request with ID: ' + dr.getId());
+                }
+                else {
+                    // Operation failed, so get all errors                
+                    for(Database.Error err : dr.getErrors()) {
+                        System.debug('The following error has occurred.');                    
+                        System.debug(err.getStatusCode() + ': ' + err.getMessage());
+                        System.debug('Update fields that affected this error: ' + err.getFields());
+                    }
+                }
+            } 
+                    
+                }
+                
+                if(dellst.size() > 0){
+                   //delete lstDeletepullrequestreview;
+            
+            Database.DeleteResult[] drList = Database.delete(dellst, false);
+		
+            // Iterate through each returned result
+            for(Database.DeleteResult dr : drList) {
+                if (dr.isSuccess()) {
+                    //isDuplicate = true;
+                    // Operation was successful, so get the ID of the record that was processed
+                    System.debug('Successfully deleted Pull Request with ID: ' + dr.getId());
+                }
+                else {
+                    // Operation failed, so get all errors                
+                    for(Database.Error err : dr.getErrors()) {
+                        System.debug('The following error has occurred.');                    
+                        System.debug(err.getStatusCode() + ': ' + err.getMessage());
+                        System.debug('Pull Request fields that affected this error: ' + err.getFields());
+                    }
+                }
+            } 
+                   
+                }
+            } 
+        }
+        
+        
+        
+      //  }
+    }
+    
+    public static void onBeforeInsert(List<copado__Pull_Request_Review__c> reviewList){
+         for(copado__Pull_Request_Review__c review : reviewList){
+            String reviewer = review.copado__Username__c;
+            //check username that start with 'vstfs'
+            //system.debug('reviewer..'+reviewer);
+            if(reviewer != null && reviewer.startsWith('vstfs')){
+                Integer lastBackSlashIndex = reviewer.lastIndexOf('\\');
+                if(lastBackSlashIndex != -1 ){
+                    String username = reviewer.subString(lastBackSlashIndex + 1).trim();
+                    review.copado__Username__c = username;
+                }
+            }
+        }
+        
+    }
+    
+    public static map<string,copado__Pull_Request_Review__c>  makeCallout(String prURL, String truncatedUserName){
+        
+        String replacePullReq = prURL.replace('pullrequest', 'pullrequests');
+        String afterSlashGIT = replacePullReq.substringBefore('/_git');
+        String afterSlash = afterSlashGIT.substringAfterLast('/');
+        String afterGIT = replacePullReq.substringAfter('_git');
+        
+        HttpRequest req = new HttpRequest();
+        
+        //exp: callout: endpoint + projectExternalId + '/_apis/wit/wiql/' + workspaceId +'?api-version=4.1';
+        //https://dev.azure.com/humana-test/Corporate%20Copado%20Training/_apis/git/repositories/CI%20DEV/pullrequests/3758/reviewers?api-version=4.1
+        req.setEndpoint(NAMED_CREDENTIALS+afterSlash+APIS_REPO+afterGIT+authApiVersion);
+        List<String> additionalHeader = new List<String>{contentTypeHeader4Patch,connectionHeader,overridePostMethod};
+            for(String ahItem:additionalHeader) {
+                req.setHeader(ahItem.split(':')[0], ahItem.split(':')[1]);
+            }
+        req.setMethod(String.valueOf(Method.GET));
+        
+        req.setTimeout(120000);
+        Http http = new Http();
+        
+        HTTPResponse res = http.send(req);
+        
+        System.debug('res.getBody()==> '+res.getBody());
+        JSONParser parser = JSON.createParser(res.getBody());
+        system.debug('parser: '+parser);
+        String actulaUserName = null;
+        
+        string pr_approvalStatus = null;
+        string pr_actionStatus = null;
+        boolean pr_isRequired = false;
+        string pr_isrequiredstr= null; 
+        string pr_approvername = null;
+        String pr_id = null;        
+        string finalstr=null; 
+        map<string,string> mapPrStatus = new map<string,string>(); 
+        map<string,string> mapPrapproveroptions = new map<string,string>();
+        map<string,copado__Pull_Request_Review__c> mapPrReviewersResponse = new map<string,copado__Pull_Request_Review__c>();
+        
+        while (parser.nextToken() != null) {
+         
+            /*
+            if ((parser.getCurrentToken() == JSONToken.FIELD_NAME) && 
+                (parser.getText() == 'uniqueName')) {
+                    parser.nextToken();
+                    // Get the value.
+                    if(parser.getText().contains(truncatedUserName)){
+                        system.debug('valRec: '+parser.getText());
+                        actulaUserName = parser.getText();
+                    }
+                }
+            */
+            
+           
+            if(parser.getCurrentToken() == JSONToken.FIELD_NAME && parser.getText() == 'vote'){
+                parser.nextToken();
+                pr_approvalStatus = String.valueof(parser.getText());
+                            
+            }
+            
+            if(parser.getCurrentToken() == JSONToken.FIELD_NAME && parser.getText() == 'isRequired'){
+                parser.nextToken();
+                pr_isRequired = boolean.valueOf(parser.getText());   
+                
+            }
+            
+            if(parser.getCurrentToken() == JSONToken.FIELD_NAME && parser.getText() == 'uniqueName'){
+                parser.nextToken();
+                pr_approvername = String.valueOf(parser.getText()); 
+               
+            }
+            
+            if(parser.getCurrentToken() == JSONToken.FIELD_NAME && parser.getText() == 'id'){
+                parser.nextToken();
+                pr_id = String.valueOf(parser.getText());
+                              
+            }
+            
+            if(pr_approvername != null) {
+                if(pr_approvalStatus != null){
+                       if(Integer.valueof(pr_approvalStatus) == 10) {
+                            pr_approvalStatus = 'Approved';
+                            pr_actionStatus = 'Approved';
+                        }else if (Integer.valueof(pr_approvalStatus)== 5){
+                             pr_approvalStatus = 'Approved with suggestions'; 
+                             pr_actionStatus = 'Approved';
+                        }
+                        else if (Integer.valueof(pr_approvalStatus)== 0){
+                            pr_approvalStatus = 'opened';
+                            pr_actionStatus = '';
+                        }
+                        else if (Integer.valueof(pr_approvalStatus)== -5){
+                            pr_approvalStatus =  'Waiting for author';
+                            pr_actionStatus = '';
+                        }
+                        else if (Integer.valueof(pr_approvalStatus)== -10){
+                            pr_approvalStatus =  'Rejected';
+                            pr_actionStatus = 'Unapproved';
+                        }
+                }
+                         Boolean PR_isSub = false;
+                         Boolean PR_isreq = false; 
+                
+                         if(Boolean.valueof(pr_isRequired) == false && pr_approvalStatus == null) {
+                            pr_isrequiredstr = 'PR submitter';
+                            PR_isSub = true;
+                            PR_isreq = false;                                 
+                        }else if (Boolean.valueof(pr_isRequired) == false && pr_approvalStatus != null){
+                            pr_isrequiredstr = 'Optional'; 
+                            PR_isSub = false;
+                            PR_isreq = false;
+                        }
+                        else if (Boolean.valueof(pr_isRequired) == true && pr_approvalStatus != null){
+                            pr_isrequiredstr = 'Required';
+                            PR_isSub = false;
+                            PR_isreq = true;
+                        }
+                
+                
+                if(pr_approvername != null){
+                    copado__Pull_Request_Review__c cprr = new copado__Pull_Request_Review__c();
+                    cprr.Username__c = pr_approvername;
+                    cprr.copado__Username__c = pr_approvername;
+                    cprr.copado__Review_Action__c =pr_actionStatus;
+                    cprr.PR_Submitter__c =PR_isSub;
+                    cprr.Required_Reviewer__c =PR_isreq;
+                    mapPrReviewersResponse.put(pr_approvername,cprr);
+                }
+                
+                finalstr = pr_approvalStatus + ','+pr_isrequiredstr +','+pr_approvername;
+                              
+                mapPrStatus.put(pr_approvername,pr_approvalStatus);
+                mapPrapproveroptions.put(pr_approvername,pr_isrequiredstr);
+                
+                
+                pr_approvalStatus = null;
+       			pr_isRequired = false;
+                pr_isrequiredstr = null;
+        		pr_approvername = null;
+        		pr_id = null;        
+        		finalstr=null;  
+            }   
+            
+           
+            
+        }
+       
+        //return actulaUserName;
+        return mapPrReviewersResponse;
+    }
+}
