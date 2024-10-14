@@ -1,0 +1,72 @@
+/******************************************************************************************************************************
+Apex Class Name  : Copado_PullRequestHelper_HUM 
+Version          : 1.0 
+Created Date     : 06/25/2024
+Function         : 
+
+Modification Log :
+* Developer                       Date                 Description
+* -----------------------------------------------------------------------------------------------------------------------------------------------------------------------                
+* Kamal Raj                 06/25/2024         Initial Development
+***************************************************************************************************************************************************************************/
+public with sharing class Copado_PullRequestHelper_HUM {
+    
+
+     
+     public static void onAfterupdate(Map<Id, copado__Pull_Request__c> newMap) {
+        
+            Set<Id> pullRequestIDs = new Set<ID>();
+            List<Id> pullRequestReviewIDs = new List<ID>();
+            List<copado__Pull_Request_Review__c>  pullRequestReviewDetails = new  List<copado__Pull_Request_Review__c> ();
+            map<Id,String> PrSubmitter = new map<id,string>();
+            for (copado__Pull_Request__c prReviewRec : newMap.values()) {
+                pullRequestIDs.add(prReviewRec.id);
+                PrSubmitter.put(prReviewRec.id,prReviewRec.copado__Username__c);
+                //pullRequestReviewIDs.add(prReviewRec.Id);
+                //pullRequestReviewDetails.add(prReviewRec);
+            }            
+           
+            if(!Schema.sObjectType.copado__Pull_Request_Review__c.isAccessible() || !Schema.sObjectType.copado__Pull_Request_Review__c.fields.Id.isAccessible() 
+             || !Schema.sObjectType.copado__Pull_Request_Review__c.fields.copado__Username__c.isAccessible()
+             || !Schema.sObjectType.copado__Pull_Request_Review__c.fields.copado__Pull_Request__c.isAccessible()){ 
+             throw new addException('no access to object'); 
+            }
+            
+            
+        
+        id tmpPId;
+        for(Id pId : pullRequestIDs){
+            tmpPId = pId;
+            break;
+        }
+         
+        string tmpPname;
+        for(Id pn : PrSubmitter.keyset()){
+            tmpPname = PrSubmitter.get(pn);
+            break;
+        }
+         
+         
+         List<copado__Pull_Request_Review__c> prReQ = [Select id,copado__Username__c,PR_Submitter__c from copado__Pull_Request_Review__c where copado__Pull_Request__c=:tmpPId  and PR_Submitter__c = true];
+                  
+         Boolean PRsubmitterflag = false;         
+                       
+         if(prReQ.size()>0){
+            PRsubmitterflag = true; 
+         }
+         
+          List<copado__Pull_Request_Review__c> prReQInsert = new  List<copado__Pull_Request_Review__c> ();          
+         if(!PRsubmitterflag)    {
+             copado__Pull_Request_Review__c cppr= new copado__Pull_Request_Review__c();
+             cppr.PR_Submitter__c = true;
+             cppr.copado__Username__c = tmpPname;
+             cppr.copado__Pull_Request__c = tmpPId;
+             prReQInsert.add(cppr);
+             
+         }
+         PRsubmitterflag = false;         
+         if(prReQInsert.size() > 0){
+             insert prReQInsert;             
+         }
+    }
+}
