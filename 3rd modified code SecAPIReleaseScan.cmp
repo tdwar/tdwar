@@ -171,3 +171,53 @@
     </div>
     </aura:if>
 </aura:component>
+
+<div class="slds-grid slds-grid_align-spread slds-p-top_x-small slds-p-bottom_x-small">
+    <aura:if isTrue="{!or(v.calloutStatusSAST == 'Completed', v.calloutStatusSAST == 'Failed', v.calloutStatusOSA == 'Completed', v.calloutStatusOSA == 'Failed')}">
+        Check SecAPI Scan Results section in the related list on Release record for SAST and OSA/SCA Scan response.
+    </aura:if>
+</div>
+
+<!-- Updated button section for running new scans -->
+<lightning:button aura:id="secApiButton" variant="brand" label="Run New SAST Scan" title="Run New SAST Scan" onclick="{!c.handleRunSecApi}"/>
+<lightning:button aura:id="secApiOSAButton" variant="brand" label="Run New OSA/SCA Scan" title="Run New OSA/SCA Scan" onclick="{!c.handleRunSecApiOSA}"/> <!-- New button for OSA/SCA -->
+<lightning:button variant="brand" label="Check Scan Status" title="Check Scan Status" onclick="{!c.handleClick}" disabled="{!v.stopPolling}"/>
+
+<br/>
+<aura:if isTrue="{!(and(v.stopPolling, or(v.calloutStatusSAST == 'In-Progress', v.calloutStatusOSA == 'In-Progress')))}">
+    Please wait, buttons will be re-enabled after 30 seconds.
+</aura:if>
+</div>
+</div>
+
+<!-- SecAPI Scan Status Checks -->
+<aura:if isTrue="{!(and(v.ReleaseObject!=null,or(empty(v.ReleaseObject.SEC_API_Scan_Status__c),v.ReleaseObject.SEC_API_Scan_Status__c=='')))}">
+    <lightning:icon iconName="utility:warning" class="slds-icon slds-icon-text-error" variant="Error" alternativeText="Warning"/>
+    Scan N/A – SecAPI Scan status should be Not-Started before running the SecAPI scan.
+</aura:if>
+<aura:if isTrue="{!v.ReleaseObject.SEC_API_Scan_Status__c == 'Completed'}">
+    <lightning:icon iconName="utility:warning" class="slds-icon slds-icon-text-error" variant="Error" alternativeText="Warning"/>
+    Check SecAPI Scan Results section on Release record for Scan response.
+</aura:if>
+
+</form>
+</div>
+</aura:if>
+
+<!-- Modal Footer Section -->
+<div class="modal-footer slds-modal__footer slds-size_1-of-1">
+    <aura:if isTrue="{!and(!v.ReleaseObject.SecAPI_Scan_Passed__c,v.ReleaseObject.SEC_API_Scan_Status__c == 'Completed')}">
+        <lightning:button variant="brand-outline" label="Reset SecAPI" title="Reset SecAPI" onclick="{!c.handleResetScan}" />
+    </aura:if>
+    
+    <!-- Lock Screen Actions -->
+    <aura:if isTrue="{!v.showLockScreen}">
+        <lightning:button variant="Neutral" class="slds-button" label="Cancel" onclick="{!c.handleClose}"/>
+        <lightning:button aura:id="savebuttonid" variant="Brand" class="slds-button" label="Save" onclick="{!c.handleSave}" disabled="true"/>
+    </aura:if>
+    <aura:if isTrue="{!!v.showLockScreen}">
+        <lightning:button variant="Brand" class="slds-button" label="Close" onclick="{!c.handleClose}"/>
+    </aura:if>
+</div>
+<!-- End of Modal Footer -->
+
