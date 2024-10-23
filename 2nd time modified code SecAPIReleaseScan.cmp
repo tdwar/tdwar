@@ -1,0 +1,162 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName,forceCommunity:availableForAllPageTypes,force:lightningQuickActionWithoutHeader,force:appHostable" controller="SecAPIReleaseScanController">   
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="userStoryId" type="String"/>
+    <aura:attribute name="UserStoryObject" type="copado__User_Story__c" />
+    <aura:attribute name="ReleaseObject" type="copado__Release__c" />
+
+    <aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="statusURL" type="String" default =""/>
+    <aura:attribute name="appRequestId" type="String" default =""/>
+
+    <!-- Adding attributes for OSA/SCA Progress -->
+    <aura:attribute name="osaScaScanStatus" type="String" default=""/>
+    <aura:attribute name="osaScaProgressNumber" type="Integer" default="0" />
+    
+    <aura:attribute name="scanStatus" type="String" default =""/>
+    <aura:attribute name="scoreCardUrl" type="String" default =""/>
+    <aura:attribute name="progressNumber" type="Integer" default="0" />
+    <aura:attribute name="calloutStatus" type="String" default =""/>
+    <aura:attribute name="showModal" type="Boolean"/>
+    <aura:attribute name="stopPolling" type="Boolean" default="false"/>
+    <aura:attribute name="showSpinner" type="Boolean" default="false"/>
+    <aura:attribute name="showSecAPI" type="Boolean" default="false"/>
+    <aura:attribute name="showLockScreen" type="Boolean" default="false"/>
+    <aura:attribute name="options" type="List" default="[
+    {'label': 'Yes', 'value': 'Yes'},
+    {'label': 'No', 'value': 'No'}
+    ]"/>
+    <aura:attribute name="value" type="String" default="No"/>
+    
+    <lightning:notificationsLibrary aura:id="notifLib"/>
+    <aura:if isTrue="{!v.showSpinner}">
+        <lightning:spinner alternativeText="Loading"  variant="brand"  />
+    </aura:if>
+    
+     <aura:html tag="style">
+        .cuf-content {
+        padding: 0 0rem !important;
+        }
+        .slds-p-around--medium {
+        padding: 0rem !important;
+        }       
+        .slds-modal__content{
+        overflow-y:hidden !important;
+        height:unset !important;
+        max-height:unset !important;
+        }
+    </aura:html>
+    
+    <div class="modal-header slds-modal__header slds-size_1-of-1">
+        <h4 class="title slds-text-heading--medium">SecAPI Scan</h4>
+        <aura:if isTrue="{!and(!v.showSecAPI, !v.showLockScreen)}">
+        	<lightning:flow aura:id="validateUSFlow" onstatuschange="{!c.statusChange}"/>
+        </aura:if>
+    </div>
+
+    <aura:if isTrue="{!v.showLockScreen}">
+    <div class="slds-modal__content slds-p-around--x-small slds-size_1-of-1 slds-is-relative">
+        <form class="slds-form–stacked">
+            <aura:if isTrue="{!(or(v.ReleaseObject.SEC_API_Scan_Status__c == 'Not Started',v.ReleaseObject.SEC_API_Scan_Status__c == 'In-Progress'))}">
+                <div>
+                    <h4 class="title slds-text-heading--medium slds-align--absolute-center">Release Lock</h4>
+                    <br/><br/>
+                    <h3 class="title slds-text-heading--medium">Are you sure you want to Lock the Release?</h3>
+                    <br/>
+                    <lightning:radioGroup name="lockRequired"
+                          label="Lock"
+                          options="{! v.options }"
+                          value="{! v.value }"
+                          type="button"
+                          onchange="{! c.handleLockChange }"
+                          required="true"/>
+                </div>
+            </aura:if>
+        </form>
+    </div>
+    </aura:if>
+
+    <aura:if isTrue="{!and(v.showSecAPI, !v.showLockScreen)}">
+    <div class="slds-modal__content slds-p-around--x-small slds-size_1-of-1 slds-is-relative">
+        <form class="slds-form–stacked">
+            <aura:if isTrue="{!(or(v.ReleaseObject.SEC_API_Scan_Status__c == 'Not Started',v.ReleaseObject.SEC_API_Scan_Status__c == 'In-Progress'))}">
+                <div>
+                    <h3 class="slds-section-title--divider">RELEASE DETAILS</h3>
+                    <div class="slds-form--stacked slds-p-around--medium slds-m-bottom--x-small">
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_1-of-2">
+                                <label class="slds-form-element__label" for="devName">Release Name</label>
+                                <div class="slds-form-element__control">{!v.ReleaseObject.Name}
+                                </div>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2">
+                                <label class="slds-form-element__label" for="devName">Owner</label>
+                                <div class="slds-form-element__control">{!v.ReleaseObject.Owner.Name}
+                                </div>            
+                            </div>
+                        </div>
+                        
+                        <br/>
+                        <div class="slds-grid slds-wrap">
+                           
+                        </div>
+                    </div>
+                    
+                    <!-- Renamed "SecAPI Running Status" to "SAST Scan Status" -->
+                    <h3 class="slds-section-title--divider">SAST Scan Status</h3>
+                    <br/>
+                    <div>
+                        <div class="slds-grid slds-grid_align-spread slds-p-bottom_x-small" id="progress-bar-label-id-6">
+                            <aura:if isTrue="{!and(v.scanStatus != null,v.scanStatus != '')}">
+                                <span>SAST Scan {!v.calloutStatus} ({!v.scanStatus})</span>
+                                <aura:set attribute="else">
+                                    <span>SAST Scan {!v.calloutStatus}</span>
+                                </aura:set>
+                            </aura:if>
+                            <span aria-hidden="true">
+                                <strong>{!v.progressNumber}% Completed</strong>
+                            </span>
+                        </div>
+                        <div class="slds-progress-bar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{!v.progressNumber}" aria-labelledby="progress-bar-label-id-6" role="progressbar">
+                            <aura:if isTrue="{!v.calloutStatus == 'Completed'}">
+                                <span class="slds-progress-bar__value slds-progress-bar__value_success" style="{! 'width: ' +v.progressNumber + '%'}">
+                                    <span class="slds-assistive-text">Progress: {!v.progressNumber}%</span>
+                                </span>
+                            </aura:if>
+                            <aura:if isTrue="{!v.calloutStatus == 'Failed'}">
+                                <span class="slds-progress-bar__value" style="{! 'width: ' +v.progressNumber + '%' + ';background:red'}">
+                                    <span class="slds-assistive-text">Progress: {!v.progressNumber}%</span>
+                                </span>
+                            </aura:if>
+                            <aura:if isTrue="{!v.calloutStatus == 'In-Progress'}">
+                                <span class="slds-progress-bar__value" style="{! 'width: ' +v.progressNumber + '%'}">
+                                    <span class="slds-assistive-text">Progress: {!v.progressNumber}%</span>
+                                </span>
+                            </aura:if>
+                        </div>
+                    </div>
+
+                    <!-- Added OSA/SCA Scan Status and Progress Bar -->
+                    <br/>
+                    <h3 class="slds-section-title--divider">OSA/SCA Scan Status</h3>
+                    <br/>
+                    <div>
+                        <div class="slds-grid slds-grid_align-spread slds-p-bottom_x-small" id="progress-bar-label-id-7">
+                            <aura:if isTrue="{!and(v.osaScaScanStatus != null,v.osaScaScanStatus != '')}">
+                                <span>OSA/SCA Scan {!v.osaScaScanStatus}</span>
+                            </aura:if>
+                            <span aria-hidden="true">
+                                <strong>{!v.osaScaProgressNumber}% Completed</strong>
+                            </span>
+                        </div>
+                        <div class="slds-progress-bar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{!v.osaScaProgressNumber}" aria-labelledby="progress-bar-label-id-7" role="progressbar">
+                            <span class="slds-progress-bar__value" style="{! 'width: ' +v.osaScaProgressNumber + '%'}">
+                                <span class="slds-assistive-text">Progress: {!v.osaScaProgressNumber}%</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </aura:if>
+        </form>
+    </div>
+    </aura:if>
+</aura:component>
