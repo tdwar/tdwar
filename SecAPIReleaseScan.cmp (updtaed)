@@ -1,0 +1,212 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName,forceCommunity:availableForAllPageTypes,force:lightningQuickActionWithoutHeader,force:appHostable" controller="SecAPIReleaseScanController">   
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="userStoryId" type="String"/>
+    <aura:attribute name="UserStoryObject" type="copado__User_Story__c" />
+    <aura:attribute name="ReleaseObject" type="copado__Release__c" />
+
+    <aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="statusURL" type="String" default =""/>
+    <aura:attribute name="appRequestId" type="String" default =""/>
+    
+    <aura:attribute name="scanStatusSAST" type="String" default =""/> 
+    <aura:attribute name="scanStatusOSA" type="String" default =""/>  
+    <aura:attribute name="scoreCardUrl" type="String" default =""/>
+    <aura:attribute name="progressNumberSAST" type="Integer" default="0" /> 
+    <aura:attribute name="progressNumberOSA" type="Integer" default="0" />  
+    <aura:attribute name="calloutStatusSAST" type="String" default =""/> 
+    <aura:attribute name="calloutStatusOSA" type="String" default =""/>  
+    <aura:attribute name="showModal" type="Boolean"/>
+    <aura:attribute name="stopPolling" type="Boolean" default="false"/>
+    <aura:attribute name="showSpinner" type="Boolean" default="false"/>
+    <aura:attribute name="showSecAPI" type="Boolean" default="false"/>
+    <aura:attribute name="showLockScreen" type="Boolean" default="false"/>
+    <aura:attribute name="options" type="List" default="[
+    {'label': 'Yes', 'value': 'Yes'},
+    {'label': 'No', 'value': 'No'}
+    ]"/>
+    <aura:attribute name="value" type="String" default="No"/>
+    
+    <lightning:notificationsLibrary aura:id="notifLib"/>
+    <aura:if isTrue="{!v.showSpinner}">
+        <lightning:spinner alternativeText="Loading"  variant="brand"  />
+    </aura:if>
+    
+     <aura:html tag="style">
+        .cuf-content {
+        padding: 0 0rem !important;
+        }
+        .slds-p-around--medium {
+        padding: 0rem !important;
+        }       
+        .slds-modal__content{
+        overflow-y:hidden !important;
+        height:unset !important;
+        max-height:unset !important;
+        }
+    </aura:html>
+    
+    <div class="modal-header slds-modal__header slds-size_1-of-1">
+        <h4 class="title slds-text-heading--medium">SecAPI Scan</h4>
+        <aura:if isTrue="{!and(!v.showSecAPI, !v.showLockScreen)}">
+        	<lightning:flow aura:id="validateUSFlow" onstatuschange="{!c.statusChange}"/>
+        </aura:if>
+    </div>
+    <aura:if isTrue="{!v.showLockScreen}">
+    <div class="slds-modal__content slds-p-around--x-small slds-size_1-of-1 slds-is-relative">
+        <form class="slds-form–stacked">
+            <aura:if isTrue="{!(or(v.ReleaseObject.SEC_API_Scan_Status__c == 'Not Started',v.ReleaseObject.SEC_API_Scan_Status__c == 'In-Progress'))}">
+                <div>
+                    <h4 class="title slds-text-heading--medium slds-align--absolute-center">Release Lock</h4>
+                    <br/><br/>
+                    <h3 class="title slds-text-heading--medium">Are you sure you want to Lock the Release?</h3>
+                    <br/>
+                    <lightning:radioGroup name="lockRequired"
+                          label="Lock"
+                          options="{! v.options }"
+                          value="{! v.value }"
+                          type="button"
+                          onchange="{! c.handleLockChange }"
+                          required="true"/>
+                </div>
+            </aura:if>
+        </form>
+    </div>
+    </aura:if>
+    <aura:if isTrue="{!and(v.showSecAPI, !v.showLockScreen)}">
+    <div class="slds-modal__content slds-p-around--x-small slds-size_1-of-1 slds-is-relative">
+        <form class="slds-form–stacked">
+            <aura:if isTrue="{!(or(v.ReleaseObject.SEC_API_Scan_Status__c == 'Not Started',v.ReleaseObject.SEC_API_Scan_Status__c == 'In-Progress'))}">
+                <div>
+                    <h3 class="slds-section-title--divider">RELEASE DETAILS</h3>
+                    <div class="slds-form--stacked slds-p-around--medium slds-m-bottom--x-small">
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_1-of-2">
+                                <label class="slds-form-element__label" for="devName">Release Name</label>
+                                <div class="slds-form-element__control">{!v.ReleaseObject.Name}
+                                </div>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2">
+                                <label class="slds-form-element__label" for="devName">Owner</label>
+                                <div class="slds-form-element__control">{!v.ReleaseObject.Owner.Name}
+                                </div>            
+                            </div>
+                        </div>
+                        
+                        <br/>
+                        <div class="slds-grid slds-wrap">
+                           
+                        </div>
+                    </div>
+                    <h3 class="slds-section-title--divider  slds-text-align_center">SAST Scan Status</h3> 
+                    <br/>
+                    <div>
+                        <div class="slds-grid slds-grid_align-spread slds-p-bottom_x-small" id="progress-bar-label-id-6">
+                            <aura:if isTrue="{!and(v.scanStatusSAST != null,v.scanStatusSAST != '')}">
+                                <span>Scan {!v.calloutStatusSAST} ({!v.scanStatusSAST})</span>
+                                <aura:set attribute="else">
+                                    <span>Scan {!v.calloutStatusSAST}</span>
+                                </aura:set>
+                            </aura:if>
+                            <span aria-hidden="true">
+                                <strong>{!v.progressNumberSAST}% Completed</strong>
+                            </span>
+                        </div>
+                        <div class="slds-progress-bar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{!v.progressNumberSAST}" aria-labelledby="progress-bar-label-id-6" role="progressbar">
+                            <aura:if isTrue="{!v.calloutStatusSAST == 'Completed'}">
+                                <span class="slds-progress-bar__value slds-progress-bar__value_success" style="{! 'width: ' +v.progressNumberSAST + '%'}">
+                                    <span class="slds-assistive-text">Progress: {!v.progressNumberSAST}%</span>
+                                </span>
+                            </aura:if>
+                            <aura:if isTrue="{!v.calloutStatusSAST == 'Failed'}">
+                                <span class="slds-progress-bar__value" style="{! 'width: ' +v.progressNumberSAST + '%' + ';background:red'}">
+                                    <span class="slds-assistive-text">Progress: {!v.progressNumberSAST}%</span>
+                                </span>
+                            </aura:if>
+                            <aura:if isTrue="{!v.calloutStatusSAST == 'In-Progress'}">
+                                <span class="slds-progress-bar__value" style="{! 'width: ' +v.progressNumberSAST + '%'}">
+                                    <span class="slds-assistive-text">Progress: {!v.progressNumberSAST}%</span>
+                                </span>
+                            </aura:if>
+                        </div>
+                        
+                        <br/><br/>
+                        
+                        <!-- OSA/SCA Scan Status Section -->
+                        <h3 class="slds-section-title--divider slds-text-align_center">OSA/SCA Scan Status</h3> 
+                        <br/>
+                        <div class="slds-grid slds-grid_align-spread slds-p-bottom_x-small" id="progress-bar-label-id-7">
+                            <aura:if isTrue="{!and(v.scanStatusOSA != null,v.scanStatusOSA != '')}">
+                                <span>Scan {!v.calloutStatusOSA} ({!v.scanStatusOSA})</span>
+                                <aura:set attribute="else">
+                                    <span>Scan {!v.calloutStatusOSA}</span>
+                                </aura:set>
+                            </aura:if>
+                            <span aria-hidden="true">
+                                <strong>{!v.progressNumberOSA}% Completed</strong>
+                            </span>
+                        </div>
+                        <div class="slds-progress-bar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{!v.progressNumberOSA}" aria-labelledby="progress-bar-label-id-7" role="progressbar">
+                            <aura:if isTrue="{!v.calloutStatusOSA == 'Completed'}">
+                                <span class="slds-progress-bar__value slds-progress-bar__value_success" style="{! 'width: ' +v.progressNumberOSA + '%'}">
+                                    <span class="slds-assistive-text">Progress: {!v.progressNumberOSA}%</span>
+                                </span>
+                            </aura:if>
+                            <aura:if isTrue="{!v.calloutStatusOSA == 'Failed'}">
+                                <span class="slds-progress-bar__value" style="{! 'width: ' +v.progressNumberOSA + '%' + ';background:red'}">
+                                    <span class="slds-assistive-text">Progress: {!v.progressNumberOSA}%</span>
+                                </span>
+                            </aura:if>
+                            <aura:if isTrue="{!v.calloutStatusOSA == 'In-Progress'}">
+                                <span class="slds-progress-bar__value" style="{! 'width: ' +v.progressNumberOSA + '%'}">
+                                    <span class="slds-assistive-text">Progress: {!v.progressNumberOSA}%</span>
+                                </span>
+                            </aura:if>
+                        </div>
+                        <br/>
+                        <div class="slds-grid slds-grid_align-spread slds-p-top_x-small slds-p-bottom_x-small">
+                            <aura:if isTrue="{!or(v.calloutStatusSAST == 'Completed', v.calloutStatusSAST == 'Failed', v.calloutStatusOSA == 'Completed', v.calloutStatusOSA == 'Failed')}">
+                                Check SecAPI Scan Results section in the related list on Release record for SAST and OSA/SCA Scan response.
+                            </aura:if>
+                        </div>
+                        <lightning:button aura:id="secApiButton" variant="brand" label="Run New Scan" title="Run New Scan" onclick="{!c.handleRunSecApi}"/>
+                        <lightning:button variant="brand" label="Check Scan Status" title="Check Scan Status" onclick="{!c.handleClick}" disabled="{!v.stopPolling}"/>
+                            
+                        <br/>
+                        
+                        <aura:if isTrue="{!(and(v.stopPolling, or(v.calloutStatusSAST == 'In-Progress', v.calloutStatusOSA == 'In-Progress')))}">
+                            Please wait, buttons will be re-enabled after 30 seconds.
+                        </aura:if>
+                    </div>
+                </div>
+                </aura:if>
+                <!-- SecAPI Scan Status Checks -->
+                <aura:if isTrue="{!(and(v.ReleaseObject!=null,or(empty(v.ReleaseObject.SEC_API_Scan_Status__c),v.ReleaseObject.SEC_API_Scan_Status__c=='')))}">
+                    <lightning:icon iconName="utility:warning" class="slds-icon slds-icon-text-error" variant="Error" alternativeText="Warning"/>
+                    Scan N/A – SecAPI Scan status should be Not-Started before running the SecAPI scan.
+                </aura:if>
+                <aura:if isTrue="{!v.ReleaseObject.SEC_API_Scan_Status__c == 'Completed'}">
+                    <lightning:icon iconName="utility:warning" class="slds-icon slds-icon-text-error" variant="Error" alternativeText="Warning"/>
+                    Check SecAPI Scan Results section on Release record for Scan response.
+                </aura:if>
+                
+            </form>
+        </div>
+        </aura:if>
+        
+        <!-- Modal Footer Section -->
+        <div class="modal-footer slds-modal__footer slds-size_1-of-1">
+            <aura:if isTrue="{!and(!v.ReleaseObject.SecAPI_Scan_Passed__c,v.ReleaseObject.SEC_API_Scan_Status__c == 'Completed')}">
+                <lightning:button variant="brand-outline" label="Reset SecAPI" title="Reset SecAPI" onclick="{!c.handleResetScan}" />
+            </aura:if>
+            
+            <!-- Lock Screen Actions -->
+            <aura:if isTrue="{!v.showLockScreen}">
+                <lightning:button variant="Neutral" class="slds-button" label="Cancel" onclick="{!c.handleClose}"/>
+                <lightning:button aura:id="savebuttonid" variant="Brand" class="slds-button" label="Save" onclick="{!c.handleSave}" disabled="true"/>
+            </aura:if>
+            <aura:if isTrue="{!!v.showLockScreen}">
+                <lightning:button variant="Brand" class="slds-button" label="Close" onclick="{!c.handleClose}"/>
+            </aura:if>
+        </div>
+        <!-- End of Modal Footer -->
+    </aura:component>
