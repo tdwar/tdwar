@@ -1,0 +1,3 @@
+component error has occured
+Uncaught Error in $A.getCallback() [stateSCA is not defined]
+Callback failed: apex://SecAPIReleaseScanController/ACTION$SCAScan
