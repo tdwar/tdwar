@@ -1,6 +1,6 @@
 ({
     callSecApi : function(component, event, helper) { 
-
+        
         component.set('v.calloutStatusSAST','In-Progress');
         component.set('v.calloutStatusOSA','In-Progress');
         var action1 = component.get('c.getBuildId'); 
@@ -12,7 +12,7 @@
             
             if(state == 'SUCCESS'){
                 if(a.getReturnValue() != null && a.getReturnValue() != ''){
-                    
+                    // SAST Scan
                     var action = component.get('c.secAPIScan'); 
                     action.setParams({
                         "releaseId" : component.get("v.recordId")
@@ -20,8 +20,8 @@
                     action.setCallback(this, function(a){
                         var state = a.getState();
                         console.log('state : '+ state);
+                        
                         if(state ==  "SUCCESS"){
-                            
                             if(a.getReturnValue() != null && a.getReturnValue() != ''){
                                 console.log("res : "+a.getReturnValue());
                                 var response = a.getReturnValue();
@@ -49,32 +49,71 @@
                             $A.get('e.force:refreshView').fire();
                             
                         }   
-                        
-                        
-                        var action2 = component.get('c.getReleaseDetails'); 
-                        action2.setParams({
-                            "releaseId" : component.get("v.recordId")
-                        });
-                        action2.setCallback(this, function(a){
-                            var state2 = a.getState();
-                            if(state2 == "SUCCESS"){
-                                if(a.getReturnValue() != null && a.getReturnValue() != ''){
-                                    component.set('v.ReleaseObject',a.getReturnValue());
-                                }
-                            }
-                            else{
-                                var errors = a.getError();
-                                console.log('error ab : '+errors);
-                                helper.displayToast(component,event,'Error',errors[0].message,'Error','dismissible');
-                                
-                            }
-                        });
-                        $A.enqueueAction(action2);
-                        
-                        
-                        
                     });
                     $A.enqueueAction(action);
+                    
+                    // start SCAScan (OSA/SCA)
+                    var actionSCA = component.get('c.SCAScan'); 
+                    actionSCA.setParams({
+                        "releaseId" : component.get("v.recordId")
+                    });
+                    actionSCA.setCallback(this, function(a){
+                        var state = a.getState();
+                        console.log('state : '+ state);
+                        
+                        if(stateSCA ==  "SUCCESS"){
+                            if(a.getReturnValue() != null && a.getReturnValue() != ''){
+                                console.log("res : "+a.getReturnValue());
+                                var response = a.getReturnValue();
+                                if(response.includes("Error")){
+                                    helper.displayToast(component,event,'Error',response,'Error','sticky');
+                                    $A.get('e.force:refreshView').fire();
+                                    $A.get("e.force:closeQuickAction").fire();
+                                }
+                                else if(response != 'NoApexCmp'){
+                                    console.log("inside res 1");
+                                    component.set('v.showModal',true);
+                                    console.log("res status url SCA : "+response);
+                                    component.set('v.statusURLSCA', response);
+                                    component.set('v.progressNumberOSA',33);
+                                    helper.runSCAStatusCheck(component, event, helper);
+                                }
+                            }
+                        }
+                        else{
+                            var errors = a.getError();
+                            console.log('error : '+ JSON.stringify(errors));
+                            helper.displayToast(component,event,'Error',errors[0].message,'Error','sticky');
+                            $A.get("e.force:closeQuickAction").fire();
+                            $A.get('e.force:refreshView').fire();
+                            
+                        }   
+                    });
+                    $A.enqueueAction(actionSCA);
+                    
+                    var action2 = component.get('c.getReleaseDetails'); 
+                    action2.setParams({
+                        "releaseId" : component.get("v.recordId")
+                    });
+                    action2.setCallback(this, function(a){
+                        var state2 = a.getState();
+                        if(state2 == "SUCCESS"){
+                            if(a.getReturnValue() != null && a.getReturnValue() != ''){
+                                component.set('v.ReleaseObject',a.getReturnValue());
+                            }
+                        }
+                        else{
+                            var errors = a.getError();
+                            console.log('error ab : '+errors);
+                            helper.displayToast(component,event,'Error',errors[0].message,'Error','dismissible');
+                            
+                        }
+                    });
+                    $A.enqueueAction(action2);
+                    
+                    
+                    
+                    
                 }
             }
             else{
@@ -88,7 +127,7 @@
     },
     
     lockReleaseRecord : function(component, event, helper) { 
-
+        
         var action1 = component.get('c.lockReleaseRec'); 
         action1.setParams({
             "releaseId" : component.get("v.recordId")
@@ -136,18 +175,18 @@
                     console.log('in if condition');
                     component.set('v.calloutStatusSAST', 'Failed');
                 }
-                else if(retVal.currentStatus == 'FINISHED'){
-                    component.set('v.stopPolling',true);
-                    component.set('v.progressNumberSAST',66);
-                    helper.getSECAPIScore(component,helper);
-                }
-                else{
-                    console.log('retVal.statusURL: '+retVal.statusURL);
-                    if(retVal.statusURL){
-                        component.set('v.statusURL', retVal.statusURL);
+                    else if(retVal.currentStatus == 'FINISHED'){
+                        component.set('v.stopPolling',true);
+                        component.set('v.progressNumberSAST',66);
+                        helper.getSECAPIScore(component,helper);
                     }
-                    setTimeout(function(){component.set("v.stopPolling",false);},30000);
-                }
+                        else{
+                            console.log('retVal.statusURL: '+retVal.statusURL);
+                            if(retVal.statusURL){
+                                component.set('v.statusURL', retVal.statusURL);
+                            }
+                            setTimeout(function(){component.set("v.stopPolling",false);},30000);
+                        }
             }
             else{
                 var errors = response.getError();
@@ -185,18 +224,18 @@
                     console.log('in if condition');
                     component.set('v.calloutStatusOSA', 'Failed');
                 }
-                else if(retVal.currentStatus == 'FINISHED'){
-                    component.set('v.stopPolling',true);
-                    component.set('v.progressNumberOSA',66);
-                    helper.getSECAPIScore(component,helper);
-                }
-                else{
-                    console.log('retVal.statusURLSCA: '+retVal.statusURLSCA);
-                    if(retVal.statusURLSCA){
-                        component.set('v.statusURLSCA', retVal.statusURLSCA);
+                    else if(retVal.currentStatus == 'FINISHED'){
+                        component.set('v.stopPolling',true);
+                        component.set('v.progressNumberOSA',66);
+                        helper.getSECAPIScore(component,helper);
                     }
-                    setTimeout(function(){component.set("v.stopPolling",false);},30000);
-                }
+                        else{
+                            console.log('retVal.statusURLSCA: '+retVal.statusURLSCA);
+                            if(retVal.statusURLSCA){
+                                component.set('v.statusURLSCA', retVal.statusURLSCA);
+                            }
+                            setTimeout(function(){component.set("v.stopPolling",false);},30000);
+                        }
             }
             else{
                 var errors = response.getError();
@@ -273,7 +312,7 @@
             "variant": "error",
             "header": "Something has gone wrong!",
             "message": message
-           
+            
         });
     },
     
@@ -290,7 +329,7 @@
     },
     
     reinitiateSecAPIScan : function(component, event, helper) {
-
+        
         var action = component.get('c.resetSecAPIScan'); 
         action.setParams({
             "releaseId" : component.get("v.recordId")
@@ -299,12 +338,12 @@
             var state = a.getState();
             if(state=='SUCCESS'){
                 component.set('v.showSpinner',false);
-
-        		$A.get('e.force:refreshView').fire();
-
-               helper.callSecApi(component, event, helper);
+                
+                $A.get('e.force:refreshView').fire();
+                
+                helper.callSecApi(component, event, helper);
             }
-        
+            
         });
         $A.enqueueAction(action); 
     }
