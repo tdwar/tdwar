@@ -1,3 +1,15 @@
 component error has occured
 Uncaught Error in $A.getCallback() [stateSCA is not defined]
 Callback failed: apex://SecAPIReleaseScanController/ACTION$SCAScan
+
+
+Error occured during 1st Callout. Response Status Code : 403, Response Status : Forbidden, Response Message : <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+
+You don't have permission to access "http&#58;&#47;&#47;api&#45;appsec&#46;humana&#46;com&#47;api&#47;v1&#47;sca&#47;scan&#47;start&#47;48c37492&#45;beee&#45;403a&#45;9b39&#45;47be0121b431" on this server.<P>
+Reference&#32;&#35;18&#46;556bdc17&#46;1730190345&#46;7360cd8
+<P>https&#58;&#47;&#47;errors&#46;edgesuite&#46;net&#47;18&#46;556bdc17&#46;1730190345&#46;7360cd8</P>
+</BODY>
+</HTML>
