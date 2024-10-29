@@ -2,6 +2,8 @@
     doInit : function(component, event, helper) {
         component.set('v.calloutStatusSAST','Not Started');
         component.set('v.calloutStatusOSA','Not Started');
+        
+        //Get Release Details
         var action2 = component.get('c.getReleaseDetails'); 
         action2.setParams({
             "releaseId" : component.get("v.recordId")
@@ -15,14 +17,14 @@
                     console.log('action2 response in if : '+JSON.stringify(a.getReturnValue()));
                     component.set('v.ReleaseObject',a.getReturnValue());
                     console.log('SAST Scan Status : '+component.get('v.ReleaseObject').SEC_API_Scan_Status__c);
-                    console.log('OSA/SCA Scan Status : '+component.get('v.ReleaseObject').SEC_API_Scan_Status__c);
+                    console.log('OSA/SCA Scan Status : '+component.get('v.ReleaseObject').SCA_OSA_Scan_Status__c);
                     component.set('v.calloutStatusSAST',component.get('v.ReleaseObject').SEC_API_Scan_Status__c);
-                    component.set('v.calloutStatusOSA',component.get('v.ReleaseObject').SEC_API_Scan_Status__c);
+                    component.set('v.calloutStatusOSA',component.get('v.ReleaseObject').SCA_OSA_Scan_Status__c);
                     component.set('v.SecAPIScanId',component.get('v.ReleaseObject').SecAPI_Scan_Id__c);
                     var showSec = component.get("v.showSecAPI");
                     console.log('boolean val : ' + showSec);
                     component.set('v.calloutStatusSAST',component.get('v.ReleaseObject').SEC_API_Scan_Status__c);
-                    component.set('v.calloutStatusOSA',component.get('v.ReleaseObject').SEC_API_Scan_Status__c);
+                    component.set('v.calloutStatusOSA',component.get('v.ReleaseObject').SCA_OSA_Scan_Status__c);
                     if((component.get('v.ReleaseObject').Current_Glapi_Status__c == undefined || component.get('v.ReleaseObject').Current_Glapi_Status__c == 'Validation Failed') && showSec == false){
                         helper.validateUserStories(component,event,helper);
                     }
@@ -37,8 +39,10 @@
                         component.set("v.showSecAPI",true);
                     }
                     console.log('hi'+component.get('v.ReleaseObject').SEC_API_Scan_Status__c);
-                    if(component.get('v.ReleaseObject').SEC_API_Scan_Status__c != undefined && component.get('v.ReleaseObject').SEC_API_Scan_Status__c != 'Not Started' && component.get('v.ReleaseObject').SEC_API_Scan_Status__c != 'Completed'){
+                    if((component.get('v.ReleaseObject').SEC_API_Scan_Status__c != undefined && component.get('v.ReleaseObject').SEC_API_Scan_Status__c != 'Not Started' && component.get('v.ReleaseObject').SEC_API_Scan_Status__c != 'Completed') ||
+                       (component.get('v.ReleaseObject').SCA_OSA_Scan_Status__c != undefined && component.get('v.ReleaseObject').SCA_OSA_Scan_Status__c != 'Not Started' && component.get('v.ReleaseObject').SCA_OSA_Scan_Status__c != 'Completed')){
                         console.log('sec status : '+component.get('v.ReleaseObject').SEC_API_Scan_Status__c);
+                        console.log('sec status : '+component.get('v.ReleaseObject').SCA_OSA_Scan_Status__c);
                         if(component.get('v.ReleaseObject').Current_Glapi_Status__c != 'Validation Failed'){
                             component.find("secApiButton").set("v.disabled", true);
                         }
@@ -47,8 +51,10 @@
                         component.set('v.progressNumberOSA',33);
                     }
                     
-                    else if(component.get('v.ReleaseObject').SEC_API_Scan_Status__c != undefined && component.get('v.ReleaseObject').SEC_API_Scan_Status__c == 'Not Started' ){
+                    else if((component.get('v.ReleaseObject').SEC_API_Scan_Status__c != undefined && component.get('v.ReleaseObject').SEC_API_Scan_Status__c == 'Not Started' ) ||
+                            (component.get('v.ReleaseObject').SCA_OSA_Scan_Status__c != undefined && component.get('v.ReleaseObject').SCA_OSA_Scan_Status__c == 'Not Started' )) {
                                            console.log('hi1'+component.get('v.ReleaseObject').SEC_API_Scan_Status__c);
+                                           console.log('hi1'+component.get('v.ReleaseObject').SCA_OSA_Scan_Status__c);
                         if(component.find("secApiButton") != undefined){
                         	component.find("secApiButton").set("v.disabled", false);
                         }
@@ -92,6 +98,31 @@
             }           
         });
         $A.enqueueAction(action);
+        // scan status OSA/SCA
+        var actionSCA = component.get('c.fetchScanStatus'); 
+        actionSCA.setParams({
+            "releaseId" : component.get("v.recordId")
+        });
+        actionSCA.setCallback(this, function(a){
+            var state = a.getState();
+            if(!component.get("v.ReleaseObject").SCA_OSA_Scan_Status__c == 'Completed'){
+                console.log("in show false");
+                component.set('v.showSpinner',false);}
+            if(state == 'SUCCESS'){
+                if(a.getReturnValue() != null && a.getReturnValue() != ''){
+                    console.log("res1 : "+JSON.stringify(a.getReturnValue()));
+                    if(component.get("v.ReleaseObject").SCA_OSA_Scan_Status__c == 'In-Progress'){
+                        component.set('v.statusURL', a.getReturnValue());
+                    }
+                }
+            }
+            else{
+                var errors = a.getError();
+                helper.displayToast(component,event,'Error',errors[0].message,'Error','dismissible');
+                
+            }           
+        });
+        $A.enqueueAction(actionSCA);
         
     },
     
