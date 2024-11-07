@@ -1,0 +1,8 @@
+Uncaught Error in $A.getCallback() [Cannot read properties of undefined (reading 'set')]
+Callback failed: apex://SecAPIReleaseScanController/ACTION$getReleaseDetails
+
+CComponent Descriptor 
+markup://c:SecAPIReleaseScan
+
+stack trace 
+Object.eval()@https://humanashared--copadotrn.sandbox.lightning.force.com/lightning/r/copado__Release__c/a3B7x000000BigrEAC/components/c/SecAPIReleaseScan.js:52:59
