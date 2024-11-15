@@ -154,9 +154,10 @@
                     component.set('v.stopPolling',true);
                     component.set('v.calloutStatusSAST', 'Failed');
                 }
+               
                 else if(retVal.currentStatus == 'FINISHED'){
                     component.set('v.stopPolling',true);
-                    component.set('v.progressNumberSAST',100);
+                    component.set('v.progressNumberSAST',66);
                     console.log('KAMAL SAST -11-1');
                     helper.getSECAPIScore(component,helper);
                     console.log('KAMAL SAST -11-7');
