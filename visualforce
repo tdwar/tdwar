@@ -1,0 +1,12 @@
+<apex:page controller="SecAPIScanReportController" lightningStylesheets="true" sidebar="false" showHeader="false" >
+    <apex:pageMessages />
+    <apex:slds />
+    <apex:form >
+        <apex:pageBlock > 
+            <h1>Please click on button to get the SecAPI Scan Report Pdf</h1>
+            <center>
+            <apex:commandButton styleClass="slds-vf-button_brand" action="{!getSecAPIScanReport}" value="View SecAPI Scan Report" />
+            </center>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
