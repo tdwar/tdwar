@@ -1,0 +1,86 @@
+@AuraEnabled
+    public static String SCAScan(String copadoUserStoryId) {
+        String statusURLSCA ='';
+        String appReqId = '';
+        String respSCA = '';
+        String excludeFiles = '';
+        String excludeFolders = '';
+        
+        List<copado__User_Story__c> toUpdateUserStories = new List<copado__User_Story__c>();
+        List<SEC_API_Scan_Result__c> secResList = getScanResultRecord(copadoUserStoryId);
+        SEC_API_Scan_Result__c sr =secResList[0];
+        String userStoryId = copadoUserStoryId;
+        //SEC_API_Scan_Result__c sr = new SEC_API_Scan_Result__c();
+        List<copado__User_Story__c> lstUserStory = [select id,copado__Project__r.SecAPI_Orphan_App_Id__c,Name, copado__Has_Apex_Code__c,copado__Project__r.Exclude_Files__c,copado__Project__r.Exclude_Folders__c from copado__User_Story__c where Id =:  copadoUserStoryId limit 1];
+        
+        String appId = lstUserStory[0].copado__Project__r.SecAPI_Orphan_App_Id__c;
+        String userStoryNumber = lstUserStory[0].Name;
+        String reqBody = '';
+        HTTPResponse resSCA = new HTTPResponse();
+        String endURL = '/start/'+appId;
+        
+        if (!Schema.sObjectType.SEC_API_Scan_Result__c.isCreateable()) {
+            throw new AuraHandledException('User does not have permission to create SEC_API_Scan_Result__c records');
+        }
+        if (!Schema.sObjectType.copado__User_Story__c.isUpdateable()) {
+            throw new AuraHandledException('User does not have permission to create copado__User_Story__c records');
+        }       
+        try{
+            excludeFiles = lstUserStory[0].copado__Project__r.Exclude_Files__c;
+            excludeFolders = lstUserStory[0].copado__Project__r.Exclude_Folders__c;  
+            //reqBody = '{"repoBranchToScan": "refs/heads/feature-'+ userStoryNumber + '","incremental": true,"force": false,"excludeFoldersPattern": "'+excludeFolders+'","excludeFilesPattern": "'+excludeFiles+'"}';
+            reqBody = '{"repoBranchToScan": "refs/heads/orphan/feature-'+ userStoryNumber + '","incremental": true,"force": false,"excludeFoldersPattern": "'+excludeFolders+'","excludeFilesPattern": "'+excludeFiles+'"}';
+            system.debug('reqBody for SCA scan : '+reqBody);
+            resSCA = getCalloutResponseSCA(endURL,'POST',reqBody);
+            system.debug('@@@'+resSCA);
+            if(resSCA != null && resSCA.getStatusCode() == 202){
+                
+                // Parse JSON response to get the statusUrl field values.
+                JSONParser parser = JSON.createParser(resSCA.getBody());
+                while (parser.nextToken() != null) {
+                    if ((parser.getCurrentToken() == JSONToken.FIELD_NAME) && 
+                        (parser.getText() == 'statusUrl')) {
+                            parser.nextToken();
+                            // Get the value.
+                            statusURLSCA = parser.getText();
+                        }
+                }
+                if(!String.isEmpty(statusUrlSCA)){
+                    appReqId = statusUrlSCA.substringAfter('status/');
+                    if(appReqId.length() > 0 && appReqId.contains('/')){
+	                	toUpdateUserStories.add(new copado__User_Story__c(Id=userStoryId,SCA_Scan_Status__c='In-Progress', SCA_Scan_Id__c = appReqId.split('/')[1])); 
+                    }
+                }else{
+					toUpdateUserStories.add(new copado__User_Story__c(Id=userStoryId,SCA_Scan_Status__c='In-Progress')); 
+                }
+                
+                sr.SCA_OSA_Status_URL__c = appReqId;
+                //sr.Copado_User_Story__c = userStoryId;
+                sr.OSA_SCA_scan_Status__c = 'Callout 1 Completed';
+                sr.SCA_OSA_Scan_Id__c = appReqId.split('/')[1];
+                respSCA = appReqId;
+            }
+            else{
+                //sr.Copado_User_Story__c = userStoryId;
+                sr.OSA_SCA_scan_Status__c = 'Callout 1 Failed';
+                sr.SCA_OSA_Error_Message__c = 'Status Code '+resSCA.getStatusCode() +', Error Message '+resSCA.getBody();
+                toUpdateUserStories.add(new copado__User_Story__c(Id=userStoryId,SCA_Scan_Status__c='Completed'));  
+                respSCA = 'Error occured during 1st Callout. Response Status Code : ' +resSCA.getStatusCode()+ ', Response Status : ' + resSCA.getStatus()+', Response Message : ' + resSCA.getBody();
+            }
+            if(!toUpdateUserStories.isEmpty() && Schema.sObjectType.copado__User_Story__c.isUpdateable()){
+                update toUpdateUserStories;
+            }
+            if(Schema.sObjectType.copado__User_Story__c.isUpdateable()){
+                update lstUserStory[0];
+            }
+            //List<SEC_API_Scan_Result__c> lstSecScanResults =  new List<SEC_API_Scan_Result__c>{sr};
+                if(!secResList.isEmpty() && Schema.sObjectType.SEC_API_Scan_Result__c.isCreateable()){
+                       update secResList;
+                }
+        }catch(Exception e){
+            system.debug('tejaswi 2 exception '+e +e.getCause()+e.getLineNumber()+e.getMessage());
+            throw new AuraHandledException('Error occured during 1st Callout. Exception Cause : ' +e.getCause()+ ' at Line No. ' + e.getLineNumber()+' Error Message : ' + e.getMessage());
+        }
+        return respSCA;
+    }
+    
