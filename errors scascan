@@ -1,0 +1,4 @@
+18:21:26:251 USER_DEBUG [248]|DEBUG|tejaswi 2 exception System.ListException: List index out of bounds: 1null227List index out of bounds: 1
+
+Class.SecAPIScanController.SCAScan: line 249, column 1
+Class.SCAScanReportControllerTest.testSCAScan: line 26, column 1
