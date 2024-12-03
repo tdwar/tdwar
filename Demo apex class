@@ -1,0 +1,49 @@
+public class CriticalVulnerabilityDemo {
+
+    // Method with potential SOQL Injection vulnerability
+    public static List<Contact> getContactsByName(String contactName) {
+        String query = 'SELECT Id, Name FROM Contact WHERE Name = \'' + contactName + '\'';
+        return Database.query(query); // Using dynamic SOQL with unvalidated user input
+    }
+
+    // Example debug methods
+    public void debugMethod1() {
+        System.debug('Debug method 1 executed');
+    }
+
+    public void debugMethod2() {
+        System.debug('Debug method 2 executed');
+    }
+}
+
+
+
+test class
+@isTest
+public class CriticalVulnerabilityDemoTest {
+
+    @isTest
+    static void testGetContactsByName() {
+        // Create a test Contact record
+        Contact testContact = new Contact(FirstName = 'Test', LastName = 'User');
+        insert testContact;
+
+        // Test the method with SQL injection input
+        String maliciousInput = "' OR Name != NULL OR '";
+        List<Contact> contacts = CriticalVulnerabilityDemo.getContactsByName(maliciousInput);
+
+        // Assert that the method does not throw an error
+        System.assertNotEquals(contacts, null, 'Method should not return null');
+        System.assert(contacts.size() >= 0, 'Unexpected number of contacts returned');
+    }
+
+    @isTest
+    static void testDebugMethods() {
+        // Call debug methods to ensure they execute without errors
+        CriticalVulnerabilityDemo demo = new CriticalVulnerabilityDemo();
+        demo.debugMethod1();
+        demo.debugMethod2();
+
+        // Assertions can be added if necessary
+    }
+}
