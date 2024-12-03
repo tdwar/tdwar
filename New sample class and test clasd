@@ -1,0 +1,33 @@
+aoex class
+public class SecApiExampleClass {
+    
+    // Method vulnerable to SQL Injection
+    public static List<Account> getAccountsByName(String accountName) {
+        // SQL Injection vulnerability: Directly using user input in the SOQL query
+        String query = 'SELECT Id, Name FROM Account WHERE Name = \'' + accountName + '\'';
+        List<Account> accounts = Database.query(query);
+        return accounts;
+    }
+}
+
+
+
+test class
+@isTest
+public class SecApiExampleClassTest {
+    
+    @isTest
+    static void testGetAccountsByName() {
+        // Arrange: Create a test account
+        Account testAccount = new Account(Name = 'Test Account');
+        insert testAccount;
+        
+        // Act: Call the method with user input that could trigger a vulnerability
+        String userInput = 'Test\' OR 1=1--';  // SQL injection input
+        List<Account> accounts = SecApiExampleClass.getAccountsByName(userInput);
+        
+        // Assert: Verify that the method returns a list of accounts
+        System.assertNotEquals(accounts, null);
+        System.assert(accounts.size() > 0, 'No accounts returned.');
+    }
+}
