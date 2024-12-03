@@ -1,0 +1,64 @@
+public class CriticalVulnerabilityDemo {
+
+    // Method with both SOQL Injection and sensitive data exposure vulnerability
+    public static List<Contact> getSensitiveContacts(String userInput) {
+        // SOQL Injection vulnerability
+        String query = 'SELECT Id, Name, Email FROM Contact WHERE Name LIKE \'%' + userInput + '%\'';
+        List<Contact> contacts = Database.query(query);
+        
+        // Exposing sensitive data (Email)
+        for (Contact c : contacts) {
+            System.debug('Exposing sensitive data: ' + c.Email);
+        }
+        
+        return contacts;
+    }
+
+    // Insecure method allowing unrestricted DML on critical objects
+    public static void updateContactEmail(String contactId, String newEmail) {
+        Contact c = [SELECT Id, Email FROM Contact WHERE Id = :contactId];
+        c.Email = newEmail;
+        update c; // No validation of new email, no security checks
+    }
+
+    public void debugExample() {
+        System.debug('Debugging example method');
+    }
+}
+
+
+
+test class
+@isTest
+public class CriticalVulnerabilityDemoTest {
+
+    @isTest
+    static void testGetSensitiveContacts() {
+        // Insert test Contact
+        Contact testContact = new Contact(FirstName = 'Test', LastName = 'Vulnerability', Email = 'test@example.com');
+        insert testContact;
+
+        // Simulate malicious input
+        String maliciousInput = "' OR Name != NULL OR '";
+        List<Contact> contacts = CriticalVulnerabilityDemo.getSensitiveContacts(maliciousInput);
+
+        // Assert that some contacts are returned (triggering SOQL Injection logic)
+        System.assertNotEquals(contacts, null);
+        System.assert(contacts.size() > 0, 'No contacts returned');
+    }
+
+    @isTest
+    static void testUpdateContactEmail() {
+        // Insert test Contact
+        Contact testContact = new Contact(FirstName = 'Test', LastName = 'UpdateEmail', Email = 'old@example.com');
+        insert testContact;
+
+        // Call the method with a fake email
+        CriticalVulnerabilityDemo.updateContactEmail(testContact.Id, 'malicious@example.com');
+
+        // Verify that the email was updated without validation
+        Contact updatedContact = [SELECT Email FROM Contact WHERE Id = :testContact.Id];
+        System.assertEquals('malicious@example.com', updatedContact.Email, 'Email update failed');
+    }
+}
+
