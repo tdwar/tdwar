@@ -1,0 +1,72 @@
+  @AuraEnabled
+    public Static String getSCAScoreCard(String scoreCardURL, String userStoryId) {
+        Boolean failScan;
+        String scanType ='';
+        String respSCA = '';
+        SECAPIParser scparser;
+        SEC_API_Scan_Result__c sr;
+        String endUrl = '/score/'+scoreCardURL; //modified URL for test NG19
+        System.debug ('VXD3378 - APEX getSCAScoreCard scorecardURl' + scoreCardURL);
+        List<copado__User_Story__c> toUpdateUserStories = new List<copado__User_Story__c>();
+        HTTPResponse resSCA = new HTTPResponse();
+        try{
+            resSCA =  getCalloutResponseSCA(endURL,'GET',null);
+            
+            List<SEC_API_Scan_Result__c> srList = getScanResultRecord(userStoryId);
+            System.debug ('VXD3378 - APEX getSCAScoreCard resSCA.getStatusCode ' + resSCA.getStatusCode());
+            if(resSCA.getStatusCode() == 200){
+                scparser = (SECAPIParser)JSON.deserialize(resSCA.getBody(), SECAPIParser.class);
+                if(!srList.isEmpty()){
+                    sr = srList[0];
+                    sr.SCA_OSA_Scan_Failed__c = scparser.failScan;
+                    sr.Critical_SCA__c = scparser.critical!=null?Decimal.valueOf(scparser.critical):0;
+                    sr.Critical_SCA__c = 2;
+                    sr.High_SCA_OSA__c = scparser.high!=null?Decimal.valueOf(scparser.high):0;
+                    sr.High_SCA_OSA__c = 3;
+                    sr.Medium_OSA_SCA__c = scparser.medium!=null?Decimal.valueOf(scparser.medium):0;
+                    sr.Low_OSA_SCA__c = scparser.low!=null?Decimal.valueOf(scparser.low):0;
+                    //sr.Copado_User_Story__c = userStoryId;
+                    System.debug ('scparser.scanType Teja' + scparser.scanType);
+                    System.debug ('scparser.reqId Teja' + scparser.reqId);
+                    sr.SCA_Scan_Type__c = scparser.scanType;
+                    sr.SCA_Req_Id__c = scparser.reqId;
+                    sr.OSA_SCA_scan_Status__c = 'Callout 3 Completed';
+                    if(scparser.lastUpdated != null && scparser.lastUpdated != '')
+                        sr.SCA_Last_Updated__c = convertStringtoDateTime(scparser.lastUpdated);
+                }
+            }
+            
+            else{
+                if(!srList.isEmpty()){
+                    sr = srList[0];
+                    sr.OSA_SCA_scan_Status__c = 'Callout 3 Failed';
+                    sr.Error_Message__c = 'Status Code '+resSCA.getStatusCode() +', Error Message '+resSCA.getBody();
+                    respSCA = 'Error occured during 3rd Callout. Response Status Code : ' +resSCA.getStatusCode()+ ', Response Status : ' + resSCA.getStatus()+', Response Message : ' + resSCA.getBody();
+                }
+            }
+            if(sr != null && Schema.sObjectType.SEC_API_Scan_Result__c.isUpdateable()){
+                update sr;
+            }
+            copado__User_Story__c us = new copado__User_Story__c(Id=userStoryId,SCA_Scan_Status__c='Completed');
+            
+            //check the checkbox only if there are no Critical,High and medium security violations
+            if(sr.Critical_SCA__c==0 && sr.High_SCA_OSA__c==0 && sr.Medium_OSA_SCA__c==0){
+                us.SecAPI_Scan_Passed__c  = true;
+            }
+            else{
+                us.SecAPI_Scan_Passed__c  = false;
+                
+            }
+            toUpdateUserStories.add(us);
+            if(!toUpdateUserStories.isEmpty() && Schema.sObjectType.copado__User_Story__c.isUpdateable()){
+                   update toUpdateUserStories;
+            }
+            
+        }catch(Exception e){
+            system.debug('exception '+e +e.getCause()+e.getLineNumber()+e.getMessage());
+            throw new AuraHandledException('Error occured during 3rd Callout. Exception Cause : ' + +e.getCause()+ ' at Line No. ' + e.getLineNumber()+' Error Message : '+e.getMessage());
+            
+        }
+        return respSCA;
+    }
+    
