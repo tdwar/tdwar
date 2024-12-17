@@ -1,0 +1,4 @@
+Class.SecAPIScanController.secAPIScan: line 183, column 1
+Class.SecAPIScanControllerTest.testSecApiScan: line 25, column 1
+
+System.AuraHandledException: Script-thrown exception
