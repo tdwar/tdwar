@@ -298,3 +298,43 @@ public class SecAPIScanControllerTest {
     }    
     
 }
+@isTest
+static void testConvertStringtoDateTimeEdgeCases() {
+    Test.startTest();
+    // Test partial date input
+    DateTime result1 = SecAPIScanController.convertStringtoDateTime('01 January 2020');
+    System.assertEquals(null, result1, 'Partial date should return null');
+    
+    // Test empty string input
+    DateTime result2 = SecAPIScanController.convertStringtoDateTime('');
+    System.assertEquals(null, result2, 'Empty string should return null');
+    Test.stopTest();
+}
+@isTest
+static void testGetCalloutResponseWithNullInput() {
+    Test.startTest();
+    try {
+        // Null URL input
+        SecAPIScanController.getCalloutResponse(null, 'GET', null);
+        System.assert(false, 'An exception should be thrown for null input');
+    } catch (SecAPIScanController.customException e) {
+        System.assertEquals('Error occured during HTTP callout.', e.getMessage().split(':')[0], 'Custom exception for null input');
+    }
+    Test.stopTest();
+}
+@isTest
+static void testSCARequiredWithInvalidUserStory() {
+    Test.startTest();
+    Boolean result = SecAPIScanController.SCARequired(null);
+    System.assertEquals(false, result, 'SCARequired should return false for null User Story ID');
+    Test.stopTest();
+}
+@isTest
+static void testUpdateScanStatusWithEmptyStatus() {
+    copado__User_Story__c usItem = [SELECT Id FROM copado__User_Story__c LIMIT 1];
+    Test.startTest();
+    SecAPIScanController.updateScanStatus(usItem.Id, '');
+    copado__User_Story__c updatedStory = [SELECT Orphan_Branch_Status__c FROM copado__User_Story__c WHERE Id = :usItem.Id];
+    System.assertEquals('', updatedStory.Orphan_Branch_Status__c, 'Empty status should update field to empty');
+    Test.stopTest();
+}
