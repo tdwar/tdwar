@@ -68,3 +68,66 @@
         }
         Test.stopTest();
     }
+    @isTest
+    static void testSCARequired() {
+        copado__User_Story__c usItem = [SELECT Id FROM copado__User_Story__c LIMIT 1];
+        SCA_Identifier_for_ORG__mdt mdtRecord = new SCA_Identifier_for_ORG__mdt(
+            OrgName__c = 'Test Org',
+            SCA_required__c = 'TRUE'
+        );
+        insert mdtRecord;
+
+        Test.startTest();
+        Boolean isSCARequired = SecAPIScanController.SCARequired(usItem.Id);
+        System.assertEquals(true, isSCARequired, 'SCA should be required for the given org');
+        Test.stopTest();
+    }
+
+    @isTest
+    static void testGetScanResultRecord() {
+        copado__User_Story__c usItem = [SELECT Id FROM copado__User_Story__c LIMIT 1];
+        SEC_API_Scan_Result__c secRes = new SEC_API_Scan_Result__c(
+            Copado_User_Story__c = usItem.Id,
+            Scan_Status__c = 'Completed'
+        );
+        insert secRes;
+
+        Test.startTest();
+        List<SEC_API_Scan_Result__c> results = SecAPIScanController.getScanResultRecord(usItem.Id);
+        System.assertEquals(1, results.size(), 'One scan result record should be retrieved');
+        Test.stopTest();
+    }
+
+    @isTest
+    static void testConvertStringtoDateTimeInvalid() {
+        Test.startTest();
+        DateTime result = SecAPIScanController.convertStringtoDateTime('Invalid Date Format');
+        System.assertEquals(null, result, 'Invalid date format should return null');
+        Test.stopTest();
+    }
+
+    @isTest
+    static void testCustomExceptionHandling() {
+        Test.startTest();
+        try {
+            SecAPIScanController.getCalloutResponse('/invalid', 'GET', null);
+            System.assert(false, 'An exception should have been thrown');
+        } catch (SecAPIScanController.customException e) {
+            System.assertEquals('Error occured during HTTP callout.', e.getMessage().split(':')[0], 'Custom exception message should match');
+        }
+        Test.stopTest();
+    }
+
+    @isTest
+    static void testGetCalloutResponseError() {
+        Test.startTest();
+        try {
+            SecAPIScanController.getCalloutResponse('/error', 'POST', '{}');
+            System.assert(false, 'HTTP callout should fail and throw an exception');
+        } catch (SecAPIScanController.customException e) {
+            System.assert(e.getMessage().contains('Error occured during HTTP callout'), 'Exception message should indicate callout error');
+        }
+        Test.stopTest();
+    }
+
+
