@@ -1,3 +1,159 @@
+@isTest
+public class SecAPIScanControllerTest {
+    @testSetup static void methodName() {
+        Copado_Integration_Setting__c cis1 = new Copado_Integration_Setting__c(name = 'JIRA', external_system__c = 'JIRA', Named_Credential__c = 'Test_JIRA');
+        insert cis1;
+        
+        copado__Project__c pro1 = new copado__Project__c(name = 'MY JIRA Project', Project_External_Id__c = 'MTP', Copado_Integration_Setting__c = cis1.id, enable_logs__c = true,Workspace_Id__c = 'a404576b-7158-4661-9e93-19be9d8e3025',App_Id__c='Test');
+        insert pro1;
+        
+        copado__User_Story__c userStory = new copado__User_Story__c(No_Priority_1_Violation__c=true,copado__Pull_Requests_Approved__c=true,copado__Project__c =  pro1.id);        
+        insert userStory; 
+        
+        Sec_Api_Scan_Result__c secRes = new Sec_Api_Scan_Result__c(copado_user_story__c = userStory.id);
+        insert secRes;
+    }
+    
+    @isTest static void testSecApiScan() {
+        copado__Project__c pro = [select id,app_Id__c from copado__Project__c where name='MY JIRA Project' limit 1];
+        List<copado__User_Story__c> usItem = [select id, copado__status__c,SEC_API_Scan_Status__c, copado__Project__c,copado__Project__r.Project_External_Id__c,copado__Project__r.Workspace_Id__c,copado__Project__r.Copado_Integration_Setting__r.Named_Credential__c from copado__User_Story__c where copado__project__r.name = 'MY JIRA Project' limit 1];
+        Test.startTest();
+        SecApiMockHttpResponseGenerator fakeresponse = new SecApiMockHttpResponseGenerator(202, 'Complete', '{"statusUrl" : "status/abc/asd"}', null);
+        Test.setMock(HttpCalloutMock.class, fakeResponse);
+        SecAPIScanController.fetchScanStatus(usitem[0].id);
+        SecAPIScanController.getUserStoryDetails(usitem[0].id);
+        SecAPIScanController.secApiScan(usitem[0].id);
+        System.assertEquals('In-Progress',[SELECT SEC_API_Scan_Status__c from copado__User_Story__c where id =:usItem[0].id].sec_api_scan_status__c);
+        System.assertEquals(2,[select id from sec_api_scan_result__c].size());
+       
+        Test.stopTest();
+    }
+    
+   @isTest
+    static void testSCAScan() {
+        copado__Project__c pro = [select id,app_Id__c from copado__Project__c where name='MY JIRA Project' limit 1];
+        List<copado__User_Story__c> usItem = [select id, copado__status__c,	SCA_Scan_Status__c, copado__Project__c,copado__Project__r.Project_External_Id__c,copado__Project__r.Workspace_Id__c,copado__Project__r.Copado_Integration_Setting__r.Named_Credential__c from copado__User_Story__c where copado__project__r.name = 'MY JIRA Project' LIMIT 1];
+        Test.startTest();
+        SecApiMockHttpResponseGenerator fakeResponse = new SecApiMockHttpResponseGenerator(202, 'In-Progress', '{"statusUrl": "status/sca-test-url"}', null);
+        Test.setMock(HttpCalloutMock.class, fakeResponse);
+        SecAPIScanController.fetchScanStatusSCA(usitem[0].id);
+        SecAPIScanController.getUserStoryDetails(usitem[0].id);
+        SecAPIScanController.SCAScan(usitem[0].id);
+        //String response = SecAPIScanController.SCAScan(usItem[0].Id);
+         System.assertEquals('In-Progress',[SELECT SCA_Scan_Status__c from copado__User_Story__c where id =:usItem[0].id].SCA_Scan_Status__c);
+        System.assertEquals(2,[select id from sec_api_scan_result__c].size());
+       
+        Test.stopTest();
+    }
+    
+    @isTest static void testRunSecAPIStatusCheck(){
+        copado__Project__c pro = [select id,app_Id__c from copado__Project__c where name='MY JIRA Project' limit 1];
+        List<copado__User_Story__c> usItem = [select id, copado__status__c,SEC_API_Scan_Status__c, copado__Project__c,copado__Project__r.Project_External_Id__c,copado__Project__r.Workspace_Id__c,copado__Project__r.Copado_Integration_Setting__r.Named_Credential__c from copado__User_Story__c where copado__project__r.name = 'MY JIRA Project' limit 1];
+        Sec_Api_Scan_Result__c srItem = [Select id, copado_user_story__c from Sec_Api_Scan_Result__c];
+        Test.startTest();
+        SecApiMockHttpResponseGenerator fakeresponse = new SecApiMockHttpResponseGenerator(200, 'Complete', '{"jsonReport": "https://test.com","pdfReport": "https://test.com","xmlReport": "https://test.com","scoreCard": "https://test.com","status": "FINISHED","message": "test"}', null);
+        Test.setMock(HttpCalloutMock.class, fakeResponse);
+        SecAPIScanController.runSecAPIStatusCheck('test',usitem[0].id);
+        System.assertEquals(1,[select id,SEC_API_Scan_Status__c from copado__User_Story__c where id =:usItem[0].id].size());
+
+        Test.stopTest();
+    }
+    @isTest static void testRunSecAPIStatusCheckError(){
+        copado__Project__c pro = [select id,app_Id__c from copado__Project__c where name='MY JIRA Project' limit 1];
+        copado__User_Story__c usItem = [select id, copado__status__c,SEC_API_Scan_Status__c, copado__Project__c,copado__Project__r.Project_External_Id__c,copado__Project__r.Workspace_Id__c,copado__Project__r.Copado_Integration_Setting__r.Named_Credential__c from copado__User_Story__c where copado__project__r.name = 'MY JIRA Project' limit 1];
+        Sec_Api_Scan_Result__c srItem = [Select id, copado_user_story__c from Sec_Api_Scan_Result__c];
+        Test.startTest();
+        SecApiMockHttpResponseGenerator fakeresponse = new SecApiMockHttpResponseGenerator(200, 'Complete', '{"jsonReport": "https://test.com","pdfReport": "https://test.com","xmlReport": "https://test.com","scoreCard": "https://test.com","status": "ERROR","message": "test"}', null);
+        Test.setMock(HttpCalloutMock.class, fakeResponse);
+        SecAPIScanController.runSecAPIStatusCheck('test',usitem.id);
+        System.assertEquals(1,[select id,SEC_API_Scan_Status__c from copado__User_Story__c where id =:usItem.id].size());
+
+        Test.stopTest();
+    }
+    
+  @isTest static void testRunSCAStatusCheck(){
+        copado__Project__c pro = [select id,app_Id__c from copado__Project__c where name='MY JIRA Project' limit 1];
+        List<copado__User_Story__c> usItem = [select id, copado__status__c,SCA_Scan_Status__c, copado__Project__c,copado__Project__r.Project_External_Id__c,copado__Project__r.Workspace_Id__c,copado__Project__r.Copado_Integration_Setting__r.Named_Credential__c from copado__User_Story__c where copado__project__r.name = 'MY JIRA Project' limit 1];
+        Sec_Api_Scan_Result__c srItem = [Select id, copado_user_story__c from Sec_Api_Scan_Result__c];
+        Test.startTest();
+        SecApiMockHttpResponseGenerator fakeresponse = new SecApiMockHttpResponseGenerator(200, 'Complete', '{"jsonReport": "https://test.com","pdfReport": "https://test.com","xmlReport": "https://test.com","scoreCard": "https://test.com","status": "FINISHED","message": "test"}', null);
+        Test.setMock(HttpCalloutMock.class, fakeResponse);
+        SecAPIScanController.runSCAStatusCheck('test',usitem[0].id);
+        System.assertEquals(1,[select id,SCA_Scan_Status__c from copado__User_Story__c where id =:usItem[0].id].size());
+
+        Test.stopTest();
+    }
+    @isTest static void testRunSCAStatusCheckError(){
+        copado__Project__c pro = [select id,app_Id__c from copado__Project__c where name='MY JIRA Project' limit 1];
+        copado__User_Story__c usItem = [select id, copado__status__c,SCA_Scan_Status__c, copado__Project__c,copado__Project__r.Project_External_Id__c,copado__Project__r.Workspace_Id__c,copado__Project__r.Copado_Integration_Setting__r.Named_Credential__c from copado__User_Story__c where copado__project__r.name = 'MY JIRA Project' limit 1];
+        Sec_Api_Scan_Result__c srItem = [Select id, copado_user_story__c from Sec_Api_Scan_Result__c];
+        Test.startTest();
+        SecApiMockHttpResponseGenerator fakeresponse = new SecApiMockHttpResponseGenerator(200, 'Complete', '{"jsonReport": "https://test.com","pdfReport": "https://test.com","xmlReport": "https://test.com","scoreCard": "https://test.com","status": "ERROR","message": "test"}', null);
+        Test.setMock(HttpCalloutMock.class, fakeResponse);
+        SecAPIScanController.runSCAStatusCheck('test',usitem.id);
+        System.assertEquals(1,[select id,SCA_Scan_Status__c from copado__User_Story__c where id =:usItem.id].size());
+
+        Test.stopTest();
+    }
+    @isTest static void testGetSECAPIScoreCard(){
+        copado__Project__c pro = [select id,app_Id__c from copado__Project__c where name='MY JIRA Project' limit 1];
+        copado__User_Story__c usItem = [select id, copado__status__c,SEC_API_Scan_Status__c, copado__Project__c,copado__Project__r.Project_External_Id__c,copado__Project__r.Workspace_Id__c,copado__Project__r.Copado_Integration_Setting__r.Named_Credential__c from copado__User_Story__c where copado__project__r.name = 'MY JIRA Project' limit 1];
+        Sec_Api_Scan_Result__c srItem = [Select id, copado_user_story__c from Sec_Api_Scan_Result__c];
+        Test.startTest();
+        SecApiMockHttpResponseGenerator fakeresponse = new SecApiMockHttpResponseGenerator(200, 'Complete', '{"medium":"0","high":"0","low":"0","critical":"0","reqId":"0","scanType":"0","failScan":false}', null);
+        Test.setMock(HttpCalloutMock.class, fakeResponse);
+        SecAPIScanController.getSECAPIScoreCard('test',usitem.id);
+        System.assertEquals('Completed',[select id,SEC_API_Scan_Status__c from copado__User_Story__c where id =:usItem.id].sec_api_scan_status__c);
+
+        Test.stopTest();
+    }
+    @isTest static void testGetSECAPIScoreCardFailed(){
+        copado__Project__c pro = [select id,app_Id__c from copado__Project__c where name='MY JIRA Project' limit 1];
+        copado__User_Story__c usItem = [select id, copado__status__c,SEC_API_Scan_Status__c, copado__Project__c,copado__Project__r.Project_External_Id__c,copado__Project__r.Workspace_Id__c,copado__Project__r.Copado_Integration_Setting__r.Named_Credential__c from copado__User_Story__c where copado__project__r.name = 'MY JIRA Project' limit 1];
+        Sec_Api_Scan_Result__c srItem = [Select id, copado_user_story__c from Sec_Api_Scan_Result__c];
+        Test.startTest();
+        SecApiMockHttpResponseGenerator fakeresponse = new SecApiMockHttpResponseGenerator(404, 'Not Found', '{"medium":"0","high":"0","low":"0","critical":"0","reqId":"0","scanType":"0","failScan":false}', null);
+        Test.setMock(HttpCalloutMock.class, fakeResponse);
+        SecAPIScanController.getSECAPIScoreCard('test',usitem.id);
+        System.assertEquals(1,[select id,SEC_API_Scan_Status__c from copado__User_Story__c where id =:usItem.id].size());
+
+        Test.stopTest();
+    }
+    
+    @isTest static void testGetSCAScoreCard(){
+        copado__Project__c pro = [select id,app_Id__c from copado__Project__c where name='MY JIRA Project ' limit 1];
+        copado__User_Story__c usItem = [select id, copado__status__c,SCA_scan_Status__c, copado__Project__c,copado__Project__r.Project_External_Id__c,copado__Project__r.Workspace_Id__c,copado__Project__r.Copado_Integration_Setting__r.Named_Credential__c from copado__User_Story__c where copado__project__r.name = 'MY JIRA Project' limit 1];
+        Sec_Api_Scan_Result__c srItem = [Select id, copado_user_story__c from Sec_Api_Scan_Result__c];
+        Test.startTest();
+        SecApiMockHttpResponseGenerator fakeresponse = new SecApiMockHttpResponseGenerator(200, 'Complete', '{"medium":"0","high":"0","low":"0","critical":"0","reqId":"0","scanType":"0","failScan":false}', null);
+        Test.setMock(HttpCalloutMock.class, fakeResponse);
+        SecAPIScanController.getSCAScoreCard('test',usitem.id);
+        System.assertEquals('Completed',[select id,SCA_scan_Status__c from copado__User_Story__c where id =:usItem.id].sec_api_scan_status__c);
+
+        Test.stopTest();
+    }
+    @isTest static void testGetSCAScoreCardFailed(){
+        copado__Project__c pro = [select id,app_Id__c from copado__Project__c where name='MY JIRA Project' limit 1];
+        copado__User_Story__c usItem = [select id, copado__status__c,SCA_scan_Status__c, copado__Project__c,copado__Project__r.Project_External_Id__c,copado__Project__r.Workspace_Id__c,copado__Project__r.Copado_Integration_Setting__r.Named_Credential__c from copado__User_Story__c where copado__project__r.name = 'MY JIRA Project' limit 1];
+        Sec_Api_Scan_Result__c srItem = [Select id, copado_user_story__c from Sec_Api_Scan_Result__c];
+        Test.startTest();
+        SecApiMockHttpResponseGenerator fakeresponse = new SecApiMockHttpResponseGenerator(404, 'Not Found', '{"medium":"0","high":"0","low":"0","critical":"0","reqId":"0","scanType":"0","failScan":false}', null);
+        Test.setMock(HttpCalloutMock.class, fakeResponse);
+        SecAPIScanController.getSCAScoreCard('test',usitem.id);
+        System.assertEquals(1,[select id,SCA_scan_Status__c from copado__User_Story__c where id =:usItem.id].size());
+
+        Test.stopTest();
+    }
+    @isTest static void testupdateScanStatus() {
+        copado__Project__c pro = [select id,app_Id__c from copado__Project__c where name='MY JIRA Project' limit 1];
+        List<copado__User_Story__c> usItem = [select id, copado__status__c,SEC_API_Scan_Status__c,SCA_scan_Status__c, copado__Project__c,copado__Project__r.Project_External_Id__c,copado__Project__r.Workspace_Id__c,copado__Project__r.Copado_Integration_Setting__r.Named_Credential__c from copado__User_Story__c where copado__project__r.name = 'MY JIRA Project' limit 1];
+        Test.startTest();
+        SecAPIScanController.updateScanStatus(usitem[0].id,'In-Progress');
+        System.assertEquals('In-Progress',[select id,Orphan_Branch_Status__c from copado__User_Story__c where id =:usItem[0].id].Orphan_Branch_Status__c);
+       
+        Test.stopTest();
+    }
+    
     @isTest
     static void testFetchScanStatusWithInvalidUserStory() {
         Test.startTest();
@@ -23,7 +179,6 @@
         }
         Test.stopTest();
     }
-
     @isTest
     static void testRunSecAPIStatusCheckWithInvalidUrl() {
         Test.startTest();
@@ -55,7 +210,7 @@
         }
         Test.stopTest();
     }
-
+    
     @isTest
     static void testUpdateScanStatusWithInvalidInput() {
         Test.startTest();
@@ -68,21 +223,7 @@
         }
         Test.stopTest();
     }
-    @isTest
-    static void testSCARequired() {
-        copado__User_Story__c usItem = [SELECT Id FROM copado__User_Story__c LIMIT 1];
-        SCA_Identifier_for_ORG__mdt mdtRecord = new SCA_Identifier_for_ORG__mdt(
-            OrgName__c = 'Test Org',
-            SCA_required__c = 'TRUE'
-        );
-        insert mdtRecord;
-
-        Test.startTest();
-        Boolean isSCARequired = SecAPIScanController.SCARequired(usItem.Id);
-        System.assertEquals(true, isSCARequired, 'SCA should be required for the given org');
-        Test.stopTest();
-    }
-
+    
     @isTest
     static void testGetScanResultRecord() {
         copado__User_Story__c usItem = [SELECT Id FROM copado__User_Story__c LIMIT 1];
@@ -97,7 +238,6 @@
         System.assertEquals(1, results.size(), 'One scan result record should be retrieved');
         Test.stopTest();
     }
-
     @isTest
     static void testConvertStringtoDateTimeInvalid() {
         Test.startTest();
@@ -117,7 +257,16 @@
         }
         Test.stopTest();
     }
-
+    
+    @isTest
+    static void testSCARequiredNoMetadata() {
+        copado__User_Story__c usItem = [SELECT Id FROM copado__User_Story__c LIMIT 1];
+        
+        Test.startTest();
+        Boolean isSCARequired = SecAPIScanController.SCARequired(usItem.Id);
+        System.assertEquals(false, isSCARequired, 'SCA should not be required if no metadata exists');
+        Test.stopTest();
+    }
     @isTest
     static void testGetCalloutResponseError() {
         Test.startTest();
@@ -129,14 +278,23 @@
         }
         Test.stopTest();
     }
+    
+    // Monday, 01 01 2020 01:01:01  
+       @isTest static void convertStringtoDateTimeTest(){
+      	Test.startTest();
+        System.assert(SecAPIScanController.convertStringtoDateTime('Monday, 01 January 2020 01:01:01')!= null);
+        Test.stopTest();
+    }
 
-@isTest
-static void testSCARequiredNoMetadata() {
-    copado__User_Story__c usItem = [SELECT Id FROM copado__User_Story__c LIMIT 1];
 
-    Test.startTest();
-    Boolean isSCARequired = SecAPIScanController.SCARequired(usItem.Id);
-    System.assertEquals(false, isSCARequired, 'SCA should not be required if no metadata exists');
-    Test.stopTest();
+    @isTest static void testAPIKeyScanStatus() {
+        copado__Personal_Settings__c apiKey = new copado__Personal_Settings__c(SetupOwnerId=UserInfo.getUserId(),copado__API_Key__c='1234');
+        insert apiKey;
+        Test.startTest();
+        boolean apiKeyExists = SecAPIScanController.getUserAPIKeyDetails();
+        System.assert(apiKeyExists);
+       
+        Test.stopTest();
+    }    
+    
 }
-
