@@ -1,0 +1,70 @@
+    @isTest
+    static void testFetchScanStatusWithInvalidUserStory() {
+        Test.startTest();
+        try {
+            // Pass an invalid User Story ID to fetchScanStatus
+            SecAPIScanController.fetchScanStatus(null);
+            System.assert(false, 'An exception should have been thrown for null User Story ID');
+        } catch (Exception e) {
+            System.assertEquals('System.NullPointerException', e.getTypeName(), 'Should throw a NullPointerException for invalid input');
+        }
+        Test.stopTest();
+    }
+
+    @isTest
+    static void testFetchScanStatusSCAWithInvalidUserStory() {
+        Test.startTest();
+        try {
+            // Pass an invalid User Story ID to fetchScanStatusSCA
+            SecAPIScanController.fetchScanStatusSCA(null);
+            System.assert(false, 'An exception should have been thrown for null User Story ID');
+        } catch (Exception e) {
+            System.assertEquals('System.NullPointerException', e.getTypeName(), 'Should throw a NullPointerException for invalid input');
+        }
+        Test.stopTest();
+    }
+
+    @isTest
+    static void testRunSecAPIStatusCheckWithInvalidUrl() {
+        Test.startTest();
+        // Pass an invalid URL to simulate failure
+        SecApiMockHttpResponseGenerator fakeResponse = new SecApiMockHttpResponseGenerator(404, 'Not Found', '{}', null);
+        Test.setMock(HttpCalloutMock.class, fakeResponse);
+
+        try {
+            SecAPIScanController.runSecAPIStatusCheck('invalidUrl', [SELECT Id FROM copado__User_Story__c LIMIT 1].Id);
+            System.assert(false, 'An exception should have been thrown for an invalid URL');
+        } catch (Exception e) {
+            System.assertEquals('System.CalloutException', e.getTypeName(), 'Should throw a CalloutException for an invalid URL');
+        }
+        Test.stopTest();
+    }
+
+    @isTest
+    static void testRunSCAStatusCheckWithInvalidUrl() {
+        Test.startTest();
+        // Pass an invalid URL to simulate failure
+        SecApiMockHttpResponseGenerator fakeResponse = new SecApiMockHttpResponseGenerator(404, 'Not Found', '{}', null);
+        Test.setMock(HttpCalloutMock.class, fakeResponse);
+
+        try {
+            SecAPIScanController.runSCAStatusCheck('invalidUrl', [SELECT Id FROM copado__User_Story__c LIMIT 1].Id);
+            System.assert(false, 'An exception should have been thrown for an invalid URL');
+        } catch (Exception e) {
+            System.assertEquals('System.CalloutException', e.getTypeName(), 'Should throw a CalloutException for an invalid URL');
+        }
+        Test.stopTest();
+    }
+
+    @isTest
+    static void testUpdateScanStatusWithInvalidInput() {
+        Test.startTest();
+        try {
+            // Pass invalid User Story ID to updateScanStatus
+            SecAPIScanController.updateScanStatus(null, 'In-Progress');
+            System.assert(false, 'An exception should have been thrown for null User Story ID');
+        } catch (Exception e) {
+            System.assertEquals('System.NullPointerException', e.getTypeName(), 'Should throw a NullPointerException for invalid input');
+        }
+        Test.stopTest();
+    }
