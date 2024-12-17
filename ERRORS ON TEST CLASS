@@ -2,3 +2,58 @@ Class.SecAPIScanController.secAPIScan: line 183, column 1
 Class.SecAPIScanControllerTest.testSecApiScan: line 25, column 1
 
 System.AuraHandledException: Script-thrown exception
+
+
+updated test method
+@isTest static void testSecApiScan() {
+    // Create a test user with required permissions
+    Profile p = [SELECT Id FROM Profile WHERE Name = 'System Administrator' LIMIT 1];
+    User testUser = new User(
+        Alias = 'tuser',
+        Email = 'testuser@test.com',
+        EmailEncodingKey = 'UTF-8',
+        LastName = 'User',
+        LanguageLocaleKey = 'en_US',
+        LocaleSidKey = 'en_US',
+        ProfileId = p.Id,
+        TimeZoneSidKey = 'America/Los_Angeles',
+        Username = 'testuser@test.com'
+    );
+    insert testUser;
+
+    System.runAs(testUser) {
+        // Setup test data
+        copado__Project__c pro = [SELECT Id, App_Id__c FROM copado__Project__c WHERE Name = 'MY JIRA Project' LIMIT 1];
+        List<copado__User_Story__c> usItem = [
+            SELECT Id, copado__Project__r.Named_Credential__c
+            FROM copado__User_Story__c
+            WHERE copado__Project__r.Name = 'MY JIRA Project'
+            LIMIT 1
+        ];
+
+        // Mock HTTP Callout
+        Test.startTest();
+        SecApiMockHttpResponseGenerator fakeResponse = new SecApiMockHttpResponseGenerator(202, 'Complete', '{"statusUrl" : "status/abc/asd"}', null);
+        Test.setMock(HttpCalloutMock.class, fakeResponse);
+
+        // Execute methods
+        SecAPIScanController.fetchScanStatus(usItem[0].Id);
+        SecAPIScanController.getUserStoryDetails(usItem[0].Id);
+        SecAPIScanController.secApiScan(usItem[0].Id);
+
+        // Assertions
+        System.assertEquals(
+            'In-Progress',
+            [SELECT SEC_API_Scan_Status__c FROM copado__User_Story__c WHERE Id = :usItem[0].Id]
+                .SEC_API_Scan_Status__c,
+            'The SECAPI Scan Status should be In-Progress'
+        );
+        System.assertEquals(
+            2,
+            [SELECT Id FROM Sec_Api_Scan_Result__c].size(),
+            'Two Sec_Api_Scan_Result__c records should exist.'
+        );
+        Test.stopTest();
+    }
+}
+
