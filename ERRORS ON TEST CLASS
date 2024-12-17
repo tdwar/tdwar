@@ -2,6 +2,7 @@ Class.SecAPIScanController.secAPIScan: line 183, column 1
 Class.SecAPIScanControllerTest.testSecApiScan: line 25, column 1
 
 System.AuraHandledException: Script-thrown exception
+System.DmlException: Insert failed. First exception on row 0; first error: DUPLICATE_USERNAME, Duplicate Username.<br>The username already exists in this or another Salesforce organization. Usernames must be unique across all Salesforce organizations. To resolve, use a different username (it doesn't need to match the user's email address). : [Username]
 
 
 updated test method
